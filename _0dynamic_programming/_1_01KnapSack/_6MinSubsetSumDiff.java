@@ -1,4 +1,4 @@
-package ds_algo._0dynamic_programming;
+package ds_algo._0dynamic_programming._1_01KnapSack;
 
 import java.util.Arrays;
 

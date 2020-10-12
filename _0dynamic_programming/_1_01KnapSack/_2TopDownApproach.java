@@ -1,11 +1,11 @@
-package ds_algo._0dynamic_programming;
+package ds_algo._0dynamic_programming._1_01KnapSack;
 
 //  THIS IS 0 1 knapSack problem
 //  https://youtu.be/ntCGbPMeqgg?list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go
 public class _2TopDownApproach {
 
     //  iterative approach
-    //  I've re-used recursive function(ds_algo._0dynamic_programming._1MaxProfit_Recursion_Memoization) or (ds_algo._0dynamic_programming._0MaxProfit_with_Recursion) to write this iterative approach
+    //  I've re-used recursive function(ds_algo._0dynamic_programming._1_01KnapSack._1MaxProfit_Recursion_Memoization) or (ds_algo._0dynamic_programming._1_01KnapSack._0MaxProfit_with_Recursion) to write this iterative approach
 
     private int[] valArray = new int[]{7, 2, 11, 77};
     private int[] wtArray = new int[]{1, 12, 1, 7};

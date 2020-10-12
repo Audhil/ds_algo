@@ -1,4 +1,4 @@
-package ds_algo._0dynamic_programming;
+package ds_algo._0dynamic_programming._1_01KnapSack;
 
 //  https://www.youtube.com/watch?v=UmMh7xp07kY&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=8&ab_channel=AdityaVerma
 public class _4EqualSumPartitionProb {

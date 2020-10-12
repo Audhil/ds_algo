@@ -1,7 +1,7 @@
-package ds_algo._0dynamic_programming;
+package ds_algo._0dynamic_programming._1_01KnapSack;
 
 //  https://youtu.be/ot_XBHyqpFc?list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go
-public class _7CountOfSubsetsWithGivenDiff {
+public class _7CountOfSubsetsSumWithGivenDiff {
     /*
      *
      * sum(s1) - sum(s2) = diff
@@ -17,8 +17,7 @@ public class _7CountOfSubsetsWithGivenDiff {
     private int[] arr = {1, 1, 2, 3};
     private int diff = 1;
 
-
-    private int noOfSubsetsDiff() {
+    private int noOfSubsetsSumWithDiff() {
         int sumOfArray = 0;
         for (int i = 0; i < arr.length; i++)
             sumOfArray += arr[i];
@@ -52,7 +51,7 @@ public class _7CountOfSubsetsWithGivenDiff {
     }
 
     public static void main(String[] args) {
-        _7CountOfSubsetsWithGivenDiff prob = new _7CountOfSubsetsWithGivenDiff();
-        System.out.println("yup: noOfSubsetsDiff: " + prob.noOfSubsetsDiff());
+        _7CountOfSubsetsSumWithGivenDiff prob = new _7CountOfSubsetsSumWithGivenDiff();
+        System.out.println("yup: noOfSubsetsDiff: " + prob.noOfSubsetsSumWithDiff());
     }
 }
