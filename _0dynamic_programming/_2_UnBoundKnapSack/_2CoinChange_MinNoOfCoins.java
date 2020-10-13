@@ -21,8 +21,11 @@ public class _2CoinChange_MinNoOfCoins {
 //    private int[] coins = {9, 6, 5, 1};
 //    private int sum = 11;
 
-    private int[] coins = {9, 6, 3, 1};
-    private int sum = 4;
+//    private int[] coins = {9, 6, 3, 1};
+//    private int sum = 4;
+
+    private int[] coins = {2, 4};
+    private int sum = 7;
 
     private int minNoOfCoinsRequired() {
         int[][] t = new int[coins.length + 1][sum + 1];
@@ -70,6 +73,9 @@ public class _2CoinChange_MinNoOfCoins {
 
     public static void main(String[] args) {
         _2CoinChange_MinNoOfCoins prob = new _2CoinChange_MinNoOfCoins();
-        System.out.println("yup: min coin: " + prob.minNoOfCoinsRequired());
+        if (prob.minNoOfCoinsRequired() == Integer.MAX_VALUE - 1)
+            System.out.println("yup: min coin: NOT POSSIBLE");
+        else
+            System.out.println("yup: min coin: " + prob.minNoOfCoinsRequired());
     }
 }
