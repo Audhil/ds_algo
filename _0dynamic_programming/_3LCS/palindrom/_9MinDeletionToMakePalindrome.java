@@ -1,4 +1,4 @@
-package ds_algo._0dynamic_programming._3LCS;
+package ds_algo._0dynamic_programming._3LCS.palindrom;
 
 //  https://www.youtube.com/watch?v=CFwCCNbRuLY&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=28&ab_channel=AdityaVerma
 public class _9MinDeletionToMakePalindrome {
