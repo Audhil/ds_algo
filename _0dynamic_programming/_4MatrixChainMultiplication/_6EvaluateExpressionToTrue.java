@@ -1,7 +1,7 @@
 package ds_algo._0dynamic_programming._4MatrixChainMultiplication;
 
 //  https://youtu.be/pGVguAcWX4g?list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go
-public class _6EvaluteExpressionToTrue {
+public class _6EvaluateExpressionToTrue {
 
     //  add brackets to make this expression "true"
     //  https://www.geeksforgeeks.org/boolean-parenthesization-problem-dp-37/
@@ -28,12 +28,6 @@ public class _6EvaluteExpressionToTrue {
 
     //    private String expr = "T|F&T^F";  //  5 ways
     private String expr = "T^F&T";  //  2 ways - ((T^F)&T) & (T^(F&T))
-
-    /*
-     * steps
-     * 1. find i, j => i = 0, j = strlen -1;
-     * 2. base condition
-     * */
 
     private int solve(String expr, int i, int j, boolean isTrue) {
         //  base condition
@@ -84,7 +78,7 @@ public class _6EvaluteExpressionToTrue {
     }
 
     public static void main(String[] args) {
-        _6EvaluteExpressionToTrue prob = new _6EvaluteExpressionToTrue();
+        _6EvaluateExpressionToTrue prob = new _6EvaluateExpressionToTrue();
         System.out.println("yup: no of ways to parenthesis, to make statement as true: " + prob.solve(
                 prob.expr,
                 0,
