@@ -76,6 +76,31 @@ public class _8ScrambledStringsRecursive_Memoized {
         return flagScramble;
     }
 
+//    this is not working - check it later
+//    private boolean solve(String a, String b) {
+//        if (a.compareTo(b) == 0)  //  if both strings are equal, then it's scrambled strings
+//            return true;
+//        if (a.length() <= 1) //  if there's "" in any string, it's not allowed
+//            return false;
+//
+//        //  condition
+//        int n = a.length(); //  both str1, str2 are equal in length
+//        boolean flag = false;
+//        for (int i = 1; i <= n - 1; i++) {
+//            boolean condn1, condn2;
+//            condn1 = condn2 = false;
+//            if (solve(a.substring(0, i), b.substring(n - i, i)) && solve(a.substring(i, n), b.substring(0, n - i))) //  when swap happened
+//                condn1 = true;
+//            if (solve(a.substring(0, i), b.substring(0, i)) && solve(a.substring(i, n), b.substring(i, n)))  //  when swap is not happened
+//                condn2 = true;
+//            if (condn1 || condn2) {
+//                flag = true;
+//                break;
+//            }
+//        }
+//        return flag;
+//    }
+
     public static void main(String[] args) {
         _8ScrambledStringsRecursive_Memoized prob = new _8ScrambledStringsRecursive_Memoized();
         boolean isScrambledString;
