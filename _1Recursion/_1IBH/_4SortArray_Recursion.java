@@ -1,4 +1,4 @@
-package ds_algo._1Recursion;
+package ds_algo._1Recursion._1IBH;
 
 import java.util.ArrayList;
 import java.util.List;

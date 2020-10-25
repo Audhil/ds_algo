@@ -1,4 +1,4 @@
-package ds_algo._1Recursion;
+package ds_algo._1Recursion._1IBH;
 
 //    https://youtu.be/qDJJBZAIXIw?list=PL_z_8CaSLPWeT1ffjiImo0sYTcnLzo-wY
 public class _2PrintNto1_Beauty {

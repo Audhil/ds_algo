@@ -1,4 +1,4 @@
-package ds_algo._1Recursion;
+package ds_algo._1Recursion._1IBH;
 
 //  https://youtu.be/Xu5RqPdABRE?list=PL_z_8CaSLPWeT1ffjiImo0sYTcnLzo-wY
 public class _1Print1toN_InductionBased {
