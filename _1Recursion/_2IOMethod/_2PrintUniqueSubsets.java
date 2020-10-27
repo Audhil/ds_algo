@@ -5,6 +5,8 @@ import java.util.HashMap;
 //  https://youtu.be/lfFqW1DTsqM?list=PL_z_8CaSLPWeT1ffjiImo0sYTcnLzo-wY
 public class _2PrintUniqueSubsets {
 
+    //  recursive tree @ https://photos.google.com/photo/AF1QipPOK0NBqR6NldFTcc4EqgtD-M2J9fmlPps7rALD
+
     private static HashMap<String, String> myMap = new HashMap<>();
 
     private static void solve(String input, String output) {

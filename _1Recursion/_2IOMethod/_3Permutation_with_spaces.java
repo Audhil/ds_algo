@@ -3,6 +3,8 @@ package ds_algo._1Recursion._2IOMethod;
 //  https://youtu.be/1cspuQ6qHW0?list=PL_z_8CaSLPWeT1ffjiImo0sYTcnLzo-wY
 public class _3Permutation_with_spaces {
 
+    //  recursive tree @ https://photos.google.com/photo/AF1QipPnm0CB3xZaHNt2JeuO9cvkEsqBIbrHDQVSPJse
+
     /*
      * sample
      * i/p
