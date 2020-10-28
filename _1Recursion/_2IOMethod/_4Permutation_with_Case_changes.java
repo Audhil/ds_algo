@@ -3,6 +3,21 @@ package ds_algo._1Recursion._2IOMethod;
 //  https://youtu.be/J2Er5XceU_I?list=PL_z_8CaSLPWeT1ffjiImo0sYTcnLzo-wY
 public class _4Permutation_with_Case_changes {
 
+    //  recursive tree @ https://photos.google.com/photo/AF1QipP4DTuGUC18WFnYr5vfR737y4IcvuuZ_2xh4NbN
+
+    /*
+    * o/p
+    *
+    * yup: output: abc
+        yup: output: abC
+        yup: output: aBc
+        yup: output: aBC
+        yup: output: Abc
+        yup: output: AbC
+        yup: output: ABc
+        yup: output: ABC
+    * */
+
     private static void solve(String input, String output) {
         //  bc
         if (input.length() == 0) {
