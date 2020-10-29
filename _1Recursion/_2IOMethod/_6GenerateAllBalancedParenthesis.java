@@ -6,6 +6,8 @@ import java.util.List;
 //  https://youtu.be/eyCj_u3PoJE?list=PL_z_8CaSLPWeT1ffjiImo0sYTcnLzo-wY
 public class _6GenerateAllBalancedParenthesis {
 
+    //  recursive tree @ https://photos.google.com/photo/AF1QipOl3fACCUB72VnYliJqga4lhCFE9eQgg3zHlAgm
+    
     public static void main(String[] args) {
         List<String> balParenthesis = new ArrayList<>();
         int n = 3;
