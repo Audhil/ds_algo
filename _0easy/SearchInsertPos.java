@@ -54,6 +54,5 @@ public class SearchInsertPos {
 //        System.out.println("yup: " + searchInsert(new int[]{1, 3, 5, 6}, 2));
 //        System.out.println("yup: " + searchInsert(new int[]{1}, 0));
         System.out.println("yup: " + searchInsert(new int[]{1, 3, 5, 6}, -2));
-
     }
 }
