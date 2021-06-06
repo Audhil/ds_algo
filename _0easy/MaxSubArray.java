@@ -6,13 +6,12 @@ public class MaxSubArray {
 
     //  O (n^3) - solution
     public static int maxSubArray(int[] nums) {
-        int sum = 0, maxValue = 0;
+        int sum, maxValue = 0;
         for (int i = 0; i < nums.length; i++) {
-//            sum = 0;
             for (int j = 0; j < nums.length; j++) {
                 sum = 0;
-                for (int k = i; k < j; k++) {
-                    sum += nums[i] + nums[j];
+                for (int k = i; k <= j; k++) {
+                    sum += nums[k];
                     maxValue = Math.max(sum, maxValue);
                 }
             }
@@ -22,7 +21,7 @@ public class MaxSubArray {
 
     //  O (n^2) - solution
     public static int maxSubArrayy(int[] nums) {
-        int sum = 0, maxValue = 0;
+        int sum = 0;
         for (int i = 0; i < nums.length; i++) {
             sum = 0;
             for (int j = 0; j < nums.length; j++) {
@@ -38,8 +37,8 @@ public class MaxSubArray {
         if (nums.length == 1) return nums[0];
 
         int sum = 0, maxValue = nums[0];
-        for (int i = 0; i < nums.length; i++) {
-            sum += nums[i];
+        for (int num : nums) {
+            sum += num;
             maxValue = Math.max(sum, maxValue);
             if (sum < 0)
                 sum = 0;
