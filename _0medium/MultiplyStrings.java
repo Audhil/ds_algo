@@ -1,4 +1,4 @@
-package _0easy;
+package _0medium;
 
 //  https://leetcode.com/problems/multiply-strings/
 //  https://leetcode.com/problems/multiply-strings/discuss/1259111/Java-Solution-with-Strong-Explained
