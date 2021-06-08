@@ -91,6 +91,7 @@ public class PlusOne {
 
     public static void main(String[] args) {
         System.out.println("yup: " + Arrays.toString(plusOne(new int[]{1, 2, 3})));
+        System.out.println("yup: 199: " + Arrays.toString(plusOne(new int[]{1, 9, 9})));
         System.out.println("yup: " + Arrays.toString(plusOne(new int[]{4, 3, 2, 1})));
         System.out.println("yup: " + Arrays.toString(plusOne(new int[]{4, 3, 2, 9})));
         System.out.println("yup: " + Arrays.toString(plusOne(new int[]{4, 3, 2, 9, 9})));
