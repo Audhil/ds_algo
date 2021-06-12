@@ -1,4 +1,4 @@
-package ds_algo._0dynamic_programming._1_01KnapSack;
+package _0dynamic_programming._1_01KnapSack;
 
 //  https://www.youtube.com/watch?v=Hw6Ygp3JBYw&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=12&ab_channel=AdityaVerma
 //  this prob is equal  to  CountOfSubsetSumWithGivenDiff - refer _7CountOfSubsetsSumWithGivenDiff.java

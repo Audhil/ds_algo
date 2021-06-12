@@ -1,6 +1,7 @@
 package _0easy;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 //  https://leetcode.com/problems/add-to-array-form-of-integer/
@@ -82,11 +83,29 @@ public class AddToArrayFormOfInteger {
         return list;
     }
 
+    //  correct solution
+    public static List<Integer> addToArrayFormm(int[] num, int k) {
+        if (num == null)
+            return null;
+        int i = num.length;
+        int cur = k;
+        List<Integer> res = new ArrayList<>();
+
+        while (--i >= 0 || cur > 0) {
+            if (i >= 0)
+                cur += num[i];
+            res.add(cur % 10);
+            cur /= 10;
+        }
+        Collections.reverse(res);
+        return res;
+    }
+
     public static void main(String[] args) {
-        System.out.println("yup: it is value: " + addToArrayForm(new int[]{1, 2, 0, 0}, 34));
+        System.out.println("yup: it is value: " + addToArrayFormm(new int[]{1, 2, 0, 0}, 34));
         System.out.println("yup: it is value: " + addToArrayForm(new int[]{9, 9, 9, 9, 9, 9, 9, 9, 9, 9}, 1));
         System.out.println("yup: it is value: " + addToArrayForm(new int[]{0}, 23));
         System.out.println("yup: it is value: " + addToArrayForm(new int[]{0}, 10000));
-        System.out.println("yup: it is value: " + addToArrayForm(new int[]{6}, 809));   //  fails, check it later
+        System.out.println("yup: it is value: " + addToArrayFormm(new int[]{6}, 809));   //  fails, check it later
     }
 }
