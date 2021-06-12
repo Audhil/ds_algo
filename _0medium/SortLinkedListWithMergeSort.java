@@ -26,6 +26,14 @@ public class SortLinkedListWithMergeSort {
             this.data = data;
             this.next = next;
         }
+
+        @Override
+        public String toString() {
+            return "ListNode{" +
+                    "data=" + data +
+                    ", next=" + next +
+                    '}';
+        }
     }
 
     public static ListNode sortList(ListNode head) {
@@ -72,12 +80,10 @@ public class SortLinkedListWithMergeSort {
 
         if (l1 != null) {
             current_node.next = l1;
-            l1 = l1.next;
         }
 
         if (l2 != null) {
             current_node.next = l2;
-            l2 = l2.next;
         }
         return sorted_temp.next;
     }
@@ -94,7 +100,7 @@ public class SortLinkedListWithMergeSort {
     }
 
     public static void main(String[] args) {
-        ListNode head = new ListNode(44, new ListNode(2, new ListNode(555, new ListNode(8, new ListNode(1, new ListNode(9, new ListNode(1100, new ListNode(9, null))))))));
+        ListNode head = new ListNode(44, new ListNode(2, new ListNode(555, new ListNode(8, new ListNode(1, new ListNode(9, new ListNode(1100, new ListNode(9, new ListNode(1100, null)))))))));
         printLL(head);
         ListNode sortedList = sortList(head);
         printLL(sortedList);
