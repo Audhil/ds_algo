@@ -52,8 +52,8 @@ public class StudentAttendanceRecord {
                 if (lateCount >= 3)
                     return false;
             }
-            else
-                lateCount = 0;
+//            else
+//                lateCount = 0;
         }
         return true;
     }
