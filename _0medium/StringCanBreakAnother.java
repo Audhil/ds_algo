@@ -1,7 +1,5 @@
 package _0medium;
 
-import java.util.Arrays;
-
 //  good expln: https://www.youtube.com/watch?v=tKY1c-m8Sq8
 //  https://leetcode.com/problems/check-if-a-string-can-break-another-string/
 /*
@@ -35,6 +33,9 @@ s2.length == n
 All strings consist of lowercase English letters.
 
 * */
+
+//  time complexity: O(n) + O(n) = 2 O(n) => O(n)
+//  space complexity: O(26) + O(26) -> O(1)
 public class StringCanBreakAnother {
 
     public static boolean checkIfCanBreak(String s1, String s2) {
