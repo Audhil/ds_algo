@@ -26,6 +26,9 @@ Constraints:
 0 <= x <= 2^31 - 1
 *
 * https://www.youtube.com/watch?v=7womRtj_HHA - using binary search
+*
+* TC: O(log num)
+* SC: O(1)
 * */
 public class SqrtOfX {
 
@@ -46,6 +49,13 @@ public class SqrtOfX {
                 right = mid - 1;
         }
         return left;
+    }
+
+    //  explore this too
+    public int mySqrt(int x) {
+        double root, i;
+        for (root = x, i = 0; i < 100; i++, root = ((root + (x / root)) / 2));
+        return (int) root;
     }
 
     public static void main(String[] args) {
