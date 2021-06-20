@@ -4,6 +4,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 //  https://www.youtube.com/watch?v=U_Pe95r41Rs&list=PLNxqWc8Uj2LTaaxs-8vzK0Ft47rMggFnN&index=3
+/*
+* Complexity Analysis for Subset Leetcode
+    Time complexity
+    For every index, we make 2 recursion calls and there are n elements so total time complexity is O(2^n).
+
+    Space complexity
+    There are 2^n-1 subsets and for every subset, we need O(n) space on average so total space complexity is O(2^n * n).
+* */
 public class FindAllSubsetsOfSet {
 
     private static void subsets(int index, int[] arr, int n, List<Integer> currList, List<List<Integer>> resultList) {
