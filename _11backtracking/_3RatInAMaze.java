@@ -13,10 +13,24 @@ public class _3RatInAMaze {
             paths.add(currPath.toString());
             return;
         }
-        int[] row_changes = {0, -1, 0, 1};    //  corresponding x of l u r d
-        int[] col_changes = {-1, 0, 1, 0};    //  corresponding y of l u r d
-        char[] dirs = {'L', 'U', 'R', 'D'};
-        for (int i = 0; i < 4; i++) {
+//        4 directions
+//        int[] row_changes = {0, -1, 0, 1};    //  corresponding x of l u r d
+//        int[] col_changes = {-1, 0, 1, 0};    //  corresponding y of l u r d
+//        char[] dirs = {'L', 'U', 'R', 'D'};
+//        for (int i = 0; i < 4; i++) {
+//            if (isSafe(row + row_changes[i], col + col_changes[i], size, maze)) {
+//                maze[row][col] = 0; //  block this cell
+//                solvePath(row + row_changes[i], col + col_changes[i], currPath.append(dirs[i]), paths, size, maze);
+//                maze[row][col] = 1;
+//                currPath.deleteCharAt(currPath.length() - 1);
+//            }
+//        }
+
+//         2 directions
+        int[] row_changes = {0, 1};    //  corresponding x of l u r d
+        int[] col_changes = {1, 0};    //  corresponding y of l u r d
+        char[] dirs = {'R', 'D'};
+        for (int i = 0; i < 2; i++) {
             if (isSafe(row + row_changes[i], col + col_changes[i], size, maze)) {
                 maze[row][col] = 0; //  block this cell
                 solvePath(row + row_changes[i], col + col_changes[i], currPath.append(dirs[i]), paths, size, maze);
@@ -31,7 +45,40 @@ public class _3RatInAMaze {
     }
 
     public static void main(String[] args) {
-        int[][] maze = {{1, 0, 0, 0}, {1, 1, 0, 1}, {0, 1, 0, 0}, {1, 1, 1, 1}};    //  1 - there's way, 0 - block(No way)  //  solution: DRDDRR
+//        int[][] maze = {{1, 0, 0, 0}, {1, 1, 0, 1}, {0, 1, 0, 0}, {1, 1, 1, 1}};    //  1 - there's way, 0 - block(No way)  //  solution: DRDDRR
+
+        /*
+        * 2 directions - only R & D allowed
+          4 directions - L U R D
+          both gives below answer
+        *   1 1 1 0
+            1 1 0 1
+            0 1 1 0
+            1 1 1 1
+            RDDRDR
+            RDDDRR
+            DRDRDR
+            DRDDRR
+            * */
+//        int[][] maze = {{1, 1, 1, 0}, {1, 1, 0, 1}, {0, 1, 1, 0}, {1, 1, 1, 1}};    //  1 - there's way, 0 - block(No way)  //  solution: DRDDRR
+
+        /*
+        4 directions
+        *   1 1 1 0
+            1 1 0 1
+            1 0 1 0
+            1 1 1 1
+            RDLDDRRR
+            DDDRRR
+
+         only 2 directions
+            1 1 1 0
+            1 1 0 1
+            1 0 1 0
+            1 1 1 1
+            DDDRRR
+        */
+        int[][] maze = {{1, 1, 1, 0}, {1, 1, 0, 1}, {1, 0, 1, 0}, {1, 1, 1, 1}};    //  1 - there's way, 0 - block(No way)  //  solution: DRDDRR
         for (int[] ints : maze) {
             for (int anInt : ints) {
                 System.out.print(anInt + " ");
