@@ -7,7 +7,7 @@ import java.util.Set;
 /*
  * TC:   O(n!)
  * */
-public class PermutationsOfString {
+public class _1PermutationsOfString {
 
     private static void permutationsOfString(int pos, int len, String currString, Set<String> permutations) {
         if (pos == len - 1) {

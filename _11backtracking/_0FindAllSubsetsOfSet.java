@@ -12,7 +12,7 @@ import java.util.List;
     Space complexity
     There are 2^n-1 subsets and for every subset, we need O(n) space on average so total space complexity is O(2^n * n).
 * */
-public class FindAllSubsetsOfSet {
+public class _0FindAllSubsetsOfSet {
 
     private static void subsets(int index, int[] arr, int n, List<Integer> currList, List<List<Integer>> resultList) {
         if (index == n) {
