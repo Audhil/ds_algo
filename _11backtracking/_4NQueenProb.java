@@ -5,6 +5,7 @@ import java.util.List;
 
 //  https://www.youtube.com/watch?v=EG1eTU0TONo&list=PLNxqWc8Uj2LTaaxs-8vzK0Ft47rMggFnN&index=7
 /*
+https://github.com/kashish098/Data-Structures-and-Algorithms/blob/master/Backtracking/5.a)N_queen.cpp
 TC: O(n^n)
 * */
 public class _4NQueenProb {
@@ -54,7 +55,8 @@ public class _4NQueenProb {
     }
 
     public static void main(String[] args) {
-        int[][] chessBoard = {{0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}};
+//        int[][] chessBoard = {{0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}};
+        int[][] chessBoard = {{0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}, {0, 0, 0, 0, 0}};
         System.out.println("Empty chess board: ");
         for (int row = 0; row < chessBoard.length; row++) {
             for (int col = 0; col < chessBoard[row].length; col++) {
