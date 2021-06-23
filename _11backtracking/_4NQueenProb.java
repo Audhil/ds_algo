@@ -6,11 +6,12 @@ import java.util.List;
 //  https://www.youtube.com/watch?v=EG1eTU0TONo&list=PLNxqWc8Uj2LTaaxs-8vzK0Ft47rMggFnN&index=7
 /*
 https://github.com/kashish098/Data-Structures-and-Algorithms/blob/master/Backtracking/5.a)N_queen.cpp
+//  notes @ https://photos.google.com/album/AF1QipMLL_acuhN6YogZ1XMenF02iNt7vVctR7ZvlyE_/photo/AF1QipNAgOiWC6P6jy8ILkLvE2bWqqw_ud1Jcf1YDeWN
 TC: O(n^n)
 * */
 public class _4NQueenProb {
 
-    private static void solveNQueenProb(int col, int size, int[][] board, List<Integer> currArrangment, List<List<Integer>> arrangements) {
+    private static void solveNQueenProb(int col, int size, List<Integer> currArrangment, List<List<Integer>> arrangements) {
         if (col == size) {
             arrangements.add(new ArrayList<>(currArrangment));
             return;
@@ -18,7 +19,7 @@ public class _4NQueenProb {
         for (int row = 0; row < size; row++) {
             if (isSafe(row, size, currArrangment)) {
                 currArrangment.add(row);
-                solveNQueenProb(col + 1, size, board, currArrangment, arrangements);
+                solveNQueenProb(col + 1, size, currArrangment, arrangements);
                 currArrangment.remove(currArrangment.size() - 1);
             }
         }
@@ -66,7 +67,7 @@ public class _4NQueenProb {
         }
         List<List<Integer>> arrangements = new ArrayList<>();
         List<Integer> currList = new ArrayList<>();
-        solveNQueenProb(0, chessBoard.length, chessBoard, currList, arrangements);
+        solveNQueenProb(0, chessBoard.length, currList, arrangements);
         for (List<Integer> currArrangement : arrangements) {
             System.out.println(currArrangement);
             for (Integer pos : currArrangement) {

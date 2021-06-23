@@ -5,6 +5,7 @@ import java.util.Set;
 
 //  https://www.youtube.com/watch?v=Ax6xiIQt5fs&list=PLNxqWc8Uj2LTaaxs-8vzK0Ft47rMggFnN&index=5
 //  TC : for n length string - (n-1) spaces can be included, include+not include choice of space = 2 = hence O(2^(n - 1)) => O(2^n)
+//  notes @ https://photos.google.com/album/AF1QipMLL_acuhN6YogZ1XMenF02iNt7vVctR7ZvlyE_/photo/AF1QipNNjoBNXkVfJHvIPyR5W9kkGcUQzujrJiMLPTYS
 public class _2PermutationsWithSpaces {
 
     private static void permutationsWithSpaces(int start, int len, String currString, Set<String> permutations) {
