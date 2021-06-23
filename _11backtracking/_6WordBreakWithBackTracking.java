@@ -4,7 +4,8 @@ import java.util.Arrays;
 import java.util.List;
 
 //  https://www.youtube.com/watch?v=TM1RC49VCo8&list=PLNxqWc8Uj2LTaaxs-8vzK0Ft47rMggFnN&index=9
-//  notes @ https://photos.google.com/album/AF1QipMLL_acuhN6YogZ1XMenF02iNt7vVctR7ZvlyE_/photo/AF1QipNAgOiWC6P6jy8ILkLvE2bWqqw_ud1Jcf1YDeWN
+//  notes @ https://photos.google.com/album/AF1QipMLL_acuhN6YogZ1XMenF02iNt7vVctR7ZvlyE_/photo/AF1QipNmM8cVU3jjSbYQBj2ng-vs-BiF2nBcDuesE5af
+//  TC: O(2^n)
 public class _6WordBreakWithBackTracking {
 
     public static void main(String[] args) {
@@ -31,8 +32,10 @@ public class _6WordBreakWithBackTracking {
             return wb(i, j + 1, length, word, dict);
             //  if found
         else {
+            //  not splitting
             if (wb(i, j + 1, length, word, dict))
                 return true;
+            //  splitting string
             else
                 return wb(j + 1, j + 1, length, word, dict);
         }
