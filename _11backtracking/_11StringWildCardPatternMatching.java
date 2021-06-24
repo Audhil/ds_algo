@@ -6,6 +6,7 @@ package _11backtracking;
  * pattern: s * e ? -> whereas, * - any length of chars(string) including empty string, ? - will place only one char
  *
  * sample code: https://github.com/kashish098/Data-Structures-and-Algorithms/blob/master/Backtracking/11)Pattern_matching.cpp
+ * notes @ https://photos.google.com/album/AF1QipMLL_acuhN6YogZ1XMenF02iNt7vVctR7ZvlyE_/photo/AF1QipMzfeCn1l3Kge2dn4JCLw6GJRxejzBKJZlt6Rx3
  * */
 public class _11StringWildCardPatternMatching {
 
