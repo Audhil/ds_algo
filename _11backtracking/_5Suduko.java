@@ -37,7 +37,7 @@ public class _5Suduko {
     //  2. column constraint
     //  3. grid constraint
     private static boolean isValid(int i, int j, int[][] grid, int k) {
-        return rowValid(i, j, grid, k) && colValid(i, j, grid, k) && subGridValid(i, j, grid, k);
+        return rowValid(i, grid, k) && colValid(j, grid, k) && subGridValid(i, j, grid, k);
     }
 
     //  3. sub grid constraint
@@ -63,7 +63,7 @@ public class _5Suduko {
     }
 
     //  2. col constraint
-    private static boolean colValid(int i, int j, int[][] grid, int k) {
+    private static boolean colValid(int j, int[][] grid, int k) {
         for (int l = 0; l < N; l++) {
             if (grid[l][j] == k)
                 return false;
@@ -72,7 +72,7 @@ public class _5Suduko {
     }
 
     //  1. row constraint
-    private static boolean rowValid(int i, int j, int[][] grid, int k) {
+    private static boolean rowValid(int i, int[][] grid, int k) {
         for (int l = 0; l < N; l++) {
             if (grid[i][l] == k)
                 return false;
