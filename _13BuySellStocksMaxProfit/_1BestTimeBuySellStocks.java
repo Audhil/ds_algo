@@ -1,6 +1,7 @@
 package _13BuySellStocksMaxProfit;
 
 //  https://www.youtube.com/watch?v=y7GCr5Bk2kY
+//  1 time buy & 1 time sell
 //  TC: O(n); SC: O(1)
 public class _1BestTimeBuySellStocks {
 
@@ -14,10 +15,8 @@ public class _1BestTimeBuySellStocks {
             if (prices[i] > minBuyPrice)
                 maxProfit = Math.max(maxProfit, prices[i] - minBuyPrice);
                 //  if stock price is
-            else {
-//                minBuyPrice = Math.min(minBuyPrice, prices[i]);
+            else
                 minBuyPrice = prices[i];
-            }
         }
         return maxProfit;
     }
