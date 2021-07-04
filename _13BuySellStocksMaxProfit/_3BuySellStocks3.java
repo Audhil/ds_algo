@@ -4,6 +4,7 @@ package _13BuySellStocksMaxProfit;
 //  max profit at most with 2 transaction (0 transactions or 1 transaction or 2 transaction)
 //  TC: O(n); SC: O(1)
 //  notes @ https://photos.google.com/photo/AF1QipNd01vfYcCMr2NwvGKoAMqeYALyeui0axdmhurX
+//  Leetcode: Hard problem
 public class _3BuySellStocks3 {
     /*
     states
@@ -17,9 +18,6 @@ public class _3BuySellStocks3 {
     private static int maxProfit(int[] prices) {
         if (prices == null)
             return 0;
-        if (prices.length == 1)
-            return prices[0];
-
         int s0 = Integer.MIN_VALUE, s1 = 0, s2 = Integer.MIN_VALUE, s3 = 0;
         for (int i = 0; i < prices.length; i++) {
             s3 = Math.max(s3, s2 + prices[i]);  //  2b 2s
