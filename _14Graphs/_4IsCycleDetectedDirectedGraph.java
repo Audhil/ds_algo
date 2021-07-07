@@ -2,9 +2,9 @@ package _14Graphs;
 
 import java.util.LinkedList;
 
-//  https://www.youtube.com/watch?v=GLGsIZGLvA0&list=PLNxqWc8Uj2LTb6VYJG3Kebwift2oaBFvE&index=8
-//  notes @ https://photos.google.com/photo/AF1QipOC3so2pwlvv3tUWw778S4kq0QZCB4kFhbYVXCP
-public class _3IsCycleDetectedUnDirectedGraph {
+//  https://www.youtube.com/watch?v=dc5Pn-YEPVY&list=PLNxqWc8Uj2LTb6VYJG3Kebwift2oaBFvE&index=8
+//  NOTES @ https://photos.google.com/photo/AF1QipNOMFdnF88FVOHZ88INWR5sjm_ZFGAIeX9iXoP7
+public class _4IsCycleDetectedDirectedGraph {
 
     private static class Graph {
         int V;
@@ -36,29 +36,32 @@ public class _3IsCycleDetectedUnDirectedGraph {
 
         private boolean isCycleDetectedUsingDFS() {
             boolean[] visited = new boolean[V];
+            boolean[] ancestors = new boolean[V];
             for (int i = 0; i < visited.length; i++) {
                 if (!visited[i])
-                    if (helperFunc(visited, adjacentVertices, i, -1))
+                    if (helperFunc(visited, adjacentVertices, i, ancestors))
                         return true;
             }
             return false;
         }
 
-        private boolean helperFunc(boolean[] visited, LinkedList<Integer>[] adjacentVertices, int startVertex, int parent) {
+        private boolean helperFunc(boolean[] visited, LinkedList<Integer>[] adjacentVertices, int startVertex, boolean[] ancestors) {
             visited[startVertex] = true;
+            ancestors[startVertex] = true;  //  add current vertex in ancestor entry
             //  find adjacent vertices
             LinkedList<Integer> list = adjacentVertices[startVertex];
             for (Integer vertex : list) {
                 //  not visited
                 if (!visited[vertex])
-                    return helperFunc(visited, adjacentVertices, vertex, startVertex);
+                    return helperFunc(visited, adjacentVertices, vertex, ancestors);
                     //  visited
                 else {
-                    //  cycle detected
-                    if (startVertex != parent)
+                    //  if the vertex is ancestor
+                    if (ancestors[vertex])
                         return true;
                 }
             }
+            ancestors[startVertex] = false;
             return false;
         }
     }
@@ -68,8 +71,7 @@ public class _3IsCycleDetectedUnDirectedGraph {
         graph.addEdge(0, 1);
         graph.addEdge(1, 2);
         graph.addEdge(2, 3);
-        graph.addEdge(3, 4);
-        graph.addEdge(4, 1);
+        graph.addEdge(3, 3);
         graph.printAdjacencyList();
 
         System.out.println("yup Is cycle detected: " + graph.isCycleDetectedUsingDFS());
