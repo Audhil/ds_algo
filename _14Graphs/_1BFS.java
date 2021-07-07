@@ -4,6 +4,7 @@ import java.util.LinkedList;
 
 //  https://www.youtube.com/watch?v=7VlwS1XRStY&list=PLNxqWc8Uj2LTb6VYJG3Kebwift2oaBFvE&index=4
 //  Breadth first search
+//  notes @ https://photos.google.com/album/AF1QipMLL_acuhN6YogZ1XMenF02iNt7vVctR7ZvlyE_/photo/AF1QipNHSrAzCu-lzJdcTR9R-76i98TFqtPPaS-wLKMJ
 public class _1BFS {
 
     /*
@@ -19,32 +20,32 @@ public class _1BFS {
     //  https://www.geeksforgeeks.org/breadth-first-search-or-bfs-for-a-graph/
     private static class Graph {
         int V;
-        LinkedList<Integer>[] adjacentEdges;
+        LinkedList<Integer>[] adjacentVertices;
 
         public Graph(int v) {
             V = v;
-            adjacentEdges = new LinkedList[v];
+            adjacentVertices = new LinkedList[v];
             for (int i = 0; i < v; i++) {
-                adjacentEdges[i] = new LinkedList<>();
+                adjacentVertices[i] = new LinkedList<>();
             }
         }
 
         private void addEdge(int vertex, int neighbourVertex) {
-            adjacentEdges[vertex].add(neighbourVertex);
+            adjacentVertices[vertex].add(neighbourVertex);
         }
 
-        private void BFS(int vertex) {
+        private void BFS(int startVertex) {
             LinkedList<Integer> queue = new LinkedList<>();
             boolean[] visited = new boolean[V];
 
-            visited[vertex] = true;
-            queue.add(vertex);
+            visited[startVertex] = true;
+            queue.add(startVertex);
 
             while (!queue.isEmpty()) {
                 int item = queue.poll();
                 System.out.print(item + " ");
 
-                LinkedList<Integer> neighbourVertices = adjacentEdges[item];
+                LinkedList<Integer> neighbourVertices = adjacentVertices[item];
                 for (Integer nVertex : neighbourVertices) {
                     if (!visited[nVertex]) {
                         visited[nVertex] = true;

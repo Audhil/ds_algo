@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 //  https://www.youtube.com/watch?v=KHrxlNR2ebc
+//  notes @ https://photos.google.com/photo/AF1QipMUQ5iOXEWaa5UzX3N94KsbRsALKJ1VGj8Mgmpr
 public class _4BuySellStocks4 {
 
     private static void maxProfit(int k, List<Integer> prices) {
