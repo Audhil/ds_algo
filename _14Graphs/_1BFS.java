@@ -5,6 +5,9 @@ import java.util.LinkedList;
 //  https://www.youtube.com/watch?v=7VlwS1XRStY&list=PLNxqWc8Uj2LTb6VYJG3Kebwift2oaBFvE&index=4
 //  Breadth first search
 //  notes @ https://photos.google.com/album/AF1QipMLL_acuhN6YogZ1XMenF02iNt7vVctR7ZvlyE_/photo/AF1QipNHSrAzCu-lzJdcTR9R-76i98TFqtPPaS-wLKMJ
+//  TC: O(V + E)
+//  SC: O(V + E)
+//  refer for TC & SC https://www.youtube.com/watch?v=N3P45XAfNHY&list=PLNxqWc8Uj2LTb6VYJG3Kebwift2oaBFvE&index=6
 public class _1BFS {
 
     /*

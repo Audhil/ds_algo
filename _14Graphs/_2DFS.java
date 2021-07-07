@@ -6,6 +6,9 @@ import java.util.List;
 
 //  https://www.youtube.com/watch?v=gHkOhnINlZo&list=PLNxqWc8Uj2LTb6VYJG3Kebwift2oaBFvE&index=5
 //  notes @ https://photos.google.com/photo/AF1QipMLxG28a6yymKFzhmKjVw9N3Ls56z9au9AVYUg6
+//  TC: O(V + E)
+//  SC: O(V + E)
+//  refer for TC & SC https://www.youtube.com/watch?v=N3P45XAfNHY&list=PLNxqWc8Uj2LTb6VYJG3Kebwift2oaBFvE&index=6
 public class _2DFS {
 
     private static class Graph {
