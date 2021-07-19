@@ -1,7 +1,5 @@
 package _14Graphs;
 
-import java.util.LinkedList;
-
 public class _0Basics {
     /*
     * https://www.youtube.com/watch?v=EiR9w6kA_4M&list=PLNxqWc8Uj2LTb6VYJG3Kebwift2oaBFvE&index=6
