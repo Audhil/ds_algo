@@ -1,7 +1,7 @@
 package _8Trees;
 
 //  https://www.youtube.com/watch?v=VErhxEsQ4LM&list=PLNxqWc8Uj2LRbsOlBiPJZAyZpaUwdDepd&index=3
-public class _0DFS_pre_post_in_order {
+public class _0DFS_pre_post_in_orderTraversal {
 
     static class TreeNode {
         int value;
