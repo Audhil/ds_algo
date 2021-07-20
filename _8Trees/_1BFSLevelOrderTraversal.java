@@ -5,7 +5,8 @@ import java.util.Stack;
 
 //  https://www.youtube.com/watch?v=nWUy8MKrzXE&list=PLNxqWc8Uj2LRbsOlBiPJZAyZpaUwdDepd&index=5
 //  notes @ https://photos.google.com/photo/AF1QipM0CXTMN_EBYpLskgAG59ZRGLiboVeV-cgom8L_
-public class _1LevelOrderTraversal {
+//  TC: O(n) & SC: O(n) - https://www.youtube.com/watch?v=WB19NdSzXIo&list=PLNxqWc8Uj2LRbsOlBiPJZAyZpaUwdDepd&index=5
+public class _1BFSLevelOrderTraversal {
 
     static class TreeNode {
         int value;
