@@ -66,6 +66,7 @@ public class _1LevelOrderTraversal {
         }
     }
 
+    //  4) Traversing tree from last level to level 0 from right to left
     private static void r2lB2Ttraversal(TreeNode root) {
         Stack<Integer> stack = new Stack<>();
         LinkedList<TreeNode> queue = new LinkedList<>();
