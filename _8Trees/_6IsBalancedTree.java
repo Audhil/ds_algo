@@ -1,7 +1,5 @@
 package _8Trees;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
-
 //  https://www.youtube.com/watch?v=BE2MufZzUWw&list=PLNxqWc8Uj2LRbsOlBiPJZAyZpaUwdDepd&index=10
 public class _6IsBalancedTree {
 
