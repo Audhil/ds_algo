@@ -35,7 +35,8 @@ public class _7DiameterOfBinaryTree {
         int lH = heightOfBinaryTree(root.left, intWrapper);
         int rH = heightOfBinaryTree(root.right, intWrapper);
 
-        intWrapper.diameter = 1 + lH + rH;
+        if ((1 + lH + rH) > intWrapper.diameter)
+            intWrapper.diameter = 1 + lH + rH;
 
         return 1 + Math.max(lH, rH);
     }
