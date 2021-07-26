@@ -4,6 +4,7 @@ import java.util.*;
 
 //  https://www.youtube.com/watch?v=8ND-GB8hpJI&list=PLNxqWc8Uj2LRbsOlBiPJZAyZpaUwdDepd&index=9
 //  notes @ https://photos.google.com/photo/AF1QipPvyVt0a5s-ArSFPZSFyfxDlAWFZMrB9gun_grR
+//  TC: O(n) & SC: O(n)
 public class _4DiagonalTraversalwithPreOrder {
 
     static class TreeNode {
@@ -54,6 +55,34 @@ public class _4DiagonalTraversalwithPreOrder {
         return map;
     }
 
+    //  with recursion
+    private static void preOrder(TreeNode root, Map<Integer, List<Integer>> map, int hd) {
+        if (root == null)
+            return;
+
+        //  process the node
+        if (map.get(hd) == null) {
+            List<Integer> list = new ArrayList<>();
+            list.add(root.value);
+            map.put(hd, list);
+        } else {
+            List<Integer> tmpList = map.get(hd);
+            tmpList.add(root.value);
+            map.put(hd, tmpList);
+        }
+
+        //  left
+        preOrder(root.left, map, hd + 1);
+        //  right
+        preOrder(root.right, map, hd);
+    }
+
+    private static Map<Integer, List<Integer>> diagonalTraversalWithRecursion(TreeNode root) {
+        Map<Integer, List<Integer>> map = new HashMap<>();
+        preOrder(root, map, 0);
+        return map;
+    }
+
     public static void main(String[] args) {
         TreeNode root = new TreeNode(1);
         root.left = new TreeNode(2);
@@ -64,6 +93,6 @@ public class _4DiagonalTraversalwithPreOrder {
         root.right.right = new TreeNode(7);
 
         System.out.println("yup: diagonalOrderTraversal: " + diagonalOrderTraversal(root));
-
+        System.out.println("yup: diagonalTraversalWithRecursion: " + diagonalTraversalWithRecursion(root));
     }
 }
