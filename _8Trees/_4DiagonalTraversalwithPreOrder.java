@@ -1,11 +1,10 @@
 package _8Trees;
 
-//  https://www.youtube.com/watch?v=ntmHfd4YYL0&list=PLNxqWc8Uj2LRbsOlBiPJZAyZpaUwdDepd&index=9
-//  notes @ https://photos.google.com/photo/AF1QipPMBGWGMmPjUvtIedwHA3PPeaRKz8ZvrTb2milk
-//  TC: O(n) & SC: O(n)
 import java.util.*;
 
-public class _3VerticalOrderTraversal {
+//  https://www.youtube.com/watch?v=8ND-GB8hpJI&list=PLNxqWc8Uj2LRbsOlBiPJZAyZpaUwdDepd&index=9
+//  notes @ https://photos.google.com/photo/AF1QipPvyVt0a5s-ArSFPZSFyfxDlAWFZMrB9gun_grR
+public class _4DiagonalTraversalwithPreOrder {
 
     static class TreeNode {
         int value;
@@ -26,7 +25,7 @@ public class _3VerticalOrderTraversal {
         }
     }
 
-    private static Map<Integer, List<Integer>> verticalOrderTraversal(TreeNode root) {
+    private static Map<Integer, List<Integer>> diagonalOrderTraversal(TreeNode root) {
         if (root == null)
             return null;
         LinkedList<PairOf> queue = new LinkedList<>();
@@ -48,9 +47,9 @@ public class _3VerticalOrderTraversal {
                 map.put(hd, tmpList);
             }
             if (tempNode.left != null)
-                queue.add(new PairOf(tempNode.left, hd - 1));
+                queue.add(new PairOf(tempNode.left, hd + 1));
             if (tempNode.right != null)
-                queue.add(new PairOf(tempNode.right, hd + 1));
+                queue.add(new PairOf(tempNode.right, hd));
         }
         return map;
     }
@@ -62,10 +61,9 @@ public class _3VerticalOrderTraversal {
         root.left.left = new TreeNode(4);
         root.left.right = new TreeNode(5);
         root.right.left = new TreeNode(6);
-        root.right.right = new TreeNode(9);
-        root.left.left.right = new TreeNode(7);
-        root.left.left.right.right = new TreeNode(8);
+        root.right.right = new TreeNode(7);
 
-        System.out.println("yup: verticalOrderTraversal: " + verticalOrderTraversal(root));
+        System.out.println("yup: diagonalOrderTraversal: " + diagonalOrderTraversal(root));
+
     }
 }
