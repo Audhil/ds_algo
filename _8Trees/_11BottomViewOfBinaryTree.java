@@ -4,9 +4,9 @@ import java.util.LinkedList;
 import java.util.Map;
 import java.util.TreeMap;
 
-//  https://www.youtube.com/watch?v=JMBFm__krXw&list=PLNxqWc8Uj2LRbsOlBiPJZAyZpaUwdDepd&index=15
+//  https://www.youtube.com/watch?v=g-7gBH1nvKg&list=PLNxqWc8Uj2LRbsOlBiPJZAyZpaUwdDepd&index=15
 //  notes @ https://photos.google.com/photo/AF1QipNIansgEOImM2VCLh-RQqalCf5ea2RPzYTyzxCO
-public class _10TopViewOfBinaryTree {
+public class _11BottomViewOfBinaryTree {
 
     static class TreeNode {
         int value;
@@ -27,7 +27,7 @@ public class _10TopViewOfBinaryTree {
         }
     }
 
-    private static Map<Integer, Integer> topViewOfBinaryTree(TreeNode root) {
+    private static Map<Integer, Integer> bottomViewOfBinaryTree(TreeNode root) {
         return computeWithVerticalOrderTraversal(root);
     }
 
@@ -46,8 +46,7 @@ public class _10TopViewOfBinaryTree {
             TreeNode tempNode = pair.node;
 
             //  process the node
-            if (map.get(hd) == null)
-                map.put(hd, tempNode.value);
+            map.put(hd, tempNode.value);
             if (tempNode.left != null)
                 queue.add(new PairOf(tempNode.left, hd - 1));
             if (tempNode.right != null)
@@ -67,8 +66,8 @@ public class _10TopViewOfBinaryTree {
         root.right.left.right = new TreeNode(8);
         root.right.left.right.right = new TreeNode(9);
 
-        System.out.println("topView is : ");    //  4 2 1 3 7
-        topViewOfBinaryTree(root).forEach((key, value) -> {
+        System.out.println("bottomView is : "); //  4 2 6 8 9
+        bottomViewOfBinaryTree(root).forEach((key, value) -> {
             System.out.print(value + " ");
         });
     }
