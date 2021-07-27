@@ -2,6 +2,8 @@ package _8Trees;
 
 import java.util.LinkedList;
 
+//  https://www.youtube.com/watch?v=iOU5MCqkqrU&list=PLNxqWc8Uj2LRbsOlBiPJZAyZpaUwdDepd&index=13
+//  notes @ https://photos.google.com/photo/AF1QipMx6Ktjj_m0iMsHl_3jcKIha3Q6L4x8iP3eb4JD
 public class _9RightViewOfBinaryTree {
     static class TreeNode {
         int value;
