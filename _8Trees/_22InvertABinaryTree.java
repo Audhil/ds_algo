@@ -3,6 +3,7 @@ package _8Trees;
 import java.util.LinkedList;
 
 //  https://www.youtube.com/watch?v=dq7pRKEFnFA&list=PLNxqWc8Uj2LRbsOlBiPJZAyZpaUwdDepd&index=26
+//  notes @ https://photos.google.com/photo/AF1QipMu8PRvwgmGCLs-vyOey_Sd9rNqxPSMeKhjgHr3
 public class _22InvertABinaryTree {
 
     static class TreeNode {
@@ -43,7 +44,7 @@ public class _22InvertABinaryTree {
 
         printBinaryTreeWithLevelOrder(root);
 
-        invertABinaryTree(root);
+        root = invertABinaryTree(root);
 
         System.out.println("\nyup: after inverting a binary tree: ");
         printBinaryTreeWithLevelOrder(root);
