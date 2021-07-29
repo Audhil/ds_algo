@@ -1,6 +1,7 @@
 package _8Trees;
 
 //  https://www.youtube.com/watch?v=gOkMblkA_wM&list=PLNxqWc8Uj2LRbsOlBiPJZAyZpaUwdDepd&index=22
+//  notes @ https://photos.google.com/photo/AF1QipMYq6KsvOFWs3sV4PMya9a4S3FkUCM3l4in-_qy
 public class _18IdenticalBinaryTrees {
 
     static class TreeNode {
