@@ -13,17 +13,17 @@ public class _21SymmetricTree {
         }
     }
 
-    private static boolean isMirror(TreeNode left, TreeNode right) {
-        if (left == null && right == null)
+    private static boolean isMirror(TreeNode root1, TreeNode root2) {
+        if (root1 == null && root2 == null)
             return true;
 
-        if (left == null || right == null)
+        if (root1 == null || root2 == null)
             return false;
 
-        if (left.value != right.value)
+        if (root1.value != root2.value)
             return false;
 
-        return isMirror(left.left, right.right) && isMirror(left.right, right.left);
+        return isMirror(root1.left, root2.right) && isMirror(root1.right, root2.left);
     }
 
     private static boolean isSymmetricTree(TreeNode root) {
