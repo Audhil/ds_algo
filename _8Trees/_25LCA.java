@@ -2,6 +2,7 @@ package _8Trees;
 
 //  Lowest Common Ancestor - meeting point(node) between given node a, node b
 //  https://www.youtube.com/watch?v=cZ0OhoxwaJ8&list=PLNxqWc8Uj2LRbsOlBiPJZAyZpaUwdDepd&index=29
+//  https://photos.google.com/photo/AF1QipN2xEnagWsB2LGW5HE-iYBS4aVv8eXT4iRmz3Vi
 public class _25LCA {
 
     static class TreeNode {
@@ -42,11 +43,11 @@ public class _25LCA {
         root.right.right = new TreeNode(7);
 
         /*
-        * LCA between
-        * 2, 3 -> 1
-        * 2, 5 -> 2
-        * 5, 6 -> 1
-        * */
+         * LCA between
+         * 2, 3 -> 1
+         * 2, 5 -> 2
+         * 5, 6 -> 1
+         * */
         System.out.println("LCA : " + lca(root, 5, 6).value);
     }
 }

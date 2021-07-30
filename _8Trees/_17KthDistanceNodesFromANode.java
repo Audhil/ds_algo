@@ -4,7 +4,7 @@ import java.util.*;
 
 //  https://www.youtube.com/watch?v=pMYN_j4FD2M&list=PLNxqWc8Uj2LRbsOlBiPJZAyZpaUwdDepd&index=21
 //  java: https://www.youtube.com/watch?v=xiXWEUvoon4
-public class _17KthDistanceNodeFromANode {
+public class _17KthDistanceNodesFromANode {
 
     static class TreeNode {
         int value;
