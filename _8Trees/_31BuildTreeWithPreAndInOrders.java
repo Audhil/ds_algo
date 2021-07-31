@@ -4,7 +4,10 @@ import java.util.Arrays;
 import java.util.List;
 
 //  https://www.youtube.com/watch?v=5F9NoBFPlCw&list=PLNxqWc8Uj2LRbsOlBiPJZAyZpaUwdDepd&index=36
-public class _31BuildTreeWithPreInOrders {
+//  TC: O(n^2)
+//  we can reach TC: O(n) - when we reduce searchMid functionality with generating map of inOrderTraversal
+//  notes @ https://photos.google.com/photo/AF1QipMAQov-xv0UalepQpQ_fj5aD2jxa6Tg-0LbDEpR
+public class _31BuildTreeWithPreAndInOrders {
 
     static class TreeNode {
         int value;
@@ -19,6 +22,7 @@ public class _31BuildTreeWithPreInOrders {
         int start = 0;
     }
 
+    //  with pre order traversal
     private static void printTree(TreeNode root) {
         if (root == null)
             return;
