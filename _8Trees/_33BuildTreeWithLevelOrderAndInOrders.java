@@ -40,11 +40,16 @@ public class _33BuildTreeWithLevelOrderAndInOrders {
         return resList;
     }
 
+    private static int nodeCount = 0;
+
     private static TreeNode buildTreeWithMap(List<Integer> levelOrderTraversal,
                                              List<Integer> inOrderTraversal,
                                              Map<Integer, Integer> inOrderSearchMap) {
-        if (inOrderTraversal.size() == 0)
+        if (nodeCount == inOrderTraversal.size())
             return null;
+        if (levelOrderTraversal.size() == 0)
+            return null;
+        nodeCount++;
         TreeNode root = new TreeNode(levelOrderTraversal.get(0));
         int mid = inOrderSearchMap.get(levelOrderTraversal.get(0));
         //  items in level order
@@ -75,6 +80,15 @@ public class _33BuildTreeWithLevelOrderAndInOrders {
         }
     }
 
+    //  with POST order
+    private static void printTreeWithPostOrder(TreeNode root) {
+        if (root == null)
+            return;
+        printTreeWithPostOrder(root.left);
+        printTreeWithPostOrder(root.right);
+        System.out.print(root.value + " ");
+    }
+
     public static void main(String[] args) {
         List<Integer> levelOrderTraversal = Arrays.asList(1, 2, 3, 4, 5, 6);
         List<Integer> inOrderTraversal = Arrays.asList(4, 2, 5, 1, 3, 6);
@@ -83,6 +97,6 @@ public class _33BuildTreeWithLevelOrderAndInOrders {
             inOrderSearchMap.put(inOrderTraversal.get(i), i);
         TreeNode root = buildTreeWithMap(levelOrderTraversal, inOrderTraversal, inOrderSearchMap);
         System.out.println("yup: with LevelOrder traversal resultant tree is: ");
-        printTree(root);
+        printTreeWithPostOrder(root);
     }
 }
