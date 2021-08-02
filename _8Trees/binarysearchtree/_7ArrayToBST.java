@@ -23,15 +23,6 @@ public class _7ArrayToBST {
         printTree(root.right);
     }
 
-    public static void main(String[] args) {
-        //  sorted array = in order traversal of BST
-        int[] nodeArray = {10, 12, 15, 20, 24, 28};
-        int l = 0, r = nodeArray.length - 1;
-        TreeNode resultantTree = constructTree(nodeArray, l, r);
-        System.out.println("resultant Tree is : ");
-        printTree(resultantTree);   //  10 12 15 20 24 28
-    }
-
     private static TreeNode constructTree(int[] nodeArray, int l, int r) {
         if (r < l)
             return null;
@@ -41,5 +32,14 @@ public class _7ArrayToBST {
         root.left = constructTree(nodeArray, l, mid - 1);
         root.right = constructTree(nodeArray, mid + 1, r);
         return root;
+    }
+
+    public static void main(String[] args) {
+        //  sorted array = in order traversal of BST
+        int[] nodeArray = {10, 12, 15, 20, 24, 28};
+        int l = 0, r = nodeArray.length - 1;
+        TreeNode resultantTree = constructTree(nodeArray, l, r);
+        System.out.println("resultant Tree is : ");
+        printTree(resultantTree);   //  10 12 15 20 24 28
     }
 }
