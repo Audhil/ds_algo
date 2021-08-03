@@ -1,6 +1,7 @@
 package _8Trees.binarysearchtree;
 
 //  https://www.youtube.com/watch?v=7jkGLLmdNpE&list=PLNxqWc8Uj2LQpbGv6I_HWf0kTj6kMVVwm&index=15
+//  notes @ https://photos.google.com/photo/AF1QipPkeV88jcUYz3sBZvxwS5U7yS15HPxIeEQUTW1y
 public class _13LCAwithBST {
 
     static class TreeNode {

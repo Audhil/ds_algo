@@ -69,7 +69,7 @@ public class _14CheckForBST {
         return true;
     }
 
-    //  method 3:
+    //  method 3: https://photos.google.com/photo/AF1QipOaRRquZjYDREOvwfgnt6dX5ZQYy_MLKOX7i3OI
     private static boolean isBST3(TreeNode root) {
         if (root == null)
             return false;

@@ -1,6 +1,7 @@
 package _8Trees.binarysearchtree;
 
 //  https://www.youtube.com/watch?v=eOEYjNKRsFA&list=PLNxqWc8Uj2LQpbGv6I_HWf0kTj6kMVVwm&index=13
+//  notes @ https://photos.google.com/photo/AF1QipOYV616-mbXlH56oNL_ojZyLE9lGdg5YqEYrNKo
 public class _11KthSmallestElementInBST {
 
     static class TreeNode {
