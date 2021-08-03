@@ -2,6 +2,7 @@ package _8Trees.binarysearchtree;
 
 //  DEAD end = LEAF node where insertion not possible
 //  https://www.youtube.com/watch?v=HOP6fucDVTM&list=PLNxqWc8Uj2LQpbGv6I_HWf0kTj6kMVVwm&index=17
+//  notes @ https://photos.google.com/photo/AF1QipN1COzt_hduuFq6hcVwQCOMgwTQf0kk0N9wvTR5
 public class _15CheckDeadEndInBST {
 
     static class TreeNode {
