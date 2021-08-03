@@ -20,6 +20,9 @@ public class _13LCAwithBST {
             return lca(root.left, a, b);
         if (a > root.value && b > root.value)
             return lca(root.right, a, b);
+
+        //  1. either a, b equal to root.value
+        //  2. either, we found value in left subtree & right subtree
         return root;
     }
 
