@@ -53,13 +53,18 @@ public class _10Merge2BSTsOh1plush2 {
             }
             //  if equal
             else {
-                tempNode = s1.peek();   //  let's take one value
-                s1.pop();
-                s2.pop();
+                tempNode = s1.pop();
+                TreeNode temp2 = s2.pop();  //  ignore this, let's take only one value(tempNode.value) in list
                 util(tempNode.right, s1);
-                util(tempNode.right, s2);
+                util(temp2.right, s2);
             }
             resList.add(tempNode.value);
+        }
+        while (!s1.empty()) {
+            resList.add(s1.pop().value);
+        }
+        while (!s2.empty()) {
+            resList.add(s2.pop().value);
         }
         return resList;
     }
@@ -76,6 +81,7 @@ public class _10Merge2BSTsOh1plush2 {
         root2.right = new TreeNode(29);
         root2.left.right = new TreeNode(18);
         root2.right.right = new TreeNode(30);
+        root2.right.right.right = new TreeNode(49);
 
         List<Integer> mergedList = mergeBST(root1, root2);
         System.out.println("yup: mergedList: " + mergedList);   //  yup: mergedList: [15, 16, 17, 18, 20, 24, 29, 30, 40]
