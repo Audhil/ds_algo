@@ -43,7 +43,8 @@ public class _9Merge2BSTs {
                 mergeList.add(list2.get(j++));
             } else {
                 mergeList.add(list1.get(i++));
-                mergeList.add(list2.get(j++));
+//                mergeList.add(list2.get(j++));    //  ignore this item, since each item in BST is unique
+                j++;
             }
         }
         while (i < list1.size())
