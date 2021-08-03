@@ -84,6 +84,6 @@ public class _10Merge2BSTsOh1plush2 {
         root2.right.right.right = new TreeNode(49);
 
         List<Integer> mergedList = mergeBST(root1, root2);
-        System.out.println("yup: mergedList: " + mergedList);   //  yup: mergedList: [15, 16, 17, 18, 20, 24, 29, 30, 40]
+        System.out.println("yup: mergedList: " + mergedList);   //  yup: mergedList: [15, 16, 17, 18, 20, 24, 29, 30, 40, 49]
     }
 }
