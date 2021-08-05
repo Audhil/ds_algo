@@ -16,6 +16,7 @@ public class _20CheckIsPreOrderTraversalIsBST {
 
     }
 
+    //  we are finding in O(n)
     private static boolean isBST(int[] arr) {
         if (arr.length == 0)
             return false;
