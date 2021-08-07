@@ -39,9 +39,12 @@ public class _26BSTFromPreOrder {
                                  IntWrapper indexWrapper) {
         if (indexWrapper.index >= preOrder.size())
             return null;
+        //  N
         int value = preOrder.get(indexWrapper.index++);
         TreeNode root = new TreeNode(value);
+        //  L
         root.left = util(preOrder, minValue, value - 1, indexWrapper);
+        //  R
         root.right = util(preOrder, value + 1, maxValue, indexWrapper);
         return root;
     }
