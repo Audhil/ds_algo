@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 //  https://www.youtube.com/watch?v=KT46fMT3ALc&list=PLNxqWc8Uj2LQpbGv6I_HWf0kTj6kMVVwm&index=25
+//  notes @ https://photos.google.com/photo/AF1QipOXLboVyb3hiqLyFq7dx8obKfodmPCxgF7LBmOP
 public class _23BSTtoMinHeap {
 
     static class TreeNode {
