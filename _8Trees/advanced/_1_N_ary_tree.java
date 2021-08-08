@@ -4,15 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 //  https://www.youtube.com/watch?v=-fOTdKKGpqg&list=PLNxqWc8Uj2LTupAJUeWvWzRTVT9NX36lY&index=2
+//  notes @ https://photos.google.com/photo/AF1QipOKNbqYOYwmGOUEVXkRekOSIrEIkY5kmXWcuLu5
 public class _1_N_ary_tree {
 
     static class TreeNode {
         int value;
         List<TreeNode> children;
 
-        public TreeNode(int value) {
+        public TreeNode(int value, List<TreeNode> children) {
             this.value = value;
-            this.children = new ArrayList<>();
+            this.children = children;
         }
     }
 
@@ -35,9 +36,9 @@ public class _1_N_ary_tree {
     }
 
     public static void main(String[] args) {
-        TreeNode root = new TreeNode(1);
+        TreeNode root = new TreeNode(1, new ArrayList<>());
         for (int i = 2; i < 10; i++) {
-            root.children.add(new TreeNode(i));
+            root.children.add(new TreeNode(i, new ArrayList<>()));
         }
         System.out.println("yup: preOrder");
         preOrder(root);
