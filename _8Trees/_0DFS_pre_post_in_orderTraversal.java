@@ -14,6 +14,19 @@ public class _0DFS_pre_post_in_orderTraversal {
         }
     }
 
+    //  add node
+    private static TreeNode insert(TreeNode root, int data) {
+        if (root == null) {
+            return new TreeNode(data);
+        } else {
+            if (data <= root.value)
+                root.left = insert(root.left, data);
+            else
+                root.right = insert(root.right, data);
+            return root;
+        }
+    }
+
     //  pre order -> Ro L R
     private static void preOrder(TreeNode root) {
         if (root == null)
