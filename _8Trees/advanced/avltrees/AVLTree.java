@@ -2,6 +2,7 @@ package _8Trees.advanced.avltrees;
 
 //  https://www.youtube.com/watch?v=a96JFhw5Ee4 - src code
 //  https://www.youtube.com/watch?v=vRwi_UcZGjU
+//  src code = https://github.com/coding-blocks-archives/JavaWebinars/tree/master/src/AVLTree
 public class AVLTree {
 
     private static class TreeNode {
@@ -12,6 +13,7 @@ public class AVLTree {
 
         public TreeNode(int data) {
             this.data = data;
+            this.height = 1;
         }
     }
 
@@ -25,15 +27,36 @@ public class AVLTree {
         if (root == null)
             return new TreeNode(data);
 
-        if (root.data == data)
-            return root;
+//        if (root.data == data)
+//            return root;
 
         if (root.data < data)
             root.left = insert(root.left, data);
-        else
+        else if (root.data > data)
             root.right = insert(root.right, data);
 
         root.height = Math.max(height(root.left), height(root.right)) + 1;
+        int bf = bf(root);
+
+        //  Left heavy - LL
+        if (bf > 1 && data < root.left.data)
+            return rightRotate(root);
+
+        //  right heavy - RR
+        if (bf < -1 && data > root.right.data)
+            return leftRotate(root);
+
+        //  LR
+        if (bf > 1 && data > root.left.data) {
+            root.left = leftRotate(root.left);
+            return rightRotate(root);
+        }
+
+        //  RL
+        if (bf < -1 && data < root.right.data) {
+            root.right = rightRotate(root.right);
+            return leftRotate(root);
+        }
 
         return root;
     }
@@ -78,7 +101,25 @@ public class AVLTree {
         return root.height;
     }
 
+    private static TreeNode leftRotate(TreeNode c) {
+//        if (c.right == null)
+//            return null;
+        TreeNode b = c.right;
+        TreeNode t2 = b.left;
+
+        //  rotate
+        b.left = c;
+        c.right = t2;
+
+        //  update heights
+        c.height = Math.max(height(c.left), height(c.right)) + 1;
+        b.height = Math.max(height(b.left), height(b.right)) + 1;
+        return b;
+    }
+
     private static TreeNode rightRotate(TreeNode c) {
+//        if (c.left == null)
+//            return null;
         TreeNode b = c.left;
         TreeNode t3 = b.right;
 
@@ -96,6 +137,7 @@ public class AVLTree {
         insert(20);
         insert(25);
         insert(30);
+        insert(10);
         insert(5);
         insert(15);
         insert(27);
