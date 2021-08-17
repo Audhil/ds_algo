@@ -3,6 +3,9 @@ package _8Trees.advanced.avltrees;
 //  https://www.youtube.com/watch?v=a96JFhw5Ee4 - src code
 //  https://www.youtube.com/watch?v=vRwi_UcZGjU
 //  src code = https://github.com/coding-blocks-archives/JavaWebinars/tree/master/src/AVLTree
+//  notes @ https://photos.google.com/photo/AF1QipM83ooPku4URBzQ9RhZfVnLqe-as6UEGDj3P7lp
+//  https://photos.google.com/photo/AF1QipPlNAR1_5PaPPEmryqQp_8kHdBO_8wiWSqtWhwT
+//  https://photos.google.com/photo/AF1QipOwPrQ0lRmuJeBxyprQsR6VT2fICI_jBDIAWskM
 public class AVLTree {
 
     private static class TreeNode {
