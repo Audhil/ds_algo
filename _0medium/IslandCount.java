@@ -14,8 +14,8 @@ public class IslandCount {
         for (int row = 0; row < rows; row++) {
             for (int col = 0; col < cols; col++) {
                 if (grid[row][col] == '1' && !visited[row][col]) {
-                    dfs(row, col, grid, visited);
                     count++;
+                    dfs(row, col, grid, visited);
                 }
             }
         }
