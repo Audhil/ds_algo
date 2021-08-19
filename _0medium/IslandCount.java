@@ -5,6 +5,7 @@ package _0medium;
 public class IslandCount {
 
     //  solve with DFS
+    //  complexity: O(n^2)
     public static int numIslands(char[][] grid) {
         if (grid == null)
             return 0;
