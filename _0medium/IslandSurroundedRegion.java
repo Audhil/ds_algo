@@ -1,9 +1,6 @@
 package _0medium;
 
 //  https://leetcode.com/problems/surrounded-regions/
-
-import java.util.Arrays;
-
 public class IslandSurroundedRegion {
 
     public static void solve(char[][] board) {
