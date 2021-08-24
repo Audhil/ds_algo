@@ -5,9 +5,9 @@ package _0dynamic_programming._1_01KnapSack;
 //  using recursion: https://www.youtube.com/watch?v=kvyShbFVaY8&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=3&ab_channel=AdityaVerma
 public class _0MaxProfit_with_Recursion {
 
-    private int[] valArray = new int[]{7, 2, 11, 77};
-    private int[] wtArray = new int[]{1, 12, 1, 7};
-    private int maxWeight = 6; //  max weight a knapsack can hold
+    private int[] valArray = new int[]{1, 4, 5, 7};
+    private int[] wtArray = new int[]{1, 3, 4, 5};
+    private int maxWeight = 7; //  max weight a knapsack can hold
 
     private int knapSack(int[] valArray, int[] wtArray, int W, int n) {
         //  base condition
