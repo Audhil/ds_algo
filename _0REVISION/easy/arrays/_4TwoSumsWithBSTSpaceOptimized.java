@@ -19,6 +19,28 @@ public class _4TwoSumsWithBSTSpaceOptimized {
         }
     }
 
+    /*
+    *
+    * public static int[] findTarget(TreeNode root, int k) {
+        int[] res = new int[2];
+        findValue(root, root, k, res);
+        return res;
+    }
+
+    private static boolean findValue(TreeNode node, TreeNode root, int k, int[] res) {
+        if (root == null)
+            return false;
+
+        if (find(node, k - root.val) && root.val != (k - root.val)) {
+            res[0] = root.val;
+            res[1] = k - root.val;
+            return true;
+        }
+
+        return findValue(node, root.left, k, res) || findValue(node, root.right, k, res);
+    }
+    * */
+
     public static boolean findTarget(TreeNode root, int k) {
         return findValue(root, root, k);
     }
@@ -54,9 +76,4 @@ public class _4TwoSumsWithBSTSpaceOptimized {
         int k = 3;
         System.out.println("yup: findTarget: " + findTarget(root, k));
     }
-
-
-//    public static int[] twoSum(TreeNode root, int n) {
-//        return false;
-//    }
 }
