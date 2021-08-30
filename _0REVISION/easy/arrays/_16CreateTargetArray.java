@@ -13,6 +13,7 @@ public class _16CreateTargetArray {
         List<Integer> list = new ArrayList<>();
         for (int i = 0; i < index.length; i++) {
             list.add(index[i], nums[i]);
+            list.indexOf(nums[i]);
         }
         for (int i = 0; i < list.size(); i++) {
             nums[i] = list.get(i);
