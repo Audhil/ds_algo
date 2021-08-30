@@ -3,7 +3,7 @@ package _0REVISION.easy.arrays;
 import java.util.Arrays;
 
 //  https://leetcode.com/problems/decode-xored-array/
-public class DecodeXORedArray {
+public class _14DecodeXORedArray {
 
     public static int[] decode(int[] encoded, int first) {
         if (encoded == null)
