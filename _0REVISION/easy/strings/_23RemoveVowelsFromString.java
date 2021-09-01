@@ -1,4 +1,4 @@
-package _0REVISION.easy.arrays;
+package _0REVISION.easy.strings;
 
 //  https://www.youtube.com/watch?v=dzAVG6MI6EU
 //  https://leetcode.com/problems/remove-vowels-from-a-string/

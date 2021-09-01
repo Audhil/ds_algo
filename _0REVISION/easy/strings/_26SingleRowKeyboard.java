@@ -1,4 +1,4 @@
-package _0REVISION.easy.arrays;
+package _0REVISION.easy.strings;
 
 import java.util.ArrayList;
 import java.util.Arrays;

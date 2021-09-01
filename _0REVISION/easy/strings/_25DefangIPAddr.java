@@ -1,4 +1,4 @@
-package _0REVISION.easy.arrays;
+package _0REVISION.easy.strings;
 
 //  https://leetcode.com/problems/defanging-an-ip-address/
 public class _25DefangIPAddr {
