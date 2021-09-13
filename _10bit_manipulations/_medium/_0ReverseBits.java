@@ -22,7 +22,19 @@ Output Format
 Return a single unsigned integer denoting the decimal value of reversed bits.*/
 public class _0ReverseBits {
 
-    public long reverse(long a) {
-        return 0;
+    public static long reverse(long n) {
+        long res = 0;
+        for (int i = 0; i < 4; i++) {
+            res <<= 1;
+            if ((n & 1) > 0) {
+                res++;
+            }
+            n >>= 1;
+        }
+        return res;
+    }
+
+    public static void main(String[] args) {
+        System.out.println("yup: " + reverse(0b0011));
     }
 }
