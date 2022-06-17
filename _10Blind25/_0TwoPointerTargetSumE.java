@@ -1,6 +1,6 @@
 package _10Blind25;
 
-public class _0TwoPointerTargetSum {
+public class _0TwoPointerTargetSumE {
 
   private static class Pair {
 

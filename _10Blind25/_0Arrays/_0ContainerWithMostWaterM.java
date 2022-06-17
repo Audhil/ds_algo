@@ -2,7 +2,7 @@ package _10Blind25._0Arrays;
 
 //  https://www.youtube.com/watch?v=UuiTKBwPgAo&ab_channel=NeetCode
 //  https://leetcode.com/problems/container-with-most-water/
-public class _0ContainerWithMostWater {
+public class _0ContainerWithMostWaterM {
 
   //  brute force - O (n^2)
   public static int maxArea(int[] height) {

@@ -1,6 +1,6 @@
 package _10Blind25;
 
-public class _1InPlaceReversalOfLinkedList {
+public class _1InPlaceReversalOfLinkedListE {
 
   private static class NodeIs {
 
