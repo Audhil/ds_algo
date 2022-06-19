@@ -129,6 +129,45 @@ public class _2_3SumM {
     return new int[2];
   }
 
+  //  3Sum - https://leetcode.com/problems/3sum/
+  //  https://www.youtube.com/watch?v=jzZsG8n2R9A&ab_channel=NeetCode
+  public static List<List<Integer>> threeSum(int[] nums) {
+    List<List<Integer>> finalList = new ArrayList<>();
+    //  sort the array
+    Arrays.sort(nums);  //  O (n log n)
+    for (int i = 0; i < nums.length; i++) {
+      int a = nums[i];  //  1st element at i index
+      //  avoid choosing duplicate nums
+      if (i > 0 && a == nums[i - 1]) {
+        continue;
+      }
+      int bIndex = i + 1;  //  2nd element at i +1 index
+      int cIndex = nums.length - 1;  //  3rd element at last index
+      while (bIndex < cIndex) {
+        int target = -a;
+        if (nums[bIndex] + nums[cIndex] > target) {
+          cIndex--;
+        } else if (nums[bIndex] + nums[cIndex] < target) {
+          bIndex++;
+        }
+        //  equal to target
+        else {
+          List<Integer> list = new ArrayList<>();
+          list.add(a);
+          list.add(nums[bIndex]);
+          list.add(nums[cIndex]);
+          finalList.add(list);
+          //  https://youtu.be/jzZsG8n2R9A?t=715
+          bIndex++;
+          while (nums[bIndex] == nums[bIndex - 1]) {
+            bIndex++;
+          }
+        }
+      }
+    }
+    return finalList;
+  }
+
   public static void main(String[] args) {
     TreeNode root = new TreeNode(5,
         new TreeNode(3, new TreeNode(2, null, null), new TreeNode(4, null, null)),
@@ -163,5 +202,13 @@ public class _2_3SumM {
     System.out.println(
         "yup: indices of 2Sum: " + Arrays.toString(
             twoSum(new int[]{5, 3, 2, 4, 6, 7}, 7)));  //  yup: indices of 2Sum: [2, 0]
+
+    //  3Sum
+    System.out.println("3Sum check it out");
+    System.out.println(
+        "yup: 3Sum int[]{-1, 0, 1, 2, -1, -4} soln: " + threeSum(new int[]{-1, 0, 1, 2, -1, -4}));
+    System.out.println("yup: 3Sum int[]{} soln: " + threeSum(new int[]{}));
+    System.out.println("yup: 3Sum int[]{0} soln: " + threeSum(new int[]{0}));
+
   }
 }
