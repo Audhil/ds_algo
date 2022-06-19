@@ -2,8 +2,9 @@ package _10Blind25._0Arrays;
 
 //  https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/solution/
 //  solve in O (log n) -  we are using Binary search
-public class _4FindMinInRotatedSortedArray {
+public class _4FindMinInRotatedSortedArrayM {
 
+  //  TC - O (log n)
   public static int findMin(int[] nums) {
     if (nums == null) {
       return -1;

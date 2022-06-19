@@ -2,7 +2,7 @@ package _10Blind25._0Arrays;
 
 //  https://leetcode.com/problems/search-in-rotated-sorted-array/
 //  soln: https://www.lintcode.com/problem/62/solution/56253
-public class _3SearchInRotatedSortedArray {
+public class _3SearchInRotatedSortedArrayM {
 
   //  doing with Binary Search
   public static int search(int[] nums, int target) {
