@@ -1,6 +1,7 @@
 package _10Blind25._0Arrays;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -113,6 +114,21 @@ public class _2_3SumM {
     return false;
   }
 
+  //  return indices of 2Sum
+  //  https://leetcode.com/problems/two-sum
+  public static int[] twoSum(int[] nums, int target) {
+    Map<Integer, Integer> map = new HashMap<>();
+    for (int i = 0; i < nums.length; i++) {
+      int num1 = nums[i];
+      int num2 = target - num1;
+      if (map.containsKey(num2)) {
+        return new int[]{i, map.get(num2)}; //  indices of num1 & num2
+      }
+      map.put(nums[i], i);  //  load map with num & it's indices
+    }
+    return new int[2];
+  }
+
   public static void main(String[] args) {
     TreeNode root = new TreeNode(5,
         new TreeNode(3, new TreeNode(2, null, null), new TreeNode(4, null, null)),
@@ -141,5 +157,11 @@ public class _2_3SumM {
     addWithMap(7);
     System.out.println("yup: with Map 2Sum exists: " + findWithMap(
         8));  //  yup: with Map 2Sum exists: true
+
+    //  2Sum find indices
+    System.out.println("yup: find indices");
+    System.out.println(
+        "yup: indices of 2Sum: " + Arrays.toString(
+            twoSum(new int[]{5, 3, 2, 4, 6, 7}, 7)));  //  yup: indices of 2Sum: [2, 0]
   }
 }
