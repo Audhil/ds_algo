@@ -2,7 +2,7 @@ package _10Blind25._0Arrays;
 
 //  https://leetcode.com/problems/maximum-product-subarray/
 //  https://www.youtube.com/watch?v=lXVy6YWFcRM&ab_channel=NeetCode - always keep track of +ve & -ve products
-public class MaxProductSubarrayM {
+public class _6MaxProductSubarrayM {
 
   public static int maxProduct(int[] nums) {
     if (nums == null) {
