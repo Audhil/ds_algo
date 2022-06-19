@@ -35,6 +35,7 @@ public class _4BuySellStocks4 {
         temp = dp[i][j - 1];    //  no transaction on last day
         for (int t = 0; t < j; t++) {
           temp = (t == 0) ?
+              //  transaction done - buy on 0th day, sell on last day
               Math.max(temp, prices.get(j) - prices.get(t))
               //  only one transaction done on last day of the whole cycle
               : Math.max(temp, dp[i - 1][t - 1] + prices.get(j) - prices.get(
