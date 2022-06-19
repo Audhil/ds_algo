@@ -159,7 +159,8 @@ public class _2_3SumM {
           finalList.add(list);
           //  https://youtu.be/jzZsG8n2R9A?t=715
           bIndex++;
-          while (nums[bIndex] == nums[bIndex - 1]) {
+          while (bIndex < nums.length - 1
+              && nums[bIndex] == nums[bIndex - 1]) {
             bIndex++;
           }
         }
