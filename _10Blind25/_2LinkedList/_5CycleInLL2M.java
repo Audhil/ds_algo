@@ -1,7 +1,7 @@
 package _10Blind25._2LinkedList;
 
 //  https://leetcode.com/problems/linked-list-cycle-ii/
-public class _5cycleInLL2M {
+public class _5CycleInLL2M {
 
   public class ListNode {
 
