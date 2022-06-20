@@ -1,8 +1,14 @@
 package _10Blind25;
 
 //  https://www.youtube.com/watch?v=Lj68VJ1wu84&ab_channel=Pepcoding
+//  and this too
+//  https://www.youtube.com/watch?v=QyeDRMprJVQ&ab_channel=CodingBlocks
 public class _2UglyNumbersM {
 
+  //  general form of ugly number
+  //  x = 2^a * 3^b * 5^c
+  //  ugly numbers as follows
+  //  1, 2, 3, 4, 5, 6, 8, 9, 10, 12,
   private static int soln(int n) {
     int[] dp = new int[n + 1];
     dp[0] = 1;  //  1 is the first ugly number any way
