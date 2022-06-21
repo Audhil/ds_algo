@@ -8,7 +8,7 @@ public class _0ReverseBitsE {
   //  1. initialise res = 0 (8 bit, 16 bit or 32 bit or 64 bit)
   //  2. left shift res by 1
   //  3. right shift input by 1
-  //  if the last bit of input is 1, make the res last bit as 1
+  //  if the last bit of input is 1, increase the res value by 1
   //  4. keep on shifting upto the given bit size(8, 16, 32 etc)
 
   // you need treat n as an unsigned value

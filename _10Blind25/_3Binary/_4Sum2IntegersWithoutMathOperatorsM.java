@@ -4,6 +4,10 @@ package _10Blind25._3Binary;
 //  https://www.youtube.com/watch?v=gVUrDV4tZfY&ab_channel=NeetCode
 public class _4Sum2IntegersWithoutMathOperatorsM {
 
+  //  for adding without +, -
+  //  step1: (a & b) << 1 - for tracing carry
+  //  step2: a ^ b
+  //  step3: continue the loop until carry becomes 0
   public static int getSum(int a, int b) {
     while (b != 0) {
       int temp = (a & b) << 1;  //  for tracing carry
