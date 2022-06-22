@@ -3,7 +3,7 @@ package _10Blind25;
 import java.util.Arrays;
 
 //  https://leetcode.com/problems/rotate-image/
-public class RotateMatrixM {
+public class _3RotateMatrixM {
 
   //  with extra matrix - TC: O(n^2), SC: O(n)
   public static int[][] rotate(int[][] matrix) {
