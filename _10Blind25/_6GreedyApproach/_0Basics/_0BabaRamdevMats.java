@@ -1,4 +1,4 @@
-package _10Blind25._6GreedyApproach;
+package _10Blind25._6GreedyApproach._0Basics;
 
 //  https://www.codechef.com/submit/RAMDEV
 public class _0BabaRamdevMats {
