@@ -47,8 +47,10 @@ public class _0CountActivitiesChosen {
     activityList.add(new Activity(1, 3));
     activityList.add(new Activity(2, 6));
     activityList.add(new Activity(4, 5));
+    activityList.add(new Activity(3, 4));
+    activityList.add(new Activity(5, 6));
     System.out.println(
         "yup: noOfNonOverlappingActivitiesChosen: " + noOfNonOverlappingActivitiesChosen(
-            activityList)); //  yup: noOfNonOverlappingActivitiesChosen: 2
+            activityList)); //  yup: noOfNonOverlappingActivitiesChosen: 4[(1,3),(3,4),(4,5),(5,6)]
   }
 }
