@@ -26,6 +26,7 @@ public class _0FractionalKnapSack {
     }
   }
 
+  //  TC: O (n log n) - descending sort
   private static int maxPriceProfit() {
     int knapSackMaxWt = 13, maxProfit = 0;
     int[] wt = {10, 2, 5};
