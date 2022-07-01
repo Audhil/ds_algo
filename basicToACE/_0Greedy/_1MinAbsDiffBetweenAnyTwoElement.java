@@ -29,6 +29,6 @@ public class _1MinAbsDiffBetweenAnyTwoElement {
         "yup: minDiffWithSorting: " + minDiffWithSorting(new int[]{99, 3, 77, 1, 9, 11}));
 
     System.out.println(
-        "yup: minDiff: " + minDiffWithSorting(new int[]{99, 3, 77, 1, 9, 11}));
+        "yup: minDiff: " + minDiff(new int[]{99, 3, 77, 1, 9, 11}));
   }
 }
