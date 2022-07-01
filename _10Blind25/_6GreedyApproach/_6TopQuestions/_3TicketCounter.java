@@ -16,19 +16,17 @@ public class _3TicketCounter {
     int countOf5 = 0, countOf10 = 0, countOf20 = 0;
     Arrays.sort(customers);
     for (int customer : customers) {
-      switch (customer) {
-        case 5 -> countOf5++;
-        case 10 -> {
+      if (customer == 5) {
+        countOf5++;
+      } else if (customer == 10) {
+        countOf5--;
+        countOf10++;
+      } else if (customer == 20) {
+        countOf5--;
+        if (countOf10 > 0) {
+          countOf10--;
+        } else {
           countOf5--;
-          countOf10++;
-        }
-        case 20 -> {
-          countOf5--;
-          if (countOf10 > 0) {
-            countOf10--;
-          } else {
-            countOf5--;
-          }
         }
       }
       if (countOf5 < 0) {
