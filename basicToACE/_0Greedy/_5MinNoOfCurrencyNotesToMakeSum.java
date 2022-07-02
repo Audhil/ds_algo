@@ -37,5 +37,9 @@ public class _5MinNoOfCurrencyNotesToMakeSum {
     System.out.println(
         "yup: minNoNotesToMakeSum: " + minNoNotesToMakeSum(new int[]{50, 1, 20, 5, 10, 2, 100},
             83));
+
+    System.out.println(
+        "yup: minNoNotesToMakeSum: " + minNoNotesToMakeSum(new int[]{50, 1, 20, 5, 10, 2, 100},
+            89));
   }
 }
