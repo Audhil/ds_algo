@@ -50,6 +50,7 @@ public class _9FirstAndLast {
 
   //  solution without rotation of array - simple
   /*
+    based on: https://www.youtube.com/watch?v=Yei31B-pUuM&ab_channel=CodeChef
    * [a,b,c,d,e] -> a + e
    * [e,a,b,c,d] -> e + d
    * [d,e,a,b,c] -> d + c
