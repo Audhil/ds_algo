@@ -27,7 +27,7 @@ public class _0Subsets {
       temp.add(list.get(index));
       getAllSubsets(index + 1, list, temp, subsetList);
       //  backtracking
-      temp.remove(temp.size() - 1);
+      temp.remove(temp.size() - 1); //  remove added item
     }
   }
 
