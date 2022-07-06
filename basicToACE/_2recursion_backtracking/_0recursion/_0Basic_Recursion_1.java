@@ -90,7 +90,7 @@ public class _0Basic_Recursion_1 {
     }
 
     int op = climbingStepsWithMinCost(currStepNo + 1, n, cost); //  1 step at a time
-    if (currStepNo + 2 <= n - 1) {
+    if (currStepNo + 2 <= n - 1) {  //  avoid invalid case - passing beyond top
       op = Math.min(op, climbingStepsWithMinCost(currStepNo + 2, n, cost)); //  2 steps at a time
     }
 //    if (currStepNo + 3 <= n - 1) {
