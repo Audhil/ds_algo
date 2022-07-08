@@ -17,8 +17,8 @@ public class _1Basic_Recursion_2 {
     //  choosing numbers of choice
     for (int x = 1; x < n; x++) {
       if (n % x == 0) { //  given in question
-        //  aliceBobPlaying(n - 1), it means, alice is writing the number on board, bob comes to play
-        if (aliceBobPlaying(n - 1) == 0) {
+        //  aliceBobPlaying(n - x), it means, alice is writing the number on board, bob comes to play
+        if (aliceBobPlaying(n - x) == 0) {
           return 1; //  alice is winning
         }
       }
@@ -27,6 +27,6 @@ public class _1Basic_Recursion_2 {
   }
 
   public static void main(String[] args) {
-    System.out.println("yup: who is winning: " + aliceBobPlaying(2)); //  yup: who is winning: 1 - (Alice)
+    System.out.println("yup: who is winning: " + aliceBobPlaying(3)); //  yup: who is winning: 0 - (Alice)
   }
 }
