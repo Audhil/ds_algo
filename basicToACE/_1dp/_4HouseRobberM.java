@@ -36,17 +36,35 @@ public class _4HouseRobberM {
     return dp[currHouse] = Math.max(chori, notChori);
   }
 
+  //  iterative approach
+  //  https://youtu.be/5-lL9QuTpRA?list=PLQXZIFwMtjowKrFlzGcjMqchffJDRsz1E&t=3432
+  private static int maxRobbedAmtWithIterativeApproach(int[] housesWithMoney) {
+    int n = housesWithMoney.length;
+    int[] dp = new int[n + 2];
+    //  base condition  - refer if (currHouse >= housesWithMoney.length){}
+    dp[n] = 0;
+    dp[n + 1] = 0;
+    for (int i = n - 1; i >= 0; i--) {
+      dp[i] = Math.max(housesWithMoney[i] + dp[i + 2],
+          dp[i + 1] //  0 + dp[i + 1]
+      );
+    }
+    return dp[0];
+  }
+
   public static void main(String[] args) {
     int[] houses = {11, 12, 3, 5};
     System.out.println(
         "yup: max robbed amount: " + maxRobbedAmount(0, houses));  //  yup: max robbed amount: 17
 //    int[] houses = {11, 12, 3, 5, 13};
 //    System.out.println("yup: max robbed amount: " + maxRobbedAmount(0, houses));  //  yup: max robbed amount: 27
-
     int[] dp = new int[houses.length + 1];
     Arrays.fill(dp, -1);
     System.out.println(
         "yup: max robbed with dp: amount: " + maxRobbedAmountWithDp(0, houses,
             dp));  //  yup: max robbed with dp: amount: 17
+    System.out.println(
+        "yup: maxRobbedAmtWithIterativeApproach: " + maxRobbedAmtWithIterativeApproach(
+            houses));  //  yup: maxRobbedAmtWithIterativeApproach: 17
   }
 }
