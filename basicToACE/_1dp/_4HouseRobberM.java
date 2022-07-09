@@ -19,7 +19,7 @@ public class _4HouseRobberM {
   }
 
   //  with dp
-  //  TC: O (n), SC: O (n)
+  //  TC: O (n), SC: O (n) - - TOP DOWN approach
   private static int maxRobbedAmountWithDp(int currHouse, int[] housesWithMoney, int[] dp) {
     if (currHouse >= housesWithMoney.length) {
       return 0;
@@ -36,7 +36,7 @@ public class _4HouseRobberM {
     return dp[currHouse] = Math.max(chori, notChori);
   }
 
-  //  iterative approach
+  //  iterative approach - BOTTOM UP approach
   //  https://youtu.be/5-lL9QuTpRA?list=PLQXZIFwMtjowKrFlzGcjMqchffJDRsz1E&t=3432
   private static int maxRobbedAmtWithIterativeApproach(int[] housesWithMoney) {
     int n = housesWithMoney.length;
