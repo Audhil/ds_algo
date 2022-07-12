@@ -24,9 +24,10 @@ public class _1DecodingWaysM {
   }
 
   public static void main(String[] args) {
-    System.out.println("yup: decoding ways: " + numDecodings("12"));  //  yup: decoding ways: 2
-    System.out.println("yup: decoding ways: " + numDecodings("226"));  //  yup: decoding ways: 3
-    System.out.println("yup: decoding ways: " + numDecodings("06"));  //  yup: decoding ways: 0
-    System.out.println("yup: decoding ways: " + numDecodings("12"));  //  yup: decoding ways: 2
+    System.out.println("yup: 12: decoding ways: " + numDecodings("12"));  //  yup: decoding ways: 2
+    System.out.println("yup: 226: decoding ways: " + numDecodings("226"));  //  yup: decoding ways: 3
+    System.out.println("yup: 06: decoding ways: " + numDecodings("06"));  //  yup: decoding ways: 0
+    System.out.println("yup: 12: decoding ways: " + numDecodings("12"));  //  yup: decoding ways: 2
+    System.out.println("yup: 1002: decoding ways: " + numDecodings("1002"));  //  yup: decoding ways: 0
   }
 }
