@@ -56,13 +56,12 @@ public class _3WordBreakM {
       }
       dp[i] = 0;
     }
-    return dp[0] == 0;
+    return dp[0] == 1;
   }
 
   //  BOTTOM-UP approach - dp
   public static boolean wordBreak2(String s, List<String> wordDict) {
     int[] dp = new int[301];  //  constraint given in question
-    Arrays.fill(dp, -1);
     return help2(s, wordDict, dp);
   }
 
