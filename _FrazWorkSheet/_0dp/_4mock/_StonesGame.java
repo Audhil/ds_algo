@@ -64,7 +64,6 @@ public class _StonesGame {
                 leftSum + Math.max(dp[i][k], dp[k + 1][j]));
           }
         }
-        System.out.println("yup: ans: " + ans);
         dp[i][j] = ans;
       }
     }
