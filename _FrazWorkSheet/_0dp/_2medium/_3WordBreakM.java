@@ -15,6 +15,7 @@ public class _3WordBreakM {
   }
 
   //  TOP-DOWN approach - dp
+  //  todo - do memoization with map<>, refer _1WordBreakII.java probs
   private static boolean help(int index, String s, List<String> wordDict, int[] dp) {
     //  we fragmented whole string
     if (index == s.length()) {

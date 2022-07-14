@@ -9,6 +9,7 @@ import java.util.Map;
 //  https://leetcode.com/problems/word-break-ii/
 public class _1WordBreakII {
 
+  //  refer _3WordBreakM.java
   //  explanation: https://www.youtube.com/watch?v=jQJyWcRPEpE&ab_channel=NareshGupta
   public static List<String> wordBreak(String s, List<String> wordDict) {
     List<String> result = new ArrayList<>();
@@ -30,6 +31,7 @@ public class _1WordBreakII {
     return result;
   }
 
+  //  memoization
   public static List<String> wordBreakWithCache(
       String s,
       List<String> wordDict,
