@@ -1,7 +1,9 @@
 package _FrazWorkSheet._0dp._2medium;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 //  https://leetcode.com/problems/word-break/
 public class _3WordBreakM {
@@ -15,34 +17,31 @@ public class _3WordBreakM {
   }
 
   //  TOP-DOWN approach - dp
-  //  todo - do memoization with map<>, refer _1WordBreakII.java probs
-  private static boolean help(int index, String s, List<String> wordDict, int[] dp) {
+  private static boolean help(int index, String s, List<String> wordDict,
+      Map<Integer, Boolean> mMap) {
     //  we fragmented whole string
     if (index == s.length()) {
       return true;
     }
-    if (dp[index] != -1) {
-      return dp[index] == 1;
+    if (mMap.get(index) != null) {
+      return mMap.get(index);
     }
     StringBuilder temp = new StringBuilder();
     for (int i = index; i < s.length(); i++) {
       temp.append(s.charAt(i));
       if (wordDict.contains(temp.toString())) {
-        if (help(i + 1, s, wordDict, dp)) {
-          dp[index] = 1;
+        if (help(i + 1, s, wordDict, mMap)) {
+          mMap.put(index, true);
           return true;
         }
       }
     }
-    dp[index] = 0;
     return false;
   }
 
   //  https://youtu.be/_iIK7Gu7MNo?t=334
   public static boolean wordBreak1(String s, List<String> wordDict) {
-    int[] dp = new int[301];  //  constraint given in question
-    Arrays.fill(dp, -1);
-    return help(0, s, wordDict, dp);
+    return help(0, s, wordDict, new HashMap<>());
   }
 
   private static boolean help2(String s, List<String> wordDict, int[] dp) {
@@ -76,10 +75,12 @@ public class _3WordBreakM {
     System.out.println("yup: TOP-DOWN : catsandog: wordBreak1: " + wordBreak1("catsandog",
         Arrays.asList("cats", "dog", "sand", "and", "cat")));
     System.out.println(
-        "yup: TOP-DOWN : cars: wordBreak1: " + wordBreak1("cars", Arrays.asList("car", "ca", "rs")));
+        "yup: TOP-DOWN : cars: wordBreak1: " + wordBreak1("cars",
+            Arrays.asList("car", "ca", "rs")));
     System.out.println("yup: BOTTOM-UP : catsandog: wordBreak1: " + wordBreak2("catsandog",
         Arrays.asList("cats", "dog", "sand", "and", "cat")));
     System.out.println(
-        "yup: BOTTOM-UP : cars: wordBreak2: " + wordBreak2("cars", Arrays.asList("car", "ca", "rs")));
+        "yup: BOTTOM-UP : cars: wordBreak2: " + wordBreak2("cars",
+            Arrays.asList("car", "ca", "rs")));
   }
 }
