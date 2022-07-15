@@ -1,7 +1,7 @@
 package _ZSubX;
 
 //  https://www.youtube.com/watch?v=HEzpaUOAcds&ab_channel=CodingandSystemDesignInterviews
-public class _2printAllSubsequences {
+public class _2printAllSubsequences_recursion {
 
   //   if arr is n, it'll have 2^n subsequences
   //  TC: O (2^n)

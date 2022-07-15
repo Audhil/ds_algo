@@ -1,7 +1,7 @@
 package _ZSubX;
 
 //  https://www.youtube.com/watch?v=T6lOtastw6A&ab_channel=CodingandSystemDesignInterviews
-public class _1printAllSubArrays {
+public class _1printAllSubArrays_iterative {
 
   //  TC: O (n^3)
   /*
