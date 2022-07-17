@@ -1,4 +1,4 @@
-package ds_algo._0dynamic_programming._1_01KnapSack;
+package _0dynamic_programming._1_01KnapSack.subsets;
 
 //  https://www.youtube.com/watch?v=_gPcYovP7wc&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=7&ab_channel=AdityaVerma
 public class _3SubsetSumProblem {

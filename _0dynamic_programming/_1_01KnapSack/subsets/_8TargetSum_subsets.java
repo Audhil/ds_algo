@@ -1,8 +1,8 @@
-package _0dynamic_programming._1_01KnapSack;
+package _0dynamic_programming._1_01KnapSack.subsets;
 
 //  https://www.youtube.com/watch?v=Hw6Ygp3JBYw&list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&index=12&ab_channel=AdityaVerma
 //  this prob is equal  to  CountOfSubsetSumWithGivenDiff - refer _7CountOfSubsetsSumWithGivenDiff.java
-public class _8TargetSum {
+public class _8TargetSum_subsets {
 
     /*
     * Target Sum Problem
@@ -70,7 +70,7 @@ public class _8TargetSum {
     }
 
     public static void main(String[] args) {
-        _8TargetSum prob = new _8TargetSum();
+        _8TargetSum_subsets prob = new _8TargetSum_subsets();
         System.out.println("yup: on adding signs to each item, targetSum Is: " + prob.targetSum());
     }
 }

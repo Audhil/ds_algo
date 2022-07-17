@@ -1,4 +1,4 @@
-package ds_algo._0dynamic_programming._1_01KnapSack;
+package _0dynamic_programming._1_01KnapSack.subsets;
 
 //  https://youtu.be/ot_XBHyqpFc?list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go
 public class _7CountOfSubsetsSumWithGivenDiff {
