@@ -42,6 +42,7 @@ public class _2CoinChange_MinNoOfCoins {
             }
         }
 
+        //  https://youtu.be/I-l6PBeERuc?list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&t=1136
         //  initialization - 2 - initializing 2nd row
         if (coins.length > 1)   //  safer check - if there's only one coin available?
             for (int j = 1; j < sum + 1; j++) {

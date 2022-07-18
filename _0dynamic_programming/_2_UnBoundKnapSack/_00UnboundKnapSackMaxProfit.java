@@ -25,7 +25,7 @@ public class _00UnboundKnapSackMaxProfit {
           dp[i][j] = 0;
         } else if (wtArray[i - 1] <= j) {
           dp[i][j] = Math.max(
-              valArray[i - 1] + dp[i][j - wtArray[i - 1]],  //  choosing the item - only difference: dp[i-1][j - wtArray[i - 1]]
+              valArray[i - 1] + dp[i][j - wtArray[i - 1]],  //  choosing the item - only difference: dp[i] instead of dp[i -1]
               dp[i - 1][j]  //  ignoring the item
           );
         } else {
