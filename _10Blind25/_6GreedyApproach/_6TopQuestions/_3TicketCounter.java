@@ -13,7 +13,7 @@ public class _3TicketCounter {
     if (customers == null) {
       return false;
     }
-    int countOf5 = 0, countOf10 = 0, countOf20 = 0;
+    int countOf5 = 0, countOf10 = 0;
     Arrays.sort(customers);
     for (int customer : customers) {
       if (customer == 5) {

@@ -1,6 +1,7 @@
 package _0dynamic_programming._1_01KnapSack.subsets;
 
 //  https://youtu.be/ot_XBHyqpFc?list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go
+//  sum up: https://youtu.be/ot_XBHyqpFc?list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&t=760
 public class _7CountOfSubsetsSumWithGivenDiff {
     /*
      *

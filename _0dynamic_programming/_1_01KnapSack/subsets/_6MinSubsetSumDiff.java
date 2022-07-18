@@ -69,6 +69,7 @@ public class _6MinSubsetSumDiff {
         //  considering s1 as non-negative, to support (range - 2S1) -> refer video
         int[] subSums = new int[range / 2 + 1];   //  we'll iterate only range/2, add 1 more integer to include the value
         Arrays.fill(subSums, -1);
+        //  https://youtu.be/-GtpxG6l_Mc?list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&t=2036
         for (int i = 0; i < subSums.length; i++) {
             if (subSetMatrix[arr.length][i])   //  considering last row(i.e., taking all items in array) of 2d-array,
                 subSums[i] = i;
@@ -80,8 +81,9 @@ public class _6MinSubsetSumDiff {
         for (int i = 0; i < subSums.length; i++) {
             if (subSums[i] < 0)
                 continue;
-            mn = Math.min(range - (2 * subSums[i]), mn);
+            mn = Math.min(mn, range - (2 * subSums[i]));
         }
+        //  sum up explanation: https://youtu.be/-GtpxG6l_Mc?list=PL_z_8CaSLPWekqhdCPmFohncHwz8TY2Go&t=2449
         return mn;
     }
 
