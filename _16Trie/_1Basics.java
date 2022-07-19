@@ -87,6 +87,21 @@ public class _1Basics {
     System.out.println("yup: is " + word + " : startsWith: : " + trie.startsWith("apd")); //  false
     System.out.println("yup: is " + word + " : startsWith: : " + trie.startsWith("appl"));  //  true
     System.out.println("yup: is " + word + " : startsWith: : " + trie.startsWith("apple")); //  true
-    System.out.println("yup: is " + word + " : startsWith: : " + trie.startsWith("applee"));  //  false
+    System.out.println(
+        "yup: is " + word + " : startsWith: : " + trie.startsWith("applee"));  //  false
+    System.out.println("yup: trying alternate version");
+    word = "appd";
+    trie.insert(word);
+    System.out.println("yup: is " + word + " : available: " + trie.search(word)); //  true
+    System.out.println("yup: is " + word + " : startsWith: : " + trie.startsWith("app")); //  true
+    System.out.println("yup: is " + word + " : startsWith: : " + trie.startsWith("bad")); //  false
+    System.out.println("yup: is " + word + " : startsWith: : " + trie.startsWith("apd")); //  false
+    System.out.println("yup: is " + word + " : startsWith: : " + trie.startsWith("appl"));  //  true
+    System.out.println("yup: is " + word + " : startsWith: : " + trie.startsWith("apple")); //  true
+    System.out.println(
+        "yup: is " + word + " : startsWith: : " + trie.startsWith("applee"));  //  false
+
+    System.out.println("yup: is apple word : available: " + trie.search("apple")); //  true
+    System.out.println("yup: is appd word : available: " + trie.search("appd")); //  true
   }
 }
