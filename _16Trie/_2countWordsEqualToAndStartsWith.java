@@ -12,11 +12,27 @@ public class _2countWordsEqualToAndStartsWith {
       return countEndWith;
     }
 
+    private void increaseEndsWith() {
+      countEndWith++;
+    }
+
+    private void decreaseEndsWith() {
+      countEndWith--;
+    }
+
+    private int countPrefix = 0;
+
     public int getCountPrefix() {
       return countPrefix;
     }
 
-    private int countPrefix = 0;
+    private void increasePrefix() {
+      countPrefix++;
+    }
+
+    private void decreasePrefix() {
+      countPrefix--;
+    }
 
     public boolean containsKey(char ch) {
       return links[ch - 'a'] != null;
@@ -28,22 +44,6 @@ public class _2countWordsEqualToAndStartsWith {
 
     public TNode get(char ch) {
       return links[ch - 'a'];
-    }
-
-    private void increasePrefix() {
-      countPrefix++;
-    }
-
-    private void increaseEndsWith() {
-      countEndWith++;
-    }
-
-    private void decreasePrefix() {
-      countPrefix--;
-    }
-
-    private void decreaseEndsWith() {
-      countEndWith--;
     }
   }
 
