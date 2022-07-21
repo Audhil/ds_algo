@@ -91,5 +91,7 @@ public class _3LongestCompleteString {
             "ninga"})); //  yup: 1st getLongestCompleteString: ninja
     System.out.println("yup: 2nd getLongestCompleteString: " + getLongestCompleteString(
         new String[]{"ab", "bc"})); //  yup: 2nd getLongestCompleteString: None
+    System.out.println("yup: 3rd getLongestCompleteString: " + getLongestCompleteString(
+        new String[]{"a", "ab", "abc"})); //  yup: 3rd getLongestCompleteString: abc
   }
 }
