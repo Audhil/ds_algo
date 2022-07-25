@@ -9,7 +9,7 @@ public class _5SearchSuggestionSystemM {
   private static class TNode {
 
     private final TNode[] links = new TNode[26];
-    private boolean flag = false;
+    private boolean isWord = false;
 
 
     public boolean containsKey(char ch) {
@@ -24,12 +24,12 @@ public class _5SearchSuggestionSystemM {
       return links[ch - 'a'];
     }
 
-    public void setEnd() {
-      flag = true;
+    public void setWord() {
+      isWord = true;
     }
 
-    public boolean isEnd() {
-      return flag;
+    public boolean isWord() {
+      return isWord;
     }
   }
 
@@ -49,13 +49,37 @@ public class _5SearchSuggestionSystemM {
         }
         temp = temp.get(ch);
       }
-      temp.setEnd();
+      temp.setWord();
     }
 
-    private String startsWith(String word) {
-      TNode temp = root;
+    private List<String> list;
 
-      return null;
+    private void dfs(TNode temp, String prefix) {
+      if (list.size() == 3) {
+        return;
+      }
+      if (temp.isWord()) {
+        list.add(prefix);
+      }
+      //  recursion
+      for (char ch = 'a'; ch <= 'z'; ch++) {
+        if (temp.containsKey(ch)) {
+          dfs(temp.get(ch), prefix + ch);
+        }
+      }
+    }
+
+    public List<String> suggestionList(String prefix) {
+      TNode temp = root;
+      list = new ArrayList<>();
+      for (char pch : prefix.toCharArray()) {
+        if (!temp.containsKey(pch)) {
+          return list;
+        }
+        temp = temp.get(pch);
+      }
+      dfs(temp, prefix);
+      return list;
     }
   }
 
@@ -65,11 +89,36 @@ public class _5SearchSuggestionSystemM {
     for (String product : products) {
       trie.insert(product);
     }
-
+    //  search
+    StringBuilder stringBuilder = new StringBuilder();
+    for (char ch : searchWord.toCharArray()) {
+      stringBuilder.append(ch);
+      if (!trie.suggestionList(stringBuilder.toString()).isEmpty()) {
+        resList.add(trie.suggestionList(stringBuilder.toString()));
+      }
+    }
     return resList;
   }
 
   public static void main(String[] args) {
+    //  [[mobile, moneypot, monitor], [mobile, moneypot, monitor], [mouse, mousepad], [mouse, mousepad], [mouse, mousepad]]
+    System.out.println(
+        suggestedProducts(new String[]{"mobile", "mouse", "moneypot", "monitor", "mousepad"},
+            "mouse"));
 
+    //  [[baggage, bags, banner], [baggage, bags, banner], [baggage, bags], [bags]]
+    System.out.println(
+        suggestedProducts(new String[]{"bags", "baggage", "banner", "box", "cloths"},
+            "bags"));
+
+    //  [[havana], [havana], [havana], [havana], [havana], [havana]]
+    System.out.println(
+        suggestedProducts(new String[]{"havana"},
+            "havana"));
+
+    //  []
+    System.out.println(
+        suggestedProducts(new String[]{"havana"},
+            "tatiana"));
   }
 }

@@ -32,25 +32,31 @@ public class _5SearchSuggestionSystemWith2PointersM {
       for (int j = 0; j < Math.min(3, remaining); j++) {
         tempList.add(products[l + j]);
       }
-      resList.add(tempList);
+      if (!tempList.isEmpty()) {
+        resList.add(tempList);
+      }
     }
     return resList;
   }
 
   public static void main(String[] args) {
     //  [[mobile, moneypot, monitor], [mobile, moneypot, monitor], [mouse, mousepad], [mouse, mousepad], [mouse, mousepad]]
-    System.out.println(
-        suggestedProducts(new String[]{"mobile", "mouse", "moneypot", "monitor", "mousepad"},
-            "mouse"));
+//    System.out.println(
+//        suggestedProducts(new String[]{"mobile", "mouse", "moneypot", "monitor", "mousepad"},
+//            "mouse"));
+//
+//    //  [[baggage, bags, banner], [baggage, bags, banner], [baggage, bags], [bags]]
+//    System.out.println(
+//        suggestedProducts(new String[]{"bags", "baggage", "banner", "box", "cloths"},
+//            "bags"));
+//
+//    //  [[havana], [havana], [havana], [havana], [havana], [havana]]
+//    System.out.println(
+//        suggestedProducts(new String[]{"havana"},
+//            "havana"));
 
-    //  [[baggage, bags, banner], [baggage, bags, banner], [baggage, bags], [bags]]
-    System.out.println(
-        suggestedProducts(new String[]{"bags", "baggage", "banner", "box", "cloths"},
-            "bags"));
-
-    //  [[havana], [havana], [havana], [havana], [havana], [havana]]
     System.out.println(
         suggestedProducts(new String[]{"havana"},
-            "havana"));
+            "tatiana"));
   }
 }
