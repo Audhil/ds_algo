@@ -18,6 +18,9 @@ public class _3LeverOrderTraversalReverseList {
 
   public static List<List<Integer>> levelOrderBottom(TreeNode root) {
     List<List<Integer>> resList = new ArrayList<>();
+    if (root == null) {
+      return resList;
+    }
     List<Integer> tempList = new ArrayList<>();
     LinkedList<TreeNode> queue = new LinkedList<>();
     queue.add(root);
