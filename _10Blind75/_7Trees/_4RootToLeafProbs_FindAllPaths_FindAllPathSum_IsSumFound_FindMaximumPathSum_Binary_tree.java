@@ -6,7 +6,7 @@ import java.util.Deque;
 import java.util.Iterator;
 import java.util.List;
 
-public class _4RootToLeafProbs_FindAllPaths_FindAllPathSum_IsSumFound_FindMaximumPathSum {
+public class _4RootToLeafProbs_FindAllPaths_FindAllPathSum_IsSumFound_FindMaximumPathSum_Binary_tree {
 
   private static class TreeNode {
 
