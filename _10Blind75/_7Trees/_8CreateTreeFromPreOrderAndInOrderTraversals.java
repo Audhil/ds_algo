@@ -18,21 +18,22 @@ public class _8CreateTreeFromPreOrderAndInOrderTraversals {
     if (preorder == null || inorder == null) {
       return null;
     }
+    if (preorder.length <= 0) {
+      return null;
+    }
     TreeNode root = new TreeNode(preorder[0]);
     int mid = indexOf(inorder, preorder[0], 0);
-    if (mid > 0) {
-      root.left = buildTree(Arrays.copyOfRange(preorder, 1, mid + 1),
-          Arrays.copyOfRange(inorder, 0, mid));
-      root.right = buildTree(Arrays.copyOfRange(preorder, mid + 1, preorder.length),
-          Arrays.copyOfRange(inorder, mid + 1, inorder.length));
-    }
+    root.left = buildTree(Arrays.copyOfRange(preorder, 1, mid + 1),
+        Arrays.copyOfRange(inorder, 0, mid));
+    root.right = buildTree(Arrays.copyOfRange(preorder, mid + 1, preorder.length),
+        Arrays.copyOfRange(inorder, mid + 1, inorder.length));
     return root;
   }
 
 
   private static int indexOf(int[] arr, int item, int start) {
     if (start == arr.length) {
-      return -1;
+      return 0;
     }
     if (arr[start] == item) {
       return start;
@@ -53,5 +54,13 @@ public class _8CreateTreeFromPreOrderAndInOrderTraversals {
     TreeNode root = buildTree(new int[]{3, 9, 20, 15, 7}, new int[]{9, 3, 15, 20, 7});
     System.out.println("yup: constructed tree inOrder traversal");
     printInOrder(root); //  9 3 15 20 7
+
+//    TreeNode root = buildTree(new int[]{1, 2}, new int[]{2, 1});
+//    System.out.println("yup: constructed tree inOrder traversal");
+//    printInOrder(root); //  2 1
+
+//    TreeNode root = buildTree(new int[]{1, 2}, new int[]{1, 2});
+//    System.out.println("yup: constructed tree inOrder traversal");
+//    printInOrder(root); //  1 null 2
   }
 }
