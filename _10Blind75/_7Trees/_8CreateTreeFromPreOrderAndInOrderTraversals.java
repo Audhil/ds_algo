@@ -2,6 +2,7 @@ package _10Blind75._7Trees;
 
 import java.util.Arrays;
 
+//  explanation: https://youtu.be/ihj4IQGZ2zc
 public class _8CreateTreeFromPreOrderAndInOrderTraversals {
 
   private static class TreeNode {
@@ -15,7 +16,7 @@ public class _8CreateTreeFromPreOrderAndInOrderTraversals {
   }
 
   public static TreeNode buildTree(int[] preorder, int[] inorder) {
-    if (preorder == null || inorder == null) {
+    if (preorder == null || inorder == null || preorder.length != inorder.length) {
       return null;
     }
     if (preorder.length <= 0) {
@@ -24,9 +25,11 @@ public class _8CreateTreeFromPreOrderAndInOrderTraversals {
     TreeNode root = new TreeNode(preorder[0]);
     int mid = indexOf(inorder, preorder[0], 0);
     root.left = buildTree(Arrays.copyOfRange(preorder, 1, mid + 1),
-        Arrays.copyOfRange(inorder, 0, mid));
+        //  actually, splits array from 1 to mid;
+        Arrays.copyOfRange(inorder, 0, mid)); //  actually, splits array from 0 to mid-1;
     root.right = buildTree(Arrays.copyOfRange(preorder, mid + 1, preorder.length),
-        Arrays.copyOfRange(inorder, mid + 1, inorder.length));
+        //  splits array from mid+1 to len-1
+        Arrays.copyOfRange(inorder, mid + 1, inorder.length));  //  splits array from mid+1 to len-1
     return root;
   }
 
