@@ -1,7 +1,7 @@
 package _10Blind75._7Trees;
 
 //  https://youtu.be/s6ATEkipzow
-public class _10ValidBST_BinarySearchTree {
+public class _10ValidBST_BinarySearchTreeM {
 
   private static class TreeNode {
 
