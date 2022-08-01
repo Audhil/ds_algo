@@ -25,7 +25,8 @@ public class _0WordSearchM {
       return true;
     }
     if (i < 0 || i >= board.length || j < 0 || j >= board[i].length
-        || word.charAt(index) != board[i][j] || visited[i][j]) {
+        || visited[i][j]
+        || word.charAt(index) != board[i][j]) {
       return false;
     }
 
