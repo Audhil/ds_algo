@@ -1,4 +1,4 @@
-package _10Blind75;
+package _10Blind75._00Others;
 
 public class _1InPlaceReversalOfLinkedListE {
 

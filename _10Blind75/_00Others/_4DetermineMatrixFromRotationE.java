@@ -1,4 +1,4 @@
-package _10Blind75;
+package _10Blind75._00Others;
 
 //  https://leetcode.com/problems/determine-whether-matrix-can-be-obtained-by-rotation/
 //  https://www.youtube.com/watch?v=4ZJuUQ2iMk4&ab_channel=SandipJana

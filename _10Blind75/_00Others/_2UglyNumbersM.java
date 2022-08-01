@@ -1,4 +1,4 @@
-package _10Blind75;
+package _10Blind75._00Others;
 
 //  https://www.youtube.com/watch?v=Lj68VJ1wu84&ab_channel=Pepcoding
 //  and this too
