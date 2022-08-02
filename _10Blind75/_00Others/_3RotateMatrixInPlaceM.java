@@ -3,7 +3,7 @@ package _10Blind75._00Others;
 import java.util.Arrays;
 
 //  https://leetcode.com/problems/rotate-image/
-public class _3RotateMatrixM {
+public class _3RotateMatrixInPlaceM {
 
   //  with extra matrix - TC: O(n^2), SC: O(n)
   public static int[][] rotate(int[][] matrix) {
@@ -36,7 +36,7 @@ public class _3RotateMatrixM {
     int l = 0, r = matrix.length - 1;
 
     while (l < r) {
-      for (int i = 0; i < (r - l); i++) {
+      for (int i = 0; i < (r - l); i++) { //  similar to for (int i = l; i < r - 1; i++)
         int top = l, bottom = r;
         int topLeft = matrix[top][l + i]; //  save the value
 
