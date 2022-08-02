@@ -1,0 +1,5 @@
+TC:
+  adding element in any heap - O (log n)
+  removing element in any heap = O (log n)
+  get max element from maxHeap = O (1)
+  get min element from minHeap = O (1)
