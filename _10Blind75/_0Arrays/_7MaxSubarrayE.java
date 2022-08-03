@@ -23,6 +23,21 @@ public class _7MaxSubarrayE {
     return maxSum;
   }
 
+  public static int revision(int[] nums) {
+    if (nums.length == 1) {
+      return nums[0];
+    }
+    int maxSum = 0, currSum = 0;
+    for (int num : nums) {
+      if (currSum < 0) {
+        currSum = 0;
+      }
+      currSum += num;
+      maxSum = Math.max(maxSum, currSum);
+    }
+    return maxSum;
+  }
+
   public static void main(String[] args) {
     System.out.println(
         "yup: Max sum of SubArray: " + maxSubArray(

@@ -3,7 +3,7 @@ package _10Blind75._0Arrays;
 import java.util.Arrays;
 
 //  https://leetcode.com/problems/product-of-array-except-self/
-public class _8ProductOfArrayExceptSelf {
+public class _8ProductOfArrayExceptSelfM {
 
   //  with extra array for prefix & postfix - TC - O (n), SC - O (n)
   public static int[] productExceptSelf(int[] nums) {
@@ -49,6 +49,25 @@ public class _8ProductOfArrayExceptSelf {
     for (int i = nums.length - 1; i >= 0; i--) {
       res[i] *= postfix;  //  res[i] will contain prefix calculated earlier
       postfix *= nums[i];
+    }
+    return res;
+  }
+
+
+  //  revision
+  public static int[] revision(int[] nums) {
+    int[] res = new int[nums.length];
+    //  prefix
+    int prefix = 1;
+    for (int i = 0; i < nums.length; i++) {
+      res[i] = prefix;
+      prefix *= nums[i];
+    }
+    //  postfix
+    int postFix = 1;
+    for (int i = nums.length - 1; i >= 0; i--) {
+      res[i] *= postFix;  //  res[i] will hold prefix
+      postFix *= nums[i];
     }
     return res;
   }

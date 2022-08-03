@@ -24,8 +24,26 @@ public class _6MaxProductSubarrayM {
     return ans;
   }
 
+  //  https://youtu.be/lXVy6YWFcRM?t=487
+  public static int revision(int[] nums) {
+    if (nums.length == 1) {
+      return nums[0];
+    }
+    int maxP = 1, minP = 1;
+    int ans = Integer.MIN_VALUE;
+    for (int currNum : nums) {
+      int posProduct = currNum * maxP;
+      int negProduct = currNum * minP;
+
+      maxP = Math.max(currNum, Math.max(posProduct, negProduct));
+      minP = Math.min(currNum, Math.min(posProduct, negProduct));
+      ans = Math.max(ans, maxP);
+    }
+    return ans;
+  }
+
   public static void main(String[] args) {
-    System.out.println("yup: maxProduct of array: " + maxProduct(new int[]{2, 3, -2, 4}));
-    System.out.println("yup: maxProduct of array: " + maxProduct(new int[]{-2, 0, -1}));
+    System.out.println("yup: maxProduct of array: " + maxProduct(new int[]{2, 3, -2, 4}));  //  6
+    System.out.println("yup: maxProduct of array: " + maxProduct(new int[]{-2, 0, -1}));  //  0
   }
 }
