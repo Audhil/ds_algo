@@ -143,6 +143,7 @@ public class _2_3SumM {
       }
       int bIndex = i + 1;  //  2nd element at i +1 index
       int cIndex = nums.length - 1;  //  3rd element at last index
+      //  2 sum problem
       while (bIndex < cIndex) {
         int target = -a;
         if (nums[bIndex] + nums[cIndex] > target) {
@@ -167,6 +168,39 @@ public class _2_3SumM {
       }
     }
     return finalList;
+  }
+
+  public static List<List<Integer>> revision(int[] nums) {
+    List<List<Integer>> result = new ArrayList<>();
+    Arrays.sort(nums);  //  O (n log n)
+    int n = nums.length - 1;
+    for (int i = 0; i < nums.length; i++) {
+      int a = nums[i];
+      //  to avoid duplicates
+      if (i > 0 && a == nums[i - 1]) {
+        continue;
+      }
+      int b = i + 1;
+      int c = n;
+      while (b < c) {
+        int target = -a;
+        if (nums[b] + nums[c] > target) {
+          c--;
+        } else if (nums[b] + nums[c] < target) {
+          b++;
+        }
+        //  we found the target
+        else {
+          result.add(Arrays.asList(a, nums[b], nums[c]));
+          //  https://youtu.be/jzZsG8n2R9A?t=687
+          b++;
+          while (b < c && nums[b] == nums[b - 1]) {
+            b++;
+          }
+        }
+      }
+    }
+    return result;
   }
 
   public static void main(String[] args) {

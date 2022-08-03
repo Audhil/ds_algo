@@ -39,6 +39,37 @@ public class _3SearchInRotatedSortedArrayM {
     return -1;
   }
 
+  public static int revision(int[] nums, int target) {
+    if (nums.length == 1) {
+      return nums[0] == target ? 0 : -1;
+    }
+
+    int l = 0, r = nums.length - 1;
+    while (l <= r) {
+      int mid = l + (r - l) / 2;
+      if (target == nums[mid]) {
+        return mid;
+      }
+      //  left sorted portion
+      if (nums[l] <= nums[mid]) {
+        if (target > nums[mid] || target < nums[l]) {
+          l = mid + 1;
+        } else {
+          r = mid - 1;
+        }
+      }
+      //  right sorted portion
+      else {
+        if (target < nums[mid] || target > nums[r]) {
+          r = mid - 1;
+        } else {
+          l = mid + 1;
+        }
+      }
+    }
+    return -1;
+  }
+
   public static void main(String[] args) {
     /*
     *
@@ -50,12 +81,18 @@ public class _3SearchInRotatedSortedArrayM {
     yup: index of item: -1
     yup: index of item: 1
     * */
-    System.out.println("yup: index of item: " + search(new int[]{4, 5, 6, 7, 0, 1, 2}, 0)); //  yup: index of item: 4
-    System.out.println("yup: index of item: " + search(new int[]{4, 5, 6, 7, 0, 1, 2}, 3)); //  yup: index of item: -1
-    System.out.println("yup: index of item: " + search(new int[]{4, 5, 6, 7, 0, 1, 2}, 1)); //  yup: index of item: 5
-    System.out.println("yup: index of item: " + search(new int[]{4, 5, 6, 7, 0, 1, 2}, 5)); //  yup: index of item: 1
-    System.out.println("yup: index of item: " + search(new int[]{4, 5, 6, 7, 0, 1, 2}, 4)); //  yup: index of item: 0
+    System.out.println("yup: index of item: " + search(new int[]{4, 5, 6, 7, 0, 1, 2},
+        0)); //  yup: index of item: 4
+    System.out.println("yup: index of item: " + search(new int[]{4, 5, 6, 7, 0, 1, 2},
+        3)); //  yup: index of item: -1
+    System.out.println("yup: index of item: " + search(new int[]{4, 5, 6, 7, 0, 1, 2},
+        1)); //  yup: index of item: 5
+    System.out.println("yup: index of item: " + search(new int[]{4, 5, 6, 7, 0, 1, 2},
+        5)); //  yup: index of item: 1
+    System.out.println("yup: index of item: " + search(new int[]{4, 5, 6, 7, 0, 1, 2},
+        4)); //  yup: index of item: 0
     System.out.println("yup: index of item: " + search(new int[]{1}, 0)); //  yup: index of item: -1
-    System.out.println("yup: index of item: " + search(new int[]{3, 1}, 1));  //  yup: index of item: 1
+    System.out.println(
+        "yup: index of item: " + search(new int[]{3, 1}, 1));  //  yup: index of item: 1
   }
 }
