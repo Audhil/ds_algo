@@ -26,26 +26,25 @@ public class _7MostFrequentSubtreeSumM {
     }
   }
 
-  private static Map<Integer, Integer> cMap = new HashMap<>();
-  private static int maxi = -1;
-
-  private static int subTreeSum(TreeNode root) {
+  private static int subTreeSum(TreeNode root, Map<Integer, Integer> cMap, int[] maxi) {
     if (root == null) {
       return 0;
     }
-    int leftSum = subTreeSum(root.left);
-    int rightSum = subTreeSum(root.right);
+    int leftSum = subTreeSum(root.left, cMap, maxi);
+    int rightSum = subTreeSum(root.right, cMap, maxi);
     int totalSum = root.val + leftSum + rightSum;
     cMap.put(totalSum, cMap.getOrDefault(totalSum, 0) + 1);
-    maxi = Math.max(maxi, cMap.get(totalSum));
+    maxi[0] = Math.max(maxi[0], cMap.get(totalSum));
     return totalSum;
   }
 
   public static int[] findFrequentTreeSum(TreeNode root) {
-    subTreeSum(root);
+    Map<Integer, Integer> cMap = new HashMap<>();
+    int[] maxi = {-1};
+    subTreeSum(root, cMap, maxi);
     List<Integer> tempList = new ArrayList<>();
     for (int key : cMap.keySet()) {
-      if (cMap.get(key) == maxi) {
+      if (cMap.get(key) == maxi[0]) {
         tempList.add(key);
       }
     }

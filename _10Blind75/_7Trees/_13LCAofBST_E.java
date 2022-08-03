@@ -3,6 +3,7 @@ package _10Blind75._7Trees;
 //  https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/
 //  https://www.youtube.com/watch?v=gs2LMfuOR9k&ab_channel=NeetCode
 //  refer for variation: java
+//  TC: O (log n) -> height of the binary tree, visiting only 1 node at each level
 public class _13LCAofBST_E {
 
   private static class TreeNode {

@@ -5,6 +5,7 @@ import java.util.Map;
 
 //  we use pointers, without splitting array
 //  https://youtu.be/LgLRTaEMRVc?t=797
+//  TC: O (n) + O(1) hashmap
 public class _9CreateTreeFromPostOrderAndInOrderTraversals {
 
   private static class TreeNode {
