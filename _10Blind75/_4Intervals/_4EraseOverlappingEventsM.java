@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 
 //  https://leetcode.com/problems/non-overlapping-intervals/
+//  https://www.youtube.com/watch?v=nONCGxWoUfM&feature=youtu.be&ab_channel=NeetCode
 public class _4EraseOverlappingEventsM {
 
   //  TC: O (n log n)

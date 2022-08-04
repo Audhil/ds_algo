@@ -70,7 +70,7 @@ public class _0EncodeDecodeStringsM {
 
   public static void main(String[] args) {
     String encodedStr = encode(Arrays.asList("Jack", "and", "jill", ":", "test"));
-    System.out.println("yup: encodedStr: " + encodedStr);
-    System.out.println("yup: decoded list: " + decode(encodedStr));
+    System.out.println("yup: encodedStr: " + encodedStr); //  yup: encodedStr: Jack:;and:;jill:;:::;test
+    System.out.println("yup: decoded list: " + decode(encodedStr)); //  yup: decoded list: [Jack, and, jill, :, test]
   }
 }

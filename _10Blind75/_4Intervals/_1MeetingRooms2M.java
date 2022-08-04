@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 //  https://www.lintcode.com/problem/919/
+//  https://www.youtube.com/watch?v=FdzJmTCVyJU&ab_channel=NeetCode
 /*
  * Given an array of meeting time intervals consisting of start and end times [[s1,e1],[s2,e2],...] (si < ei),
  * find the minimum number of conference rooms required.)
@@ -49,7 +50,7 @@ public class _1MeetingRooms2M {
         roomCount--;
         endPtr++;
       }
-      //  give preference to end time
+      //  give preference to end time, if there is tie - > [0, 10], [10, 15]
       else {
         roomCount--;
         endPtr++;

@@ -2,7 +2,7 @@ package _10Blind75._2LinkedList;
 
 //  https://leetcode.com/problems/remove-nth-node-from-end-of-list/
 //  Given the head of a linked list, remove the nth node from the end of the list and return its head.
-public class _1RemoveNthNodeOfListM {
+public class _1RemoveNthNodeFromEndOfListM {
 
   public class ListNode {
 
@@ -72,5 +72,25 @@ public class _1RemoveNthNodeOfListM {
     left.next = left.next.next;
     //  return head of the lsit
     return dummyNode.next;
+  }
+
+
+  public ListNode revision(ListNode head, int n) {
+    ListNode dummy = new ListNode(0, head);
+    //  left pointer
+    ListNode left = dummy;
+    //  right pointer
+    ListNode right = head;
+    while (n-- > 0 && right != null) {
+      right = right.next;
+    }
+    //  shift pointers
+    while (right != null) {
+      left = left.next;
+      right = right.next;
+    }
+    //  delete the node
+    left.next = left.next.next;
+    return dummy.next;
   }
 }

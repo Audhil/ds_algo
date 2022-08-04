@@ -39,4 +39,18 @@ public class _4CycleInLLE {
     }
     return false;
   }
+
+  //  slow & fast pointers
+  public boolean revision(ListNode head) {
+    ListNode slow = head;
+    ListNode fast = head;
+    while (fast != null && fast.next != null) {
+      slow = slow.next;
+      fast = fast.next.next;
+      if (slow == fast) {
+        return true;
+      }
+    }
+    return false;
+  }
 }
