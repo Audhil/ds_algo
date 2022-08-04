@@ -40,11 +40,39 @@ public class _6ValidAnagramE {
     return s.equals(t);
   }
 
+  //  SC: O (1) ?
+  //  TC: O (n)
+  public static boolean isAnagramWithArr(String s, String t) {
+    if (s.length() != t.length()) {
+      return false;
+    }
+    int[] charArr = new int[26];
+    for (char ch : s.toCharArray()) {
+      charArr[ch - 'a']++;
+    }
+    for (char ch : t.toCharArray()) {
+      charArr[ch - 'a']--;
+    }
+    for (int i = 0; i < 26; i++) {
+      if (charArr[i] > 0) {
+        return false;
+      }
+    }
+    return true;
+  }
+
   public static void main(String[] args) {
     System.out.println("yup: is Anagram: " + isAnagram("anagram", "nagaram"));  //  true
     System.out.println("yup: is Anagram: " + isAnagram("rat", "car"));  //  false
 
-    System.out.println("yup: is isAnagramEfficientSoln: " + isAnagramEfficientSoln("anagram", "nagaram"));  //  true
-    System.out.println("yup: is isAnagramEfficientSoln: " + isAnagramEfficientSoln("rat", "car"));  //  false
+    System.out.println("yup: is isAnagramEfficientSoln: " + isAnagramEfficientSoln("anagram",
+        "nagaram"));  //  true
+    System.out.println(
+        "yup: is isAnagramEfficientSoln: " + isAnagramEfficientSoln("rat", "car"));  //  false
+
+    System.out.println(
+        "yup: is isAnagramWithArr: " + isAnagramWithArr("anagram", "nagaram"));  //  true
+    System.out.println(
+        "yup: is isAnagramWithArr: " + isAnagramWithArr("rat", "car"));  //  false
   }
 }
