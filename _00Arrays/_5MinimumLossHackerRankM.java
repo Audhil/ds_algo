@@ -10,6 +10,7 @@ import java.util.Map;
 //  https://www.youtube.com/watch?v=X6DqnrpjEWA&ab_channel=NikhilLohia
 public class _5MinimumLossHackerRankM {
 
+  //  TC: O (n log n)
   public static int minimumLoss(List<Long> price) {
     Map<Long, Integer> map = new HashMap<>();
     for (int i = 0; i < price.size(); i++) {
