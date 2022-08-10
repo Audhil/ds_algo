@@ -56,7 +56,8 @@ public class _3Find2ndLargestItemInTheArray {
   }
 
   public static void main(String[] args) {
-    int[] arr = {33, 2, 0, -1, 3};
+//    int[] arr = {33, 2, 0, -1, 3};
+    int[] arr = {3, 3, 3, 3};
     print2ndLargest(arr); //  3
     print2ndLargestWithBetterApproach(arr); //  3
     print2ndLargestWithEfficientSolution(arr);  //  3
