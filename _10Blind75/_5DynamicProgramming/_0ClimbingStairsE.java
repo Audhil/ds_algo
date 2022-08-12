@@ -1,24 +1,25 @@
 package _10Blind75._5DynamicProgramming;
 
 //  COVERED ALL FORMS OF CLIMBING STAIRS PROBLEM - refer: _0Basic_Recursion_1_climbing_stairs.java
-//  https://www.youtube.com/watch?v=uHAToNgAPaM&ab_channel=KevinNaughtonJr.
 public class _0ClimbingStairsE {
 
+  //  https://www.youtube.com/watch?v=uHAToNgAPaM&ab_channel=KevinNaughtonJr.
   //  with dynamic prog
   public static int climbStairs(int n) {
     if (n <= 1) {
       return n;
     }
     int[] dp = new int[n + 1];
-    dp[0] = 1;  //  not climbing, be at ground level
+    dp[0] = 1;  //  number of ways to not climb any step is 1, not climbing, be at ground level;
     dp[1] = 1;  //  ways to climb, 1 step
     for (int i = 2; i <= n; i++) {
-      dp[i] = dp[i - 1] + dp[i
-          - 2];  //  ways to reach ith floor = take 1 step reach + take 2 steps to reach
+      dp[i] = dp[i - 1]
+          + dp[i - 2];  //  ways to reach ith floor = take 1 step reach + take 2 steps to reach
     }
     return dp[n];
   }
 
+  //  equivalent to above code without extra dp[] array
   private static int climbStairsWithoutDP(int n) {
     if (n <= 1) {
       return n;
