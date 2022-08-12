@@ -1,7 +1,7 @@
 package basicToACE._2recursion_backtracking._0recursion;
 
 //  https://youtu.be/NBipEF08gUo?list=PLQXZIFwMtjowKrFlzGcjMqchffJDRsz1E&t=619
-public class _0Basic_Recursion_1 {
+public class _0Basic_Recursion_1_climbing_stairs {
 
   //  sum of n natural numbers
   private static int sum(int n) {
