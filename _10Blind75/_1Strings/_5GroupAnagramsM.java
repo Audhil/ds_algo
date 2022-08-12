@@ -10,7 +10,13 @@ import java.util.Map;
 //  https://www.youtube.com/watch?v=vzdNOK2oB2E&ab_channel=NeetCode
 public class _5GroupAnagramsM {
 
-  //  TC: O (m * n) -> m - no of strs, n - length of each str
+  /*
+   * Given an array of strings strs, group the anagrams together. You can return the answer in any order.
+   * An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase,
+   * typically using all the original letters exactly once.
+   * */
+
+  //  TC: O (m * n log n) -> m - no of strs, n - length of each str
   public static List<List<String>> groupAnagrams(String[] strs) {
     if (strs == null || strs.length == 0) {
       return new ArrayList<>();
@@ -29,12 +35,41 @@ public class _5GroupAnagramsM {
     return new ArrayList<>(map.values());
   }
 
+  //  TC: O (m * n)
+  public static List<List<String>> groupAnagramsEfficient(String[] strs) {
+    Map<String, List<String>> map = new HashMap<>();
+    for (String str : strs) {
+      int[] arr = new int[26];
+      for (char ch : str.toCharArray()) {
+        arr[ch - 'a']++;
+      }
+      String key = Arrays.toString(arr);
+      if (!map.containsKey(key)) {
+        List<String> list = new ArrayList<>();
+        list.add(str);
+        map.put(key, list);
+      } else {
+        map.get(key).add(str);
+      }
+    }
+    return new ArrayList<>(map.values());
+  }
+
   public static void main(String[] args) {
     System.out.println(
-        "yup: anagrams: " + groupAnagrams(new String[]{"eat", "tea", "tan", "ate", "nat", "bat"}));
+        "yup: anagrams: " + groupAnagrams(new String[]{"eat", "tea", "tan", "ate", "nat",
+            "bat"})); //  yup: anagrams: [[eat, tea, ate], [bat], [tan, nat]]
     System.out.println(
-        "yup: anagrams: " + groupAnagrams(new String[]{""}));
+        "yup: anagrams: " + groupAnagrams(new String[]{""})); //  yup: anagrams: [[]]
     System.out.println(
-        "yup: anagrams: " + groupAnagrams(new String[]{"a"}));
+        "yup: anagrams: " + groupAnagrams(new String[]{"a"}));  //  yup: anagrams: [[a]]
+
+    System.out.println(
+        "yup: groupAnagramsEfficient: " + groupAnagramsEfficient(new String[]{"eat", "tea", "tan", "ate", "nat",
+            "bat"})); //  yup: anagrams: [[eat, tea, ate], [bat], [tan, nat]]
+    System.out.println(
+        "yup: groupAnagramsEfficient: " + groupAnagramsEfficient(new String[]{""})); //  yup: anagrams: [[]]
+    System.out.println(
+        "yup: groupAnagramsEfficient: " + groupAnagramsEfficient(new String[]{"a"}));  //  yup: anagrams: [[a]]
   }
 }

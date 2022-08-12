@@ -12,8 +12,7 @@ public class _0ClimbingStairsE {
     dp[0] = 1;  //  not climbing, be at ground level
     dp[1] = 1;  //  ways to climb, 1 step
     for (int i = 2; i <= n; i++) {
-      dp[i] = dp[i - 1] + dp[i
-          - 2];  //  ways to reach ith floor = take 1 step reach + take 2 steps to reach
+      dp[i] = dp[i - 1] + dp[i - 2];  //  ways to reach ith floor = take 1 step reach + take 2 steps to reach
     }
     return dp[n];
   }

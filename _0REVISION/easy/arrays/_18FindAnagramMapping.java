@@ -20,19 +20,36 @@ As P[0] = 1 because the 0th element of A appears at B[1], and P[1] = 4 because t
 Example2
 * */
 public class _18FindAnagramMapping {
-    public static int[] anagramMappings(int[] A, int[] B) {
-        Map<Integer, Integer> map = new HashMap<>();
-        for (int i = 0; i < B.length; i++) {
-            map.put(B[i], i);
-        }
-        for (int i = 0; i < A.length; i++) {
-            A[i] = map.get(A[i]);
-        }
-        return A;
-    }
 
-    public static void main(String[] args) {
-        System.out.println("yup: _18FindAnagramMapping: " + Arrays.toString(anagramMappings(new int[]{12, 28, 46, 32, 50}, new int[]{50, 12, 32, 46, 28})));
-        System.out.println("yup: _18FindAnagramMapping: " + Arrays.toString(anagramMappings(new int[]{1, 2, 3, 4, 5}, new int[]{5, 4, 3, 2, 1})));
+  public static int[] revision(int[] A, int[] B) {
+    if (A.length != B.length) {
+      return null;
     }
+    Map<Integer, Integer> cMap = new HashMap<>();
+    for (int i = 0; i < B.length; i++) {
+      cMap.put(B[i], i);
+    }
+    for (int i = 0; i < A.length; i++) {
+      A[i] = cMap.get(A[i]);
+    }
+    return A;
+  }
+
+  public static int[] anagramMappings(int[] A, int[] B) {
+    Map<Integer, Integer> map = new HashMap<>();
+    for (int i = 0; i < B.length; i++) {
+      map.put(B[i], i);
+    }
+    for (int i = 0; i < A.length; i++) {
+      A[i] = map.get(A[i]);
+    }
+    return A;
+  }
+
+  public static void main(String[] args) {
+    System.out.println("yup: _18FindAnagramMapping: " + Arrays.toString(
+        anagramMappings(new int[]{12, 28, 46, 32, 50}, new int[]{50, 12, 32, 46, 28})));
+    System.out.println("yup: _18FindAnagramMapping: " + Arrays.toString(
+        anagramMappings(new int[]{1, 2, 3, 4, 5}, new int[]{5, 4, 3, 2, 1})));
+  }
 }

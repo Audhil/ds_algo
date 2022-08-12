@@ -61,6 +61,25 @@ public class _6ValidAnagramE {
     return true;
   }
 
+  public static boolean revisionWithArr(String s, String t) {
+    if (s.length() != t.length()) {
+      return false;
+    }
+    int[] chars = new int[26];
+    for (char ch : s.toCharArray()) {
+      chars[ch - 'a']++;
+    }
+    for (char ch : t.toCharArray()) {
+      chars[ch - 'a']--;
+    }
+    for (int i = 0; i < 26; i++) {
+      if (chars[i] > 0) {
+        return false;
+      }
+    }
+    return true;
+  }
+
   public static void main(String[] args) {
     System.out.println("yup: is Anagram: " + isAnagram("anagram", "nagaram"));  //  true
     System.out.println("yup: is Anagram: " + isAnagram("rat", "car"));  //  false
