@@ -52,6 +52,7 @@ public class _04JumpGameIV_H {
             visited[index] = true;
           }
         }
+        //  don't want to visit the points again
         map.get(arr[point]).clear();  //  clear the map
       }
       steps++;
