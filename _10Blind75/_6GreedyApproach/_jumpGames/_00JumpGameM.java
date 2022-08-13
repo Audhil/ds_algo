@@ -1,8 +1,9 @@
-package _10Blind75._6GreedyApproach;
+package _10Blind75._6GreedyApproach._jumpGames;
 
 //  https://www.youtube.com/watch?v=Yan0cv2cLy8&ab_channel=NeetCode
 public class _00JumpGameM {
 
+  //  TC: O(n)
   public static boolean canJump(int[] nums) {
     int goalPost = nums.length - 1;
     for (int i = nums.length - 1; i >= 0; i--) {
