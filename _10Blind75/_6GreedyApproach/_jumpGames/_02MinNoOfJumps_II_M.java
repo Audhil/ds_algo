@@ -2,6 +2,7 @@ package _10Blind75._6GreedyApproach._jumpGames;
 
 //  https://www.youtube.com/watch?v=dJ7sWiOoK7g&ab_channel=NeetCode
 //  https://leetcode.com/problems/jump-game-ii/submissions/
+//  BFS
 public class _02MinNoOfJumps_II_M {
 
   //  TC: O(n)
