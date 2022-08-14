@@ -5,6 +5,8 @@ import java.util.Arrays;
 //  https://leetcode.com/problems/gas-station/
 //  best explanation: https://www.youtube.com/watch?v=HQpDS9wuzws&ab_channel=AyushiSharma
 //  https://www.youtube.com/watch?v=lJwbPZGo05A&ab_channel=NeetCode
+
+//  TC: O (n)
 public class _1GasStationM {
 
   public static int canCompleteCircuit(int[] gas, int[] cost) {
