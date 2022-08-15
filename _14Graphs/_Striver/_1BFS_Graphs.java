@@ -9,6 +9,7 @@ import java.util.Queue;
 public class _1BFS_Graphs {
 
   //  TC: O (n) + O (2*E) -> traversing n nodes + visiting all degrees(2*E) of the node
+  //  SC: O (n)
   //  BFS
   private static List<Integer> bfs(int startVertex, int V, List<List<Integer>> adjList) { //  V - no nodes
     boolean[] visited = new boolean[V];
