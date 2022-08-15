@@ -1,0 +1,32 @@
+//  https://www.youtube.com/watch?v=3oI-34aPMWM&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=2&ab_channel=takeUforward
+//  https://www.youtube.com/watch?v=OsNklbh9gYI&list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&index=3&ab_channel=takeUforward
+//  1. adjacency matrix - SC: O (n x n) - this is costly
+    n - vertex, m - edges
+    int[][] adj = new int[n + 1][m + 1];
+    for(i = 0; i < m; i++) {
+      int u = System.in(readIn);
+      int v = System.in(readIn);
+      adj[u][v] = 1;
+      adj[v][u] = 1;
+    }
+
+//  2. adjacency list - SC: O (2 * E) for undirected graph, O (E) for directed graph - much better than the above
+    n - vertex, m - edges
+    List<List<Integer>> adj = new ArrayList<>();
+    for(i = 0; i < m; i++) {
+      adj.add(new ArrayList<>());
+    }
+    for(i = 0; i < m; i++) {
+          int u = System.in(readIn);
+          int v = System.in(readIn);
+          adj.get(u).add(v);
+    }
+
+    //  print the graph
+    for(i = 0; i < m; i++) {
+      for(j = 0; j < adj.get(i).size(); j++) {
+        sout(adj.get(i).get(j));
+      }
+    }
+
+//  3.  weighted graph

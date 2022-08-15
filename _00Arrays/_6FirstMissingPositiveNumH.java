@@ -31,7 +31,8 @@ public class _6FirstMissingPositiveNumH {
     for (int num : nums) {
       set.add(num);
     }
-    for (int smallestPositiveNum = 1; smallestPositiveNum < nums.length + 1;
+    for (int smallestPositiveNum = 1;
+        smallestPositiveNum < nums.length + 1;
         smallestPositiveNum++) {
       if (!set.contains(smallestPositiveNum)) {
         return smallestPositiveNum;
