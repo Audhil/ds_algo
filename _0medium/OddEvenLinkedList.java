@@ -21,50 +21,71 @@ package _0medium;
  * */
 public class OddEvenLinkedList {
 
-    public static class ListNode {
-        int data;
-        ListNode next;
+  public static class ListNode {
 
-        public ListNode(int data, ListNode next) {
-            this.data = data;
-            this.next = next;
-        }
+    int data;
+    ListNode next;
+
+    public ListNode(int data, ListNode next) {
+      this.data = data;
+      this.next = next;
     }
+  }
 
-    public static ListNode oddEvenList(ListNode head) {
-        if (head == null)
-            return head;
-        ListNode odd = head;
-        ListNode even = head.next;
-        ListNode evenHead = even;
-
-        while (even != null) {
-            odd.next = even.next;
-            odd = odd.next;
-            even.next = odd.next;
-            even = even.next;
-        }
-        odd.next = evenHead;
-        return head;
+  public static ListNode revision(ListNode head) {
+    if (head == null) {
+      return head;
     }
-
-    public static void printLL(ListNode head) {
-        while (head != null) {
-            System.out.print(head.data + " -> ");
-            head = head.next;
-        }
-        System.out.print("NULL");
-        System.out.println();
+    ListNode odd = head;
+    ListNode even = head.next;
+    ListNode evenHead = even;
+    while (even != null) {
+      odd.next = even.next;
+      odd = odd.next;
+      even.next = odd.next;
+      even = even.next;
     }
+    odd.next = evenHead;
+    return head;
+  }
 
-    public static void main(String[] args) {
-        ListNode head = new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5, null)))));
-        printLL(head);
-        oddEvenList(head);
-        printLL(head);
-        ListNode head2 = new ListNode(2, new ListNode(1, new ListNode(3, new ListNode(5, new ListNode(6, new ListNode(4, new ListNode(7, null)))))));
-        printLL(head2);
-        oddEvenList(head2);
-        printLL(head2);
+  public static ListNode oddEvenList(ListNode head) {
+    if (head == null) {
+      return head;
     }
+    ListNode odd = head;
+    ListNode even = head.next;
+    ListNode evenHead = even;
+
+    while (even != null) {
+      odd.next = even.next;
+      odd = odd.next;
+      even.next = odd.next;
+      even = even.next;
+    }
+    odd.next = evenHead;
+    return head;
+  }
+
+  public static void printLL(ListNode head) {
+    while (head != null) {
+      System.out.print(head.data + " -> ");
+      head = head.next;
+    }
+    System.out.print("NULL");
+    System.out.println();
+  }
+
+  public static void main(String[] args) {
+    ListNode head = new ListNode(1,
+        new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5, null)))));
+    printLL(head);  //  1 -> 2 -> 3 -> 4 -> 5 -> NULL
+    oddEvenList(head);
+    printLL(head);  //  1 -> 3 -> 5 -> 2 -> 4 -> NULL
+    ListNode head2 = new ListNode(2, new ListNode(1,
+        new ListNode(3, new ListNode(5, new ListNode(6, new ListNode(4, new ListNode(7, null)))))));
+    printLL(head2); //  2 -> 1 -> 3 -> 5 -> 6 -> 4 -> 7 -> NULL
+    oddEvenList(head2);
+    printLL(head2); //  2 -> 3 -> 6 -> 7 -> 1 -> 5 -> 4 -> NULL
+  }
 }
