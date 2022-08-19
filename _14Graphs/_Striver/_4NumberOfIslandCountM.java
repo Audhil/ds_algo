@@ -16,7 +16,8 @@ public class _4NumberOfIslandCountM {
     for (int row = 0; row < rows; row++) {
       for (int col = 0; col < cols; col++) {
         if (chars[row][col] == '1' && !visited[row][col]) {
-          bfs(row, col, chars, visited);
+//          bfs(row, col, chars, visited);
+          dfs(row, col, chars, visited);
           count++;
         }
       }
@@ -24,6 +25,9 @@ public class _4NumberOfIslandCountM {
     return count;
   }
 
+  //  notes: return number of components of a graph
+  //  TC: O (n) + O (V + 2*E)
+  //  SC: O (n) + O (n)
   private static void dfs(int row, int col, char[][] chars, boolean[][] visited) {
     if (row < 0 || row >= chars.length
         || col < 0 || col >= chars[0].length
@@ -38,6 +42,8 @@ public class _4NumberOfIslandCountM {
     dfs(row, col + 1, chars, visited);
   }
 
+  //  TC: O (n^2)
+  //  SC: O (n^2)
   private static class Pair {
 
     int row, col;
