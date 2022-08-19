@@ -1,5 +1,6 @@
 package _0medium;
 
+//  this is problem of Graph
 //  https://leetcode.com/problems/number-of-islands/
 //  https://www.youtube.com/watch?v=__98uL6wst8
 public class IslandCount {
