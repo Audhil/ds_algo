@@ -25,7 +25,7 @@ public class _8Merge2SortedArraysH {
     return ans;
   }
 
-  //  2. TC: O (n); SC: O (1)
+  //  2. TC: O (m * n); SC: O (1)
   //  this method will work for all given sorted input arrays
   private static void merge2ArraysBetter(int[] X, int[] Y) {
     int temp;
@@ -45,6 +45,11 @@ public class _8Merge2SortedArraysH {
         Y[k - 1] = first;
       }
     }
+  }
+
+  //  3. TC: O (n); SC: O (1) - Gap method
+  private static void merge2ArraysEfficient(int[] X, int[] Y) {
+
   }
 
   public static void main(String[] args) {
