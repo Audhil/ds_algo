@@ -56,6 +56,7 @@ public class _7DetectCycleInUndirectedGraph_BFS {
           visited[node] = true;
           queue.add(new GNode(node, temp.vertex));
         } else {
+          //  https://youtu.be/BPlrALf1LDU?list=PLgUwDviBIf0oE3gA41TKO2H5bHpPd7fzn&t=702
           if (temp.parent != node) {
             return true;
           }
@@ -90,17 +91,16 @@ public class _7DetectCycleInUndirectedGraph_BFS {
     g2.addEdge(7, 8);
     System.out.println(
         "yup: is Cycle present, in multi component graph: "
-            + isCycleInUnDirectedMultiComponentGraphWithBFS(1, V,
+            + isCycleInUnDirectedMultiComponentGraphWithBFS(V,
             g2.adjList));  //  yup: is Cycle present: false
 
   }
 
   private static boolean isCycleInUnDirectedMultiComponentGraphWithBFS(
-      int src,
       int V,
       List<List<Integer>> adjList) {
     boolean[] visited = new boolean[V + 1];
-    for (int vertex = 0; vertex < V + 1; vertex++) {
+    for (int vertex = 1; vertex < V + 1; vertex++) {
       if (!visited[vertex]) {
         if (isCycleDetected(vertex, visited, adjList)) {
           return true;
