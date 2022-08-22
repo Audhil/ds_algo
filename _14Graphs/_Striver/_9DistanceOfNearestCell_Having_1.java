@@ -18,6 +18,8 @@ public class _9DistanceOfNearestCell_Having_1 {
     }
   }
 
+  //  TC: O(n*m)
+  //  SC: O(n*m)
   private static int[][] distanceOfNearestCellHaving_1(int[][] matrix) {
     int rows = matrix.length;
     int cols = matrix[0].length;
