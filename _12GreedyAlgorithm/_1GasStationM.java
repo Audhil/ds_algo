@@ -21,14 +21,16 @@ public class _1GasStationM {
     }
     int start = 0;
     int curr = 0;
+    int deficitPetrol = 0;
     for (int i = 0; i < gas.length; i++) {
       curr += gas[i] - cost[i];
       if (curr < 0) {
+        deficitPetrol += curr;
         curr = 0;
         start = i + 1;
       }
     }
-    return start;
+    return (curr + deficitPetrol) >= 0 ? start : -1;
   }
 
   public static void main(String[] args) {
