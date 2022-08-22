@@ -35,5 +35,10 @@ public class _2CircularTourProbM {
         "yup: can complete the circular tour: " +
             canCompleteCircuit(new int[]{4, 6, 7, 4},
                 new int[]{6, 5, 5, 5}));  //  yup: can complete the circular tour: 3
+
+    System.out.println(
+        "yup: can complete the circular tour: " +
+            canCompleteCircuit(new int[]{4, 4, 1, 5, 1},
+                new int[]{5, 1, 2, 3, 4}));  //  yup: can complete the circular tour: 4
   }
 }
