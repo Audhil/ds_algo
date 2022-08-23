@@ -12,6 +12,7 @@ import java.util.Set;
 //  tip: DETECT cycle in directed graph - if there's cycle, then the course cannot be completed
 public class _1CourseScheduleM {
 
+  //  TC: O (N + P) -> num of courses + num of prerequisites
   private static boolean dfs(int crs,
       Map<Integer, List<Integer>> preReqMap,
       Set<Integer> visitedSet) {
