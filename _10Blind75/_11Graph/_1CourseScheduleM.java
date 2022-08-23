@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+//  refer: _1CourseScheduleM_isCyclePresent.java for easy understanding
 //  https://leetcode.com/problems/course-schedule/
 //  https://www.youtube.com/watch?v=EgI5nU9etnU&ab_channel=NeetCode
 //  tip: DETECT cycle in directed graph - if there's cycle, then the course cannot be completed

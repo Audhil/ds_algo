@@ -12,7 +12,7 @@ import java.util.Set;
 //  https://leetcode.com/problems/course-schedule-ii/
 public class _2CourseScheduleM_II {
 
-  //  tip: it is based on Topological sort
+  //  tip: it is based on Topological sort - refer: _5TopologicalSort_CourseSchedule_II_isCyclePresent.java
 
   //  TC: O (V + E)
   public static int[] findOrder(int numCourses, int[][] prerequisites) {
@@ -70,16 +70,16 @@ public class _2CourseScheduleM_II {
     int numCourses = 2;
     int[][] preReqs = {{1, 0}};
     System.out.println("yup: order of courses to be taken: " + Arrays.toString(
-        findOrder(numCourses, preReqs)));
+        findOrder(numCourses, preReqs))); //  yup: order of courses to be taken: [0, 1]
 
     numCourses = 4;
     int[][] preReqs2 = {{1, 0}, {2, 0}, {3, 1}, {3, 2}};
     System.out.println("yup: order of courses to be taken: " + Arrays.toString(
-        findOrder(numCourses, preReqs2)));
+        findOrder(numCourses, preReqs2)));  //  yup: order of courses to be taken: [0, 1, 2, 3]
 
     numCourses = 1;
     int[][] preReqs3 = {{}};
     System.out.println("yup: order of courses to be taken: " + Arrays.toString(
-        findOrder(numCourses, preReqs3)));
+        findOrder(numCourses, preReqs3)));  //  yup: order of courses to be taken: []
   }
 }

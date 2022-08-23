@@ -1,10 +1,9 @@
 package _14Graphs;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
 import java.util.Stack;
 
+//  https://www.youtube.com/watch?v=qe_pQCh09yU&ab_channel=TECHDOSE - topological sort + course schedule II
 //  https://www.youtube.com/watch?v=eMVg3Gvnva4&list=PLNxqWc8Uj2LTb6VYJG3Kebwift2oaBFvE&index=9
 public class _5TopologicalSort {
 
