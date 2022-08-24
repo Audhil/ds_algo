@@ -5,7 +5,7 @@ import java.util.Stack;
 //  https://youtu.be/ZvaRHYYI0-4?list=PL_z_8CaSLPWdeOezg68SKkeLN4-T_jNHd
 public class _10MinElementInStackWithOof1 {
 
-    private Stack<Integer> stack = new Stack<>();
+    private final Stack<Integer> stack = new Stack<>();
     private int minElement = -1;
 
     private int getMin() {
@@ -14,6 +14,7 @@ public class _10MinElementInStackWithOof1 {
         return minElement;
     }
 
+    //  https://youtu.be/ZvaRHYYI0-4?list=PL_z_8CaSLPWdeOezg68SKkeLN4-T_jNHd&t=673
     private void push(int element) {
         if (stack.isEmpty()) {
             stack.push(element);
@@ -22,7 +23,7 @@ public class _10MinElementInStackWithOof1 {
             if (element >= minElement) {
                 stack.push(element);
             } else {
-                stack.push(2 * element - minElement);   //  2x - me - keep in mind
+                stack.push(2 * element - minElement);   //  2 * x - minElement - keep in mind
                 minElement = element;
             }
         }
@@ -37,7 +38,7 @@ public class _10MinElementInStackWithOof1 {
                 stack.pop();
 
             else if (stack.peek() < minElement) {
-                minElement = 2 * minElement - stack.peek(); //  2me - y(which is top of stack) - keep in mind
+                minElement = 2 * minElement - stack.peek(); //  2 * minElement - y(which is top of stack) - keep in mind
                 stack.pop();
             }
         }
