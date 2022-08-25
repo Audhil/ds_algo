@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Stack;
 
 //  https://www.youtube.com/watch?v=qe_pQCh09yU&ab_channel=TECHDOSE
-public class _4TopologicalSort_ {
+public class _4TopologicalSort_DFS {
 
   /*
    * Topological sort
@@ -33,6 +33,7 @@ public class _4TopologicalSort_ {
   }
 
   //  TC: O (V+E)
+  //  SC: O (N) + O (N) -> recursion call stack space + stack space
   private static void topologicalSort(int V, Graph graph) {
     Stack<Integer> stack = new Stack<>();
     dfs(V, graph, stack);

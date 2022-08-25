@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Stack;
 
 //  //  https://www.youtube.com/watch?v=qe_pQCh09yU&ab_channel=TECHDOSE
-public class _5TopologicalSort_CourseSchedule_II_isCyclePresent {
+public class _5TopologicalSort_DFS_CourseSchedule_II_isCyclePresent {
 
   public static int[] findOrder(int numCourses, int[][] prerequisites) {
     if (prerequisites.length == 0 || prerequisites[0].length == 0) {
