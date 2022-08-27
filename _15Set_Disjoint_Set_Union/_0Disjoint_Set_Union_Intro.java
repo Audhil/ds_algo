@@ -1,9 +1,11 @@
-package _15Set;
+package _15Set_Disjoint_Set_Union;
 
 //  https://www.youtube.com/watch?v=9Sq1dL1okJg&list=PLNxqWc8Uj2LRONaT3wI7ikm7tedXKu7W2
 //  notes @ https://photos.google.com/photo/AF1QipMpATDyEj8W8wIxIdaKhZ4Y8YYtI8S2py6Xhzh3
 //  https://photos.google.com/photo/AF1QipNwsePbHuPdBGLyqsnLfD2BzMVSUxx3AVLFi31U
-public class _1Disjoint_Set_Union {
+
+//  TC: O (1) - R/W
+public class _0Disjoint_Set_Union_Intro {
 
     private static int[] parent;
     private static int[] rank;
@@ -28,7 +30,7 @@ public class _1Disjoint_Set_Union {
     private static int findSetOptimized(int u, int[] parent) {
         if (u == parent[u])
             return u;
-        return parent[u] = findSetOptimized(parent[u], parent);
+        return parent[u] = findSetOptimized(parent[u], parent); //  path compression
     }
 
     //  constructing this way(not bothering about ranks) will make try to grow more and make O(n) for searching

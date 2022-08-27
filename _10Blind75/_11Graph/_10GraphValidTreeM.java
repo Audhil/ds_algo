@@ -7,7 +7,7 @@ import java.util.Set;
 
 //  https://www.lintcode.com/problem/178/
 //  https://www.youtube.com/watch?v=bXsUuownnoQ&ab_channel=NeetCode
-public class _10GraphValidTree {
+public class _10GraphValidTreeM {
 
   //  Graph is a tree. when,
   //  1. there is no cycle in the graph
@@ -40,7 +40,7 @@ public class _10GraphValidTree {
       int prev, //  parent
       Set<Integer> visitedSet,
       Map<Integer, Set<Integer>> adjMap) {
-    //  is it a cycle
+    //  is it a cycle?
     if (visitedSet.contains(node)) {
       return false;
     }
