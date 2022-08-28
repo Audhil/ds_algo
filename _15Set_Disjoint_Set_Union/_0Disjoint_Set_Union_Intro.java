@@ -4,6 +4,8 @@ package _15Set_Disjoint_Set_Union;
 //  notes @ https://photos.google.com/photo/AF1QipMpATDyEj8W8wIxIdaKhZ4Y8YYtI8S2py6Xhzh3
 //  https://photos.google.com/photo/AF1QipNwsePbHuPdBGLyqsnLfD2BzMVSUxx3AVLFi31U
 
+//  https://youtu.be/ayW5B2W9hfo?t=300 - TC: O (log n) - height of binary tree(why it is O (log n)), traversing at most 2 times in DSU; SC: O (n)
+
 //  TC: O (1) - R/W
 public class _0Disjoint_Set_Union_Intro {
 

@@ -54,7 +54,7 @@ public class _1DetectCycleInUnDirectedGraph {
       if (setOfx != setOfy) {
         if (rank[setOfx] == rank[setOfy]) {
           parent[setOfx] = setOfy;
-          rank[setOfy]++;
+          rank[setOfy] += rank[setOfx];
         } else if (rank[setOfx] > rank[setOfy]) {
           parent[setOfy] = setOfx;
         } else {
