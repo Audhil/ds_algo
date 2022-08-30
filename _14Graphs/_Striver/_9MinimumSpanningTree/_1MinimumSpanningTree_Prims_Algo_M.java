@@ -1,4 +1,4 @@
-package _14Graphs;
+package _14Graphs._Striver._9MinimumSpanningTree;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -15,7 +15,7 @@ import java.util.PriorityQueue;
  *   * Prim's - https://www.youtube.com/watch?v=HnD676J56ak&list=PLgUwDviBIf0rGEWe64KWas0Nryn7SCRWw&index=19&ab_channel=takeUforward,
  *   * Kruskal's algorithm
  * * */
-public class _6MinimumSpanningTree_Prims_Algo_M {
+public class _1MinimumSpanningTree_Prims_Algo_M {
 
   private static class Node {
 

@@ -57,8 +57,10 @@ public class _1DetectCycleInUnDirectedGraph {
           rank[setOfy] += rank[setOfx];
         } else if (rank[setOfx] > rank[setOfy]) {
           parent[setOfy] = setOfx;
+          rank[setOfx] += rank[setOfy];
         } else {
           parent[setOfx] = setOfy;
+          rank[setOfy] += rank[setOfx];
         }
       }
     }

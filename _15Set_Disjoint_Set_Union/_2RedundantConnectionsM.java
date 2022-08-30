@@ -30,7 +30,7 @@ public class _2RedundantConnectionsM {
       int setOfX = find(x);
       int setOfY = find(y);
       if (setOfX != setOfY) {
-        if (setOfX > setOfY) {
+        if (rank[setOfX] > rank[setOfY]) {
           parent[setOfY] = setOfX;
           rank[setOfX] += rank[setOfY];
         } else {
