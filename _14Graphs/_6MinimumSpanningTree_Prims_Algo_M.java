@@ -1,7 +1,10 @@
 package _14Graphs;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Objects;
+import java.util.PriorityQueue;
 
 //  https://www.youtube.com/watch?v=xsM8i0jVF1w&list=PLgUwDviBIf0rGEWe64KWas0Nryn7SCRWw&index=19&ab_channel=takeUforward
 /*
@@ -106,6 +109,49 @@ public class _6MinimumSpanningTree_Prims_Algo_M {
     }
   }
 
+  //  Optimized - with MinHeap - TC: O (n log n)
+  private static void primsAlgo_MinSpanningTree_Optimized(List<List<Node>> adjList, int N) {
+    int[] keyArr = new int[N];  //  will store the min weight of the nodes
+    boolean[] mstArr = new boolean[N];
+    int[] parentArr = new int[N];
+
+    //  TC: O (N)
+    for (int i = 0; i < N; i++) {
+      keyArr[i] = Integer.MAX_VALUE;  //  add infinity
+      parentArr[i] = -1;
+    }
+
+    keyArr[0] = 0;
+    //  minHeap
+    PriorityQueue<Node> queue = new PriorityQueue<>(Comparator.comparingInt(a -> a.weight));
+    queue.add(new Node(0, keyArr[0]));
+
+    //  iterate, 1,2, ..... (N - 1) - since we'll have N-1 edges in the MST
+    //  TC: O (N)
+    for (int i = 0; i < N - 1; i++) {
+      //  TC: O (log n)
+      int u = Objects.requireNonNull(queue.poll()).vertex;
+      //  2. mark the mstArr
+      mstArr[u] = true;
+      //  TC: O (N + E)
+      //  3. update parentArr - always iterate from 1
+      for (Node it : adjList.get(u)) {
+        if (!mstArr[it.vertex] && it.weight < keyArr[it.vertex]) {
+          parentArr[it.vertex] = u;
+          keyArr[it.vertex] = it.weight;
+          queue.add(new Node(it.vertex, keyArr[it.vertex]));
+        }
+      }
+    }
+
+    //  print mst
+    System.out.println("yup: print MST with Prim's algo: ");
+    for (int i = 1; i < N; i++) {
+      System.out.println(parentArr[i] + " -> " + i);
+    }
+  }
+
+
   public static void main(String[] args) {
     int n = 5;
     List<List<Node>> adjList = new ArrayList<>();
@@ -137,6 +183,7 @@ public class _6MinimumSpanningTree_Prims_Algo_M {
       0 -> 3
       1 -> 4
     * */
-    primsAlgo_MinSpanningTree(adjList, n);
+//    primsAlgo_MinSpanningTree(adjList, n);
+    primsAlgo_MinSpanningTree_Optimized(adjList, n);
   }
 }
