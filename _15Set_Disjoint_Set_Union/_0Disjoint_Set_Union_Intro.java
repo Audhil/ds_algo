@@ -23,12 +23,18 @@ public class _0Disjoint_Set_Union_Intro {
 
   //  constructing this way, will make O(n) for searching/querying
   private static int findSet(int u, int[] parent) {
-    if (u
-        == parent[u]) //  each set is parent to itself - on reaching that set, we return the parent
-    {
+    //  each set is parent to itself - on reaching that set, we return the parent
+    if (u == parent[u]) {
       return u;
     }
     return findSet(parent[u], parent);
+  }
+
+  private static int findSetOptimized_withIteration(int u, int[] parent) {
+    while (parent[u] == u) {
+      u = parent[u];
+    }
+    return u;
   }
 
   //  constructing this way, will make O(1) for searching/querying
