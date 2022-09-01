@@ -25,16 +25,17 @@ public class _1ShortestDistanceInUndirectedGraph {
 
     while (!queue.isEmpty()) {
       int node = queue.poll();
-      for (int it : adjList.get(node)) {
+      for (int nei : adjList.get(node)) {
         //  +1 assuming weight of edge is 1
-        if (distArr[node] + 1 < distArr[it]) {
-          distArr[it] = distArr[node] + 1;
-          queue.add(it);
+        if (distArr[node] + 1 < distArr[nei]) {
+          distArr[nei] = distArr[node] + 1;
+          queue.add(nei);
         }
       }
     }
 
-    System.out.println("yup: distance Arr from src: " + src + ": " + Arrays.toString(distArr));
+    System.out.println(
+        "yup: distance Arr from src " + src + ", to other nodes: " + Arrays.toString(distArr));
   }
 
   public static void main(String[] args) {
@@ -48,6 +49,7 @@ public class _1ShortestDistanceInUndirectedGraph {
     adjList.add(Arrays.asList(2, 5, 7, 8));
     adjList.add(Arrays.asList(6, 8));
     adjList.add(Arrays.asList(6, 7));
-    shortestPath(adjList, 9, 0);  //  yup: distance Arr from src: 0: [0, 1, 2, 1, 2, 3, 3, 4, 4]
+    shortestPath(adjList, 9,
+        0);  //  yup: distance Arr from src 0, to other nodes: [0, 1, 2, 1, 2, 3, 3, 4, 4]
   }
 }
