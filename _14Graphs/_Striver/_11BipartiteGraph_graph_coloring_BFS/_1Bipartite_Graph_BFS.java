@@ -84,7 +84,7 @@ public class _1Bipartite_Graph_BFS {
 //    adjList.get(0).add(6);
 //    adjList.get(6).add(0);
 
-    System.out.println("yup: is the graph is bipartite? : " + isBipartite(adjList,
+    System.out.println("yup: is the graph is bipartite, with BFS? : " + isBipartite(adjList,
         n)); //  yup: is the graph is bipartite? : false
   }
 }
