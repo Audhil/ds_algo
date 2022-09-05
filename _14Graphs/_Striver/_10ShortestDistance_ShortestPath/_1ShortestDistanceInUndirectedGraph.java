@@ -1,4 +1,4 @@
-package _14Graphs._Striver._10ShortestDistance;
+package _14Graphs._Striver._10ShortestDistance_ShortestPath;
 
 import java.util.ArrayList;
 import java.util.Arrays;

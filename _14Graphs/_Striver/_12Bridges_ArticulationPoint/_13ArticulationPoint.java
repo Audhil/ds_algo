@@ -1,4 +1,4 @@
-package _14Graphs._Striver;
+package _14Graphs._Striver._12Bridges_ArticulationPoint;
 
 import java.util.ArrayList;
 import java.util.List;
