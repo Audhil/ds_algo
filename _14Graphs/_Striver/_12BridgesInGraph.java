@@ -3,20 +3,23 @@ package _14Graphs._Striver;
 import java.util.ArrayList;
 import java.util.List;
 
+//  always remember the map from this video: easier to understand
+//  clarified explanation: https://www.youtube.com/watch?v=CiDPT1xMKI0&ab_channel=CodeHelp-byBabbar
 //  best explanation: https://www.youtube.com/watch?v=CsGP_s_3GWg&ab_channel=Jenny%27slecturesCS%2FITNET%26JRF
 //  code explanation: https://www.youtube.com/watch?v=2rjZH0-2lhk&list=PLgUwDviBIf0rGEWe64KWas0Nryn7SCRWw&index=26&ab_channel=takeUforward
 public class _12BridgesInGraph {
 
+  //  code walk through: https://youtu.be/CiDPT1xMKI0?t=1378
   //  TC: O (N + E)
   //  SC: O (N)
   private static void printBridges(List<List<Integer>> adjList, int N) {
     boolean[] visited = new boolean[N];
-    int[] tinArr = new int[N];  //  time of insertion
-    int[] lowTinArr = new int[N]; //  low time of insertion / either it'll be got from it parent or any other adjacent neighbour nodes
+    int[] discoveryArr = new int[N];  //  time of insertion
+    int[] lowTimeOfDiscoveryArr = new int[N]; //  low time of insertion / either it'll be got from it parent or any other adjacent neighbour nodes
     int[] timer = {0};  //  passing timer by reference
     for (int i = 0; i < N; i++) {
       if (!visited[i]) {
-        dfs(i, -1, adjList, tinArr, lowTinArr, visited, timer);
+        dfs(i, -1, adjList, discoveryArr, lowTimeOfDiscoveryArr, visited, timer);
       }
     }
   }
@@ -24,26 +27,34 @@ public class _12BridgesInGraph {
   private static void dfs(int node,
       int parent,
       List<List<Integer>> adjList,
-      int[] tinArr,
-      int[] lowTinArr,
+      int[] discoveryArr,
+      int[] lowTimeOfDiscoveryArr,
       boolean[] visited,
       int[] timer) {
     visited[node] = true;
-    tinArr[node] = lowTinArr[node] = ++timer[0];  //  same
-    for (int nei : adjList.get(node)) {
+    discoveryArr[node] = lowTimeOfDiscoveryArr[node] = ++timer[0];  //  same
+    for (int nbr : adjList.get(node)) {
       //  don't consider the parent
-      if (nei == parent) {
+      if (nbr == parent) {
         continue;
       }
-      if (!visited[nei]) {
-        dfs(nei, node, adjList, tinArr, lowTinArr, visited, timer);
-        lowTinArr[node] = Math.min(lowTinArr[node], lowTinArr[nei]);
-        //  it is definitely a bridge, when lowest time of insertion is greater than the time of insertion of node
-        if (lowTinArr[nei] > tinArr[node]) {
-          System.out.println(nei + " <-----> " + node);
+      if (!visited[nbr]) {
+        dfs(nbr, node, adjList, discoveryArr, lowTimeOfDiscoveryArr, visited, timer);
+        //  https://youtu.be/CiDPT1xMKI0?t=600
+        lowTimeOfDiscoveryArr[node] = Math.min(lowTimeOfDiscoveryArr[node],
+            lowTimeOfDiscoveryArr[nbr]);
+        //  it is definitely a bridge, when lowest time of insertion(from the node where it came back) is greater than the time of insertion of node
+        if (lowTimeOfDiscoveryArr[nbr] > discoveryArr[node]) {
+          System.out.println(nbr + " <-----> " + node);
         }
-      } else {
-        lowTinArr[node] = Math.min(lowTinArr[node], tinArr[nei]);
+      }
+      //  it's a back edge - that connects visited nbr, and it is not a parent
+      //  https://youtu.be/CiDPT1xMKI0?t=435
+      else {
+        //  https://youtu.be/2rjZH0-2lhk?list=PLgUwDviBIf0rGEWe64KWas0Nryn7SCRWw&t=249
+        //  https://youtu.be/2rjZH0-2lhk?list=PLgUwDviBIf0rGEWe64KWas0Nryn7SCRWw&t=1097
+        //  https://youtu.be/3t3JHswP7mw?list=PLgUwDviBIf0rGEWe64KWas0Nryn7SCRWw&t=210
+        lowTimeOfDiscoveryArr[node] = Math.min(lowTimeOfDiscoveryArr[node], discoveryArr[nbr]);
       }
     }
   }
