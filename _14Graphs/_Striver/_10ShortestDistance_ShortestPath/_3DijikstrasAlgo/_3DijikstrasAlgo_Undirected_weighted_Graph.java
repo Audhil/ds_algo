@@ -1,4 +1,4 @@
-package _14Graphs._Striver._10ShortestDistance_ShortestPath;
+package _14Graphs._Striver._10ShortestDistance_ShortestPath._3DijikstrasAlgo;
 
 import java.util.ArrayList;
 import java.util.Arrays;

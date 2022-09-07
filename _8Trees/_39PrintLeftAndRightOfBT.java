@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class PrintLeftAndRightOfBT {
+public class _39PrintLeftAndRightOfBT {
 
     static class Node {
         int data;
@@ -83,7 +83,7 @@ public class PrintLeftAndRightOfBT {
         root.left.right = new Node(5);
         root.right.left = new Node(7);
         root.right.right = new Node(8);
-        PrintLeftAndRightOfBT pBt = new PrintLeftAndRightOfBT();
+        _39PrintLeftAndRightOfBT pBt = new _39PrintLeftAndRightOfBT();
         List<Integer> list = new ArrayList<>();
         pBt.maxLevel = 0;
         pBt.printLeftVisibleNodess(root.left, 1, list);
