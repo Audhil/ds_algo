@@ -26,24 +26,49 @@ s consists of only lowercase English letters.
 1 <= k <= 104
 * */
 public class ReverseStringII {
-    public static String reverseStr(String s, int k) {
-        if (s == null)
-            return null;
 
-        char[] a = s.toCharArray();
-        for (int start = 0; start < a.length; start += 2 * k) {
-            int i = start, j = Math.min(start + k - 1, a.length - 1);
-            while (i < j) {
-                char tmp = a[i];
-                a[i++] = a[j];
-                a[j--] = tmp;
-            }
-        }
-        return new String(a);
+  //  https://www.youtube.com/watch?v=SUrrSVfk7pk&ab_channel=KnowledgeCenter
+  public static String reverseStrClarified(String s, int k) {
+    int n = s.length();
+    char[] chArr = s.toCharArray();
+    int l = 0, r = Math.min(k - 1, n - 1);
+    while (l < n) {
+      char temp = chArr[l];
+      chArr[l] = chArr[r];
+      chArr[r] = temp;
+      l += 2 * k;
+      r = Math.min(l + k - 1, n - 1);
+    }
+    return new String(chArr);
+  }
+
+  public static String reverseStr(String s, int k) {
+    if (s == null) {
+      return null;
     }
 
-    public static void main(String[] args) {
-//        System.out.println("yup: jack and jill : " + reverseStr("jack and jill went up the hill to fetch a pail of water", 2));
-        System.out.println("yup: " + reverseStr("abcdefg", 2));
+    char[] a = s.toCharArray();
+    for (int start = 0; start < a.length; start += 2 * k) {
+      int i = start, j = Math.min(start + k - 1, a.length - 1);
+      while (i < j) {
+        char tmp = a[i];
+        a[i++] = a[j];
+        a[j--] = tmp;
+      }
     }
+    return new String(a);
+  }
+
+  public static void main(String[] args) {
+    System.out.println("yup: jack and jill : " + reverseStr(
+        "jackandjillwentupthehilltofetchapailofwater",
+        2)); //  yup: jack and jill : ajcknadjlilwnetutpheihllotfecthaapilfowaetr
+    System.out.println("yup: " + reverseStr("abcdefg", 2)); //  yup: bacdfeg
+
+    System.out.println("yup: reverseStrClarified: jack and jill : " + reverseStrClarified(
+        "jackandjillwentupthehilltofetchapailofwater",
+        2)); //  yup: jack and jill : ajcknadjlilwnetutpheihllotfecthaapilfowaetr
+    System.out.println(
+        "yup: reverseStrClarified: " + reverseStrClarified("abcdefg", 2)); //  yup: bacdfeg
+  }
 }

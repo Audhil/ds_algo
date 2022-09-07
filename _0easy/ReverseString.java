@@ -30,24 +30,44 @@ Follow up: Do not allocate extra space for another array. You must do this by mo
 * */
 public class ReverseString {
 
-    public static void reverseString(char[] s) {
-        if (s == null || s.length <= 1) {
-            System.out.println("yup : " + Arrays.toString(s));
-            return;
-        }
-
-        System.out.println("yup: before reversed string in : " + Arrays.toString(s));
-        int i = 0, j = s.length - 1;
-        while (i < j) {
-            char tmp = s[i];
-            s[i++] = s[j];
-            s[j--] = tmp;
-        }
-
-        System.out.println("yup: reversed string in : " + Arrays.toString(s));
+  public static void reverseString(char[] s) {
+    if (s == null || s.length <= 1) {
+      System.out.println("yup : " + Arrays.toString(s));
+      return;
     }
 
-    public static void main(String[] args) {
-        reverseString("hello".toCharArray());
+    System.out.println("yup: before reversed string in : " + Arrays.toString(s));
+    int i = 0, j = s.length - 1;
+    while (i < j) {
+      char tmp = s[i];
+      s[i++] = s[j];
+      s[j--] = tmp;
     }
+
+    System.out.println("yup: reversed string in : " + Arrays.toString(s));
+  }
+
+  //  another method - https://youtu.be/nfRO3ym-Mz8?t=165
+  public static void reverseString2(String s) {
+    int n = s.length();
+    char[] chars = s.toCharArray();
+    for (int i = 0; i < n / 2; i++) {
+      char ch = chars[i];
+      char ch2 = chars[n - 1 - i];
+      chars[i] = ch2;
+      chars[n - 1 - i] = ch;
+    }
+    s = Arrays.toString(chars);
+    System.out.println("yup: reversed2: string: " + s);
+  }
+
+  public static void main(String[] args) {
+    /*
+     * yup: before reversed string in : [h, e, l, l, o]
+     * yup: reversed string in : [o, l, l, e, h]
+     */
+    reverseString("hello".toCharArray());
+    //  yup: reversed2: string: [o, l, l, e, h]
+    reverseString2("hello");
+  }
 }
