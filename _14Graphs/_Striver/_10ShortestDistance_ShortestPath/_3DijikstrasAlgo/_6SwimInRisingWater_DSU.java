@@ -5,8 +5,10 @@ import java.util.Comparator;
 import java.util.List;
 
 //  https://www.youtube.com/watch?v=u9kpzospnLM&ab_channel=RiddhiDutta
+//  https://www.youtube.com/watch?v=SON551VQ76g&ab_channel=RiddhiDutta - with dijkstra algo
 public class _6SwimInRisingWater_DSU {
 
+  //  TC: O (N log N)
   private static class DSU {
 
     private final int[] parent;
@@ -31,7 +33,7 @@ public class _6SwimInRisingWater_DSU {
     private void union(int u, int v) {
       int setOfU = find(u);
       int setOfV = find(v);
-      if (setOfU > setOfV) {
+      if (rank[setOfU] > rank[setOfV]) {
         parent[setOfV] = setOfU;
         rank[setOfU] += rank[setOfV];
       } else {
