@@ -12,6 +12,8 @@ import java.util.Queue;
 //  https://www.youtube.com/watch?v=EaphyqKU4PQ&t=14s&ab_channel=NeetCode
 public class _4NetworkDelayTime_DijikstrasAlgo {
 
+  //  TC: O (N + E) * log N ~ N log N
+  //  SC: O (N)
   private static class Pair {
 
     int time, vertex;
