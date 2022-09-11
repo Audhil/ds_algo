@@ -2,6 +2,7 @@ package _15Set_Disjoint_Set_Union;
 
 import java.util.Arrays;
 
+//  refer: _6NumOfOperationsToMakeNetworkConnected_NumOfConnectedComponents_Redundant_Connection_M.java for other way of finding redundantConnections
 //  https://leetcode.com/problems/redundant-connection/
 public class _2RedundantConnectionsM {
 
