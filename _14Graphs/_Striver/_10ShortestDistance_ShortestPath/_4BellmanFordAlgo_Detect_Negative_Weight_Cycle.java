@@ -10,6 +10,7 @@ public class _4BellmanFordAlgo_Detect_Negative_Weight_Cycle {
   //  tip: Dijikstra's algo not suitable to find the shortest path, when there's neg weight
   //  we need BellmanFord's algo for that
   //  formula: dist[u] + weight < dist[v] for (N - 1) iteration
+  //  BellmanFord algo is suitable to find shortest path
 
   //  TC: O (N - 1) * O (E) -> very bad compared to Dijikstra's algo
   //  SC: O (N)

@@ -2,6 +2,7 @@ package _14Graphs._Striver._10ShortestDistance_ShortestPath._3DijikstrasAlgo;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.List;
 import java.util.PriorityQueue;
 
@@ -33,7 +34,8 @@ public class _3DijikstrasAlgo_Undirected_weighted_Graph {
     distArr[src] = 0;
     //  1. minHeap
     PriorityQueue<Node> minHeapQueue =
-        new PriorityQueue<>((a, b) -> b.edgeDistance - a.edgeDistance);
+        new PriorityQueue<>(Comparator.comparingInt(
+            a -> a.edgeDistance)); //  (a, b) -> a.edgeDistance - b.edgeDistance
     minHeapQueue.add(new Node(src, 0));
     //  2. iterate queue
     while (!minHeapQueue.isEmpty()) {

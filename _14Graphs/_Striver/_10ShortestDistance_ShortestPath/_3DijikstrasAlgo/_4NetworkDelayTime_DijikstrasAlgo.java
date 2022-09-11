@@ -45,7 +45,7 @@ public class _4NetworkDelayTime_DijikstrasAlgo {
   }
 
   private static void dijkstra(int[] distArr, Map<Integer, List<Pair>> adjMap, int k) {
-    Queue<Pair> minHeap = new PriorityQueue<>((a, b) -> b.time - a.time);
+    Queue<Pair> minHeap = new PriorityQueue<>((a, b) -> a.time - b.time);
     minHeap.add(new Pair(0, k));
     distArr[k] = 0;
     while (!minHeap.isEmpty()) {
