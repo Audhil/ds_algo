@@ -5,11 +5,11 @@ public class _0MaximumOccuringCharE {
 
   public static char getMaxOccuringChar(String line) {
     int[] countArr = new int[26];
+    int max = Integer.MIN_VALUE;
+    int ans = 0;
     for (char ch : line.toCharArray()) {
       countArr[ch - 'a']++;
     }
-    int max = Integer.MIN_VALUE;
-    int ans = 0;
     for (int i = 0; i < 26; i++) {
       if (max < countArr[i]) {
         ans = i;
