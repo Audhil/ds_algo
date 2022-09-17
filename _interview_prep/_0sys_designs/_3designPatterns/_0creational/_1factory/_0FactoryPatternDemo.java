@@ -3,7 +3,7 @@ package _interview_prep._0sys_designs._3designPatterns._0creational._1factory;
 //  https://youtu.be/jcGSowIzmzM?list=PLt4nG7RVVk1h9lxOYSOGI9pcP3I5oblbx
 
 //  returns instance of subclass from super class
-public class _0FactoryPattern {
+public class _0FactoryPatternDemo {
 
   //  Vehicle can be abstruct, interface or a normal class
   private static abstract class Vehicle {
