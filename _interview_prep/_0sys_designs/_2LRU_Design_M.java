@@ -18,6 +18,68 @@ public class _2LRU_Design_M {
     }
   }
 
+  private static class LRUCache_Revision {
+
+    private final int capacity;
+    private final Map<Integer, Node> cMap;
+
+    private final Node left, right; //  dummy node
+
+    public LRUCache_Revision(int capacity) {
+      this.capacity = capacity;
+      cMap = new HashMap<>();
+      left = new Node(0, 0);
+      right = new Node(0, 0);
+      left.next = right;
+      right.prev = left;
+    }
+
+    //  add node at right end
+    private void addNode(Node node) {
+      Node prv = right.prev;
+      Node nxt = right;
+
+      prv.next = node;
+      node.prev = prv;
+
+      node.next = nxt;
+      nxt.prev = node;
+    }
+
+    //  delete node from left end
+    private void deleteNode(Node node) {
+      Node prv = node.prev;
+      Node nxt = node.next;
+
+      prv.next = nxt;
+      nxt.prev = prv;
+    }
+
+    private void put(int key, int value) {
+      if (cMap.containsKey(key)) {
+        deleteNode(cMap.get(key));
+      }
+      Node node = new Node(key, value);
+      addNode(node);
+      cMap.put(key, node);
+
+      if (cMap.size() > capacity) {
+        Node lru = left.next;
+        deleteNode(lru);
+        cMap.remove(lru.key);
+      }
+    }
+
+    private int get(int key) {
+      if (cMap.containsKey(key)) {
+        deleteNode(cMap.get(key));
+        addNode(cMap.get(key));
+        return cMap.get(key).value;
+      }
+      return -1;
+    }
+  }
+
   private static class LRUCache {
 
     private final int capacity;
