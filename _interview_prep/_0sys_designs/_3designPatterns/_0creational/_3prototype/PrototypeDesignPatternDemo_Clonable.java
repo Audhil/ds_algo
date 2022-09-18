@@ -3,7 +3,7 @@ package _interview_prep._0sys_designs._3designPatterns._0creational._3prototype;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PrototypeDesignPatternDemo {
+public class PrototypeDesignPatternDemo_Clonable {
 
   private static class Vehicle implements Cloneable {
 
