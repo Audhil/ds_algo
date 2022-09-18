@@ -2,7 +2,7 @@ package _interview_prep._0sys_designs._3designPatterns._2structural._2Facade;
 
 import _interview_prep._0sys_designs._3designPatterns._2structural._2Facade.facade.BankAccountFacade;
 
-//  simplified interface, that do many other actions
+//  simplified interface, that do many other actions behind the scene
 //  https://youtu.be/B1Y8fcYrz5o
 public class _0FacadePatternDemo {
 
