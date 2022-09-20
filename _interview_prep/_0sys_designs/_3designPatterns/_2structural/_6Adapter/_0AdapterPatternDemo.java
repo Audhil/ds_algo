@@ -76,7 +76,7 @@ public class _0AdapterPatternDemo {
     //  IEDriver: findElement()
     //  IEDriver: clickElement()
     System.out.println("yup: here's the adapter!");
-    WebDriverAdapter webDriverAdapter = new WebDriverAdapter(ieDriver);
+    WebDriver webDriverAdapter = new WebDriverAdapter(ieDriver);
     webDriverAdapter.getElement();
     webDriverAdapter.selectElement();
   }
