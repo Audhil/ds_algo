@@ -7,6 +7,7 @@ import _interview_prep._0sys_designs._3designPatterns._2structural._7Bridge.impl
 import _interview_prep._0sys_designs._3designPatterns._2structural._7Bridge.implementation_heirarchy.Radio;
 import _interview_prep._0sys_designs._3designPatterns._2structural._7Bridge.implementation_heirarchy.TV;
 
+//  https://youtu.be/1HL0V7vz5mA?list=PLt4nG7RVVk1h9lxOYSOGI9pcP3I5oblbx
 //  https://www.youtube.com/watch?v=HlAZfBXgZcE&ab_channel=SyedSajidHussain
 public class _0BridgePatternDemo {
 
