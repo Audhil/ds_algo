@@ -61,7 +61,7 @@ public class _Pairwise_sum_n_numbersE {
     //  3. find a => (arr[0] - b)
     int a = arr[0] - b;
     nums[0] = a;
-    //  4. find other nums
+    //  4. find other nums - considering items with a's contribution (a+b, a+c, a+d, a+e, a+f)
     for (int i = 1; i <= (n - 2); i++) {
       nums[i + 1] = arr[i] - a;
     }
