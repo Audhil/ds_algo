@@ -2,9 +2,9 @@ package _10Blind75._2LinkedList;
 
 //  https://www.youtube.com/watch?v=S5bfdUTrKLM&ab_channel=NeetCode
 //  https://leetcode.com/problems/reorder-list/
-public class _0ReOrderListM {
+public class _0ReOrderList_ReArrange_LLM {
 
-  public class ListNode {
+  public static class ListNode {
 
     int val;
     ListNode next;
