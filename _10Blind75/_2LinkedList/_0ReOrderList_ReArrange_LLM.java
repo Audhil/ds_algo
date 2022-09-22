@@ -8,6 +8,7 @@ public class _0ReOrderList_ReArrange_LLM {
 
     int val;
     ListNode next;
+
     ListNode(int val) {
       this.val = val;
     }
@@ -19,7 +20,7 @@ public class _0ReOrderList_ReArrange_LLM {
   }
 
   //  TC: O (n)
-  public void reorderList(ListNode head) {
+  public static void reorderList(ListNode head) {
     //  1. break the list into 2 halves - using slow & fast pointer
     //  finding the breaking point
     ListNode slow = head, fast = head.next;
@@ -54,14 +55,14 @@ public class _0ReOrderList_ReArrange_LLM {
     }
   }
 
-  public void revision(ListNode head) {
+  public static void revision(ListNode head) {
     if (head == null) {
       return;
     }
     //  1. break the list into 2 halves
     ListNode slow = head;
     ListNode fast = head.next;
-    while (fast != null) {
+    while (fast != null && fast.next != null) {
       slow = slow.next;
       fast = fast.next.next;
     }
@@ -91,6 +92,51 @@ public class _0ReOrderList_ReArrange_LLM {
     }
   }
 
+  public static void revision2(ListNode head) {
+    if (head == null) {
+      return;
+    }
+    //  1. divide LL in to 2 halves
+    ListNode slow = head, fast = head.next;
+    while (fast != null && fast.next != null) {
+      slow = slow.next;
+      fast = fast.next.next;
+    }
+    //  slow.next is start of 2nd half
+    ListNode secondHead = slow.next;
+    slow.next = null;
+
+    //  2. reverse 2nd half LL
+    ListNode prev = null;
+    while (secondHead != null) {
+      ListNode temp = secondHead.next;
+      secondHead.next = prev;
+      prev = secondHead;
+      secondHead = temp;
+    }
+    //  prev will become head of second LL
+    secondHead = prev;
+
+    //  3. merge list together
+    ListNode firstHead = head;
+    while (secondHead != null) {
+      ListNode temp1 = firstHead.next;
+      ListNode temp2 = secondHead.next;
+      firstHead.next = secondHead;
+      secondHead.next = temp1;
+      firstHead = temp1;
+      secondHead = temp2;
+    }
+  }
+
+  private static void printLL(ListNode head) {
+    ListNode curr = head;
+    while (curr != null) {
+      System.out.print(curr.val + " -> ");
+      curr = curr.next;
+    }
+  }
+
   public static void main(String[] args) {
     /*
     * works for
@@ -100,5 +146,17 @@ public class _0ReOrderList_ReArrange_LLM {
     * Input: head = [1,2,3,4,5]
     Output: [1,5,2,4,3]
     * */
+//    ListNode head = new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4))));
+    ListNode head = new ListNode(1,
+        new ListNode(2, new ListNode(3, new ListNode(4, new ListNode(5)))));
+//    1 -> 2 -> 3 -> 4 ->
+//    1 -> 2 -> 3 -> 4 -> 5 ->
+    printLL(head);
+    System.out.println("\nafter reordering: ");
+//    reorderList(head);
+    revision2(head);
+//    1 -> 4 -> 2 -> 3 ->
+//    1 -> 5 -> 2 -> 4 -> 3 ->
+    printLL(head);
   }
 }
