@@ -1,4 +1,4 @@
-package _0String;
+package _0String._1rollingHash;
 
 //  https://leetcode.com/problems/longest-chunked-palindrome-decomposition/
 //  https://leetcode.com/problems/distinct-echo-substrings/
