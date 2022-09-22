@@ -1,7 +1,7 @@
 package _0LinkedList;
 
 //  https://www.geeksforgeeks.org/convert-a-string-to-a-singly-linked-list/
-public class _1StringToLL {
+public class _1StringToLLE {
 
   private static class Node {
 
