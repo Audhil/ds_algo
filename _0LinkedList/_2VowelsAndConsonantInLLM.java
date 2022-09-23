@@ -41,10 +41,10 @@ public class _2VowelsAndConsonantInLLM {
       return null;
     }
     Node newHead = head;
-    Node latestVowel;
+    Node latestVowelHead;
     Node curr = head;
     if (isVowel(head.data)) {
-      latestVowel = head;
+      latestVowelHead = head;
     } else {
       while (curr.next != null && !isVowel(curr.next.data)) {
         curr = curr.next;
@@ -53,22 +53,22 @@ public class _2VowelsAndConsonantInLLM {
       if (curr.next == null) {
         return head;
       }
-      latestVowel = newHead = curr.next;
+      latestVowelHead = newHead = curr.next;
       //  delete the place changed vowels node
       curr.next = curr.next.next;
-      latestVowel.next = head;
+      latestVowelHead.next = head;
     }
 
     while (curr != null && curr.next != null) {
       if (isVowel(curr.next.data)) {
-        if (curr == latestVowel) {
-          latestVowel = curr = curr.next;
+        if (curr == latestVowelHead) {
+          latestVowelHead = curr = curr.next;
         } else {
-          Node temp = latestVowel.next;
-          latestVowel.next = curr.next;
-          latestVowel = latestVowel.next;
+          Node temp = latestVowelHead.next;
+          latestVowelHead.next = curr.next;
+          latestVowelHead = latestVowelHead.next;
           curr.next = curr.next.next;
-          latestVowel.next = temp;
+          latestVowelHead.next = temp;
         }
       } else {
         curr = curr.next;

@@ -49,8 +49,8 @@ public class _1HashMap {
     private ListNode findItem(int key) {
       int hash = hash(key);
       if (mapArr[hash] == null) {
-        return mapArr[hash] = new ListNode(-1,
-            -1);  //  it'll be a dummy pointer at the beginning of LL
+        return mapArr[hash] =
+            new ListNode(-1, -1);  //  it'll be a dummy pointer at the beginning of LL
       }
       ListNode prev = mapArr[hash];
       while (prev.next != null && prev.next.key != key) {

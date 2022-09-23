@@ -1,7 +1,46 @@
 package _ZSubX;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.List;
+
 //  https://www.youtube.com/watch?v=HEzpaUOAcds&ab_channel=CodingandSystemDesignInterviews
 public class _2printAllSubsequences_recursion {
+
+  //  ci - current index, cssi - current sub sequence index
+  private static void revision(int[] nums) {
+    System.out.println("yup: revision: ");
+    int n = nums.length;
+    int ci = 0;
+    int cssi = 0;
+    List<List<Integer>> subSeqList = new ArrayList<>();
+    Integer[] tempSubSeqArr = new Integer[n];
+    revisionGenerateSubSeq(nums, n, ci, cssi, tempSubSeqArr, subSeqList);
+    //  [[null, null, null], [3, null, null], [2, null, null], [2, 3, null], [1, 3, null], [1, 3, null], [1, 2, null], [1, 2, 3]]
+    System.out.println(subSeqList);
+  }
+
+  private static void revisionGenerateSubSeq(
+      int[] nums,
+      int n,
+      int ci,
+      int cssi,
+      Integer[] tempSubSeqArr,
+      List<List<Integer>> subSeqList) {
+    if (ci >= n) {
+      List<Integer> tempList = new ArrayList<>();
+      Collections.addAll(tempList, tempSubSeqArr);
+      subSeqList.add(tempList);
+      return;
+    }
+    //  ignore item
+    revisionGenerateSubSeq(nums, n, ci + 1, cssi, tempSubSeqArr, subSeqList);
+    //  accept item
+    tempSubSeqArr[cssi] = nums[ci];
+    revisionGenerateSubSeq(nums, n, ci + 1, cssi + 1, tempSubSeqArr, subSeqList);
+  }
+
 
   //   if arr is n, it'll have 2^n subsequences
   //  TC: O (2^n)
@@ -20,8 +59,8 @@ public class _2printAllSubsequences_recursion {
     }
     //  exclude the item
     generateSubsequence(ci + 1, nums, cssi, subSeqArray);
-    subSeqArray[cssi] = nums[ci];
     //  include the item
+    subSeqArray[cssi] = nums[ci];
     generateSubsequence(ci + 1, nums, cssi + 1, subSeqArray);
   }
 
@@ -49,5 +88,6 @@ public class _2printAllSubsequences_recursion {
     int[] nums = {1, 2, 3};
     System.out.println("yup: subSequences of Array: ");
     subSequence(nums);
+    revision(nums);
   }
 }

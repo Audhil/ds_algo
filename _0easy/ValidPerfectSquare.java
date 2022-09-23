@@ -26,30 +26,53 @@ Constraints:
 * */
 public class ValidPerfectSquare {
 
-    public static boolean isPerfectSquare(int num) {
-        if (num == 0 || num == 1)
-            return true;
+  public static boolean revision(int num) {
+    if (num == 0 || num == 1) {
+      return true;
+    }
+    int l = 0, r = num, mid, square;
+    while (l < r) {
+      mid = (l + (r - l) / 2) + 1; //  +1 to select upper bound
+      square = mid * mid;
+      if (square == num) {
+        return true;
+      }
+      if (square > num) {
+        r = mid - 1;
+      } else {
+        l = mid;
+      }
+    }
+    return false;
+  }
 
-        int left = 0, right = num, mid, square;
-        while (left < right) {
-            mid = left + ((right - left) / 2) + 1;    //  +1 just picks upper mid value -> [1, 2] it'll pick 2 instead of 1
-            square = mid * mid;
-            if (square == num)
-                return true;
-            else if (square < num)
-                left = mid;
-            else
-                right = mid - 1;
-        }
-        return false;
+  public static boolean isPerfectSquare(int num) {
+    if (num == 0 || num == 1) {
+      return true;
     }
 
-    public static void main(String[] args) {
-//        System.out.println("is it perfect square: " + isPerfectSquare(16));
-//        System.out.println("is it perfect square: " + isPerfectSquare(14));
-        System.out.println("is it perfect square: " + isPerfectSquare(25));
-        System.out.println("is it perfect square: " + isPerfectSquare(4));
-        System.out.println("is it perfect square: " + isPerfectSquare(2));
-        System.out.println("is it perfect square: " + isPerfectSquare(808201));
+    int left = 0, right = num, mid, square;
+    while (left < right) {
+      mid = left + ((right - left) / 2)
+          + 1;    //  +1 just picks upper mid value -> [1, 2] it'll pick 2 instead of 1
+      square = mid * mid;
+      if (square == num) {
+        return true;
+      } else if (square < num) {
+        left = mid;
+      } else {
+        right = mid - 1;
+      }
     }
+    return false;
+  }
+
+  public static void main(String[] args) {
+    System.out.println("is it perfect square: " + isPerfectSquare(16)); //  true
+    System.out.println("is it perfect square: " + isPerfectSquare(14)); //  false
+    System.out.println("is it perfect square: " + revision(25)); //  true
+    System.out.println("is it perfect square: " + isPerfectSquare(4));  //  true
+    System.out.println("is it perfect square: " + isPerfectSquare(2));  //  false
+    System.out.println("is it perfect square: " + revision(808201)); //  false
+  }
 }

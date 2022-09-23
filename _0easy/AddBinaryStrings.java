@@ -1,7 +1,7 @@
 package _0easy;
 
 //  https://leetcode.com/problems/add-binary/
-public class AddBinary {
+public class AddBinaryStrings {
 
     public static String addBinary(String a, String b) {
         int indexA = a.length() - 1, indexB = b.length() - 1;

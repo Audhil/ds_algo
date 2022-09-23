@@ -16,7 +16,7 @@ public class _1FindMissing2NumbersInArrayM {
     int n = nums.length + 2;  //  actual size of array
     Map<Integer, Integer> map = new HashMap<>();
     for (int num : nums) {
-      map.put(num, map.getOrDefault(num, 0) + 1);
+      map.put(num, map.getOrDefault(num, 0) + 1); //  num count is not at all considered
     }
     System.out.println("\nyup: missing numbers are: ");
     for (int i = 1; i <= n; i++) {

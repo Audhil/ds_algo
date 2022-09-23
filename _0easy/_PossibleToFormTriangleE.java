@@ -8,7 +8,6 @@ public class _PossibleToFormTriangleE {
   private static boolean isItPossibleToFormTriangle(int[] arr) {
     Arrays.sort(arr);
     int n = arr.length;
-    int count = 0;
     for (int i = n - 1; i >= 2; i--) {
       int l = 0, r = i - 1;
       while (l < r) {

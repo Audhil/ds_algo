@@ -20,7 +20,11 @@ public class _2FindMissingNumbersE {
     List<Integer> result = new ArrayList<>();
     for (Entry<Integer, Integer> set : map.entrySet()) {
       int value = set.getValue();
-      while (value-- > 0) {
+//      seems unnecessary while loop
+//      while (value-- > 0) {
+//        result.add(set.getKey());
+//      }
+      if (value > 0) {
         result.add(set.getKey());
       }
     }
