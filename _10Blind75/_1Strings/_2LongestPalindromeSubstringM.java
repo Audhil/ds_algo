@@ -3,11 +3,12 @@ package _10Blind75._1Strings;
 //  https://leetcode.com/problems/longest-palindromic-substring/
 public class _2LongestPalindromeSubstringM {
 
+  //  TC: O (n^2) - https://youtu.be/_i4Yxeh5ceQ?t=3770
   public static String longestPalindrome(String s) {
     String res = null;
     int resLen = 0;
     for (int i = 0; i < s.length(); i++) {
-      //  left side palindrome
+      //  left side palindrome - odd length
       int l = i;
       int r = i;
       while (l >= 0 && r < s.length() && s.charAt(l) == s.charAt(r)) {
@@ -18,7 +19,7 @@ public class _2LongestPalindromeSubstringM {
         l -= 1;
         r += 1;
       }
-      //  right side palindrome
+      //  right side palindrome - even length
       l = i;
       r = i + 1;
       while (l >= 0 && r < s.length() && s.charAt(l) == s.charAt(r)) {
