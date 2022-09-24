@@ -1,8 +1,9 @@
 package _0dynamic_programming._neetcode.__1dDP;
 
 //  https://youtu.be/_i4Yxeh5ceQ?t=151
-public class _0ClimbingStairsE {
+public class _0ClimbingStairs_FINAL_WAY_E {
 
+  //  TC: O (n) we achieved through dp, it not it'll be O (2^n) -> since height of the binary tree in n - https://youtu.be/_i4Yxeh5ceQ?t=529
   //  num of steps to reach top from floor - only 1 step or 2 steps allowed
   //  using bottom up approach
   public static int climbStairs(int n) {
