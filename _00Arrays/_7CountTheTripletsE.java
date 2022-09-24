@@ -2,8 +2,11 @@ package _00Arrays;
 
 //  https://www.youtube.com/watch?v=eZJvV3bmEsA&ab_channel=KrishnaTeaches
 //  https://practice.geeksforgeeks.org/problems/count-the-triplets4615/1
+//  using sorting: https://youtu.be/YnEHFYwQwyU
+//  confused solve: https://www.geeksforgeeks.org/count-triplets-such-that-one-of-the-numbers-can-be-written-as-sum-of-the-other-two/
 public class _7CountTheTripletsE {
 
+  //  TC: O (n^2)
   private static int countTriplet(int[] arr, int n) {
     //  1. item available arr
     int[] itemAvailableArr = new int[100000]; //  constraint given in arr
