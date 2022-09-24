@@ -1,7 +1,7 @@
 package _0dynamic_programming._neetcode.__1dDP;
 
 //  https://www.youtube.com/watch?v=_i4Yxeh5ceQ&ab_channel=NeetCode
-public class _4LongPalindromicSubstringM {
+public class _4LongPalindromicSubstring_checkFromMiddlePos_FINAL_WAY_M {
 
   //  refer: _2LongestPalindromeSubstringM.java
 
