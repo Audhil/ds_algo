@@ -1,7 +1,7 @@
 package _FrazWorkSheet._0dp._2medium;
 
 //  https://leetcode.com/problems/decode-ways/
-public class _1DecodingWaysM {
+public class _1DecodingWays_DecodeWaysM {
 
   //  explanation: https://www.youtube.com/watch?v=np1tSnaYG10&ab_channel=codeExplainer
   public static int numDecodings(String s) {
