@@ -28,9 +28,36 @@ public class _1LongestCommonSubsequenceM {
     return dp[0][0];
   }
 
+  //  memoized version
+  public static int longestCommonSubsequenceMemoized(String text1, String text2) {
+    int[][] dp = new int[text1.length()][text2.length()];
+    return LCS(dp, text1, text2, 0, 0);
+  }
+
+  private static int LCS(int[][] dp, String text1, String text2, int i, int j) {
+    //  base cases
+    if (i >= text1.length() || j >= text2.length()) {
+      return 0;
+    }
+    if (dp[i][j] != 0) {
+      return dp[i][j];
+    }
+    if (text1.charAt(i) == text2.charAt(j)) {
+      dp[i][j] = 1 + LCS(dp, text1, text2, i + 1, j + 1);
+    } else {
+      dp[i][j] = Math.max(LCS(dp, text1, text2, i + 1, j), LCS(dp, text1, text2, i, j + 1));
+    }
+    return dp[i][j];
+  }
+
   public static void main(String[] args) {
     System.out.println("yup: LCS: " + longestCommonSubsequence("abcde", "ace"));  //  3
     System.out.println("yup: LCS: " + longestCommonSubsequence("abc", "abc"));  //  3
     System.out.println("yup: LCS: " + longestCommonSubsequence("abc", "def"));  //  0
+
+    System.out.println("yup: Memoized version: ");
+    System.out.println("yup: LCS: " + longestCommonSubsequenceMemoized("abcde", "ace"));  //  3
+    System.out.println("yup: LCS: " + longestCommonSubsequenceMemoized("abc", "abc"));  //  3
+    System.out.println("yup: LCS: " + longestCommonSubsequenceMemoized("abc", "def"));  //  0
   }
 }
