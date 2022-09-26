@@ -7,9 +7,9 @@ public class _0UniquePathsM {
   //  TC: O (m * n)
   //  SC: O (m * n)
   public static int uniquePaths(int m, int n) {
-    int[][] dp = new int[m + 1][n + 1];
+    int[][] dp = new int[m][n];
     //  no of paths to reach destination from destination grid - this step is not needed - it is shown for understanding purpose
-    dp[m][n] = 1;
+    dp[m - 1][n - 1] = 1;
     //  fill last row
     for (int c = 0; c < n; c++) {
       dp[m - 1][c] = 1;
