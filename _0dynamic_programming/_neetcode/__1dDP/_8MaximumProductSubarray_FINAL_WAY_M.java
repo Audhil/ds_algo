@@ -3,6 +3,7 @@ package _0dynamic_programming._neetcode.__1dDP;
 //  https://youtu.be/_i4Yxeh5ceQ?t=6994
 public class _8MaximumProductSubarray_FINAL_WAY_M {
 
+  //  TC: O (n)
   //  always keep track of min & max values
   public static int maxProduct(int[] nums) {
     if (nums.length == 1) {
