@@ -12,6 +12,7 @@ public class _7CoinChange_MIN_COINS_NEEDED_FINAL_WAY_M {
     int[] dp = new int[amt + 1];
     Arrays.fill(dp, amt + 1);
     dp[0] = 0;  //  0 is the no of coins needed to make sum 0
+    //  https://youtu.be/_i4Yxeh5ceQ?t=6735
     for (int a = 1; a <= amt; a++) {
       for (int coin : coins) {
         if (a - coin >= 0) {
