@@ -1,7 +1,7 @@
 package _00Arrays;
 
 //  https://youtu.be/TFdclijv4Mg
-public class _13MergeArrayElementsWithMinCostM {
+public class _13MergeArrayElementsWithMinCost_IterateMatrix_Diagonally_M {
 
   private static int revision(int[] arr) {
     int n = arr.length;
