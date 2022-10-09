@@ -1,4 +1,4 @@
-package _0easy;
+package _0easy._facebook;
 
 import java.util.ArrayList;
 import java.util.List;

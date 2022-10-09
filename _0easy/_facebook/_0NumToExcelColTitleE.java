@@ -1,4 +1,4 @@
-package _0easy;
+package _0easy._facebook;
 
 //  https://www.lintcode.com/problem/1350/description?fromId=29&_from=collection
 public class _0NumToExcelColTitleE {
