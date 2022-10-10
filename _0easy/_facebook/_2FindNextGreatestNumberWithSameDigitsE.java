@@ -50,57 +50,6 @@ public class _2FindNextGreatestNumberWithSameDigitsE {
   }
 
   //  TC: O (n); SC: O (1)
-//  private static int[] nextGreatestNumOptimised(int[] num) {
-//    int n = num.length, i;
-//    if (n == 1) {
-//      return num;
-//    }
-//    int[] res = new int[n];
-//    //  1. find smallest num from right
-//    for (i = n - 1; i > 0; i--) {
-//      if (num[i] > num[i - 1]) {
-//        break;
-//      }
-//    }
-//    //  2. find next smallest greater number from r-1; swap it
-//    if (i != 0) {
-////      for (int j = n - 1; j >= i; j--) {
-////        if (num[j] > num[i - 1]) {
-////          int temp = num[j];
-////          num[j] = num[i - 1];
-////          num[i - 1] = temp;
-////          break;
-////        }
-////      }
-//
-//      //  2. find next greatest number from the smallest num
-//      int min = i;
-//      for (int j = i + 1; j < n; j++) {
-//        if (num[j] > num[i - 1] && num[j] < num[min]) {
-//          min = i;
-//        }
-//      }
-//      //  3. swap smallest num with next greatest number
-//      int temp = num[i - 1];
-//      num[i - 1] = num[min];
-//      num[min] = temp;
-//    }
-//    //  3. copy original items till r-1
-//    for (int j = 0; j < i; j++) {
-//      res[j] = num[j];
-//    }
-//    //  4. copy reverse from right index(since items from r is in decreasing order)
-//    int index = n - 1;
-//    for (int j = i; j < n; j++) {
-//      res[j] = num[index--];
-//    }
-//    // If i is 0 that means elements are in decreasing order
-//    // Therefore, no greater element possible then we just
-//    // return the lowest possible
-//    // order/element formed from these digits by just
-//    // reversing the vector
-//    return res;
-//  }
   private static int[] nextGreatestNumOptimised(int[] num) {
     int n = num.length, r = num.length - 1;
     //  1. find smallest num from right
