@@ -1,5 +1,7 @@
 package _0easy;
 
+import java.util.Arrays;
+
 //  https://leetcode.com/problems/remove-duplicates-from-sorted-array/
 /*
 *
@@ -56,7 +58,6 @@ public class RemoveDuplicatedSortedArray {
                 nums[i] = nums[j];
             }
         }
-
         return i + 1;
     }
 
