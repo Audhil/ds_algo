@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 //  https://www.youtube.com/watch?v=S5S1oaD3KiM\
 //  https://leetcode.com/problems/two-sum-ii-input-array-is-sorted/submissions/
-//  with 2 pointer technique
+//  with 2 pointer technique - THIS METHOD WON'T WORK FOR ARRAY HAVING -VE NUMBERS - [1,0,-1] -> THIS WILL FAIL
 public class _1TwoSumsWith2Pointers {
 
     public static int[] twoSum(int[] nums, int target) {
