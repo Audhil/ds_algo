@@ -1,7 +1,7 @@
 package _6SlidingWindowAlgo._neetcode;
 
 //  https://leetcode.com/problems/best-time-to-buy-and-sell-stock/
-public class _0BestTimeToBuySellStocks {
+public class _0BestTimeToBuySellStocksM {
 
   //  TC: O (n); SC: O (1)
   public static int maxProfit(int[] prices) {
