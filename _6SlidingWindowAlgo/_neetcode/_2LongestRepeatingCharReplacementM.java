@@ -7,6 +7,7 @@ import java.util.Map;
 //  https://leetcode.com/problems/longest-repeating-character-replacement/
 public class _2LongestRepeatingCharReplacementM {
 
+  //  TC: O (26 * n) - https://youtu.be/gqXU1UyA8pk?t=1009
   //  code explanation: https://youtu.be/gqXU1UyA8pk?t=436
   public static int characterReplacement(String s, int k) {
     int l = 0;
