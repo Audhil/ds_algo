@@ -1,4 +1,4 @@
-package _6SlidingWindowAlgo._neetcode;
+package _6SlidingWindowAlgo._neetcode._4PermutationInString;
 
 import java.util.Arrays;
 

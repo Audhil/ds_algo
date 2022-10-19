@@ -1,11 +1,11 @@
-package _6SlidingWindowAlgo._neetcode;
+package _6SlidingWindowAlgo._neetcode._4PermutationInString;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class _4PermutationInString_HashMap_M {
 
-  //  TC: O (n1 + 26 n1 (n2 - n1)); SC: O (1)
+  //  TC: O (n1 + 26 n1 * (n2 - n1)); SC: O (1)
   public static boolean checkInclusion(String s1, String s2) {
     Map<Character, Integer> cMap = new HashMap<>();
     for (char ch : s1.toCharArray()) {
