@@ -1,4 +1,4 @@
-package _0dynamic_programming._neetcode;
+package _0dynamic_programming._neetcode.__2dDP;
 
 import java.util.Arrays;
 
