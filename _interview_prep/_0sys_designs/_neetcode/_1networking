@@ -1,17 +1,17 @@
 IPv4(this is still used commonly) - 32 bit IP addresses - with 32 bit we can store upto 4 billion unique IP addresses
 max ip addr: 256.256.256.256
 
-IPv6 - 128 bit IP addresses - it's quit big number
+IPv6 - 128 bit IP addresses - it's quite big number
 
 Internet protocol(IP) - rules of sending data over internet
 Data transferred in packets - IP packet -> [IP Header(meta data -IP addr of sender & receiver) + actual application data]
 
-TCP - Transmission Control Packet -> [useful as page numbers with pages]
+TCP - Transmission Control Protocol -> [useful as page numbers with pages]
 Data transferred in packets - IP packet -> [IP Header(meta data -IP addr of sender & receiver) + TCP Header(meta data - for eg: pg number) + actual application data]
 
-HTTP - Hypertext Transport Protocol - APPLICATION LEVEL PROTOCOL
+HTTP - Hypertext Transfer Protocol - APPLICATION LEVEL PROTOCOL
 it is an application level protocol
-TCP - it is responsible for sending and assembling data
+TCP - it is responsible for sending and assembling data, and it is RELIABLE
 it is concerned with transport level
 IP -
 it is Network level(IP addrs of sender & receiver)
@@ -26,7 +26,7 @@ Types of IP addresses
 static - server IP address(however servers can have dynamic IP addresses through Dynamic DNS)
 dynamic - local machines can have dynamic IP addresses
 
-Ports - we can have max 2^16 ~ 65000 ports for a single machine
+Ports - we can have max 2^16 ~ 65,536 ports for a single machine
 port -> http is 80, 22, https is 443 etc
 
 localhost:4200 -> IP address of local machine at port 4200
