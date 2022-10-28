@@ -1,0 +1,14 @@
+Other protocols than HTTP(built on TCP)
+
+  -WebSockets - (built on TCP)
+  -FTP - file transfer protocol, runs on port 21, suitable for large file transfers - (built on TCP)
+  -SMTP - Simple Mail Transfer Protocol - optimized to send emails, runs on port 25 - (built on TCP)
+  -SSH - remotely connect to another machine and run CLI - (built on TCP)
+
+  -WebRTC - for video/audio streaming - - (built on UDP)
+
+
+WS handshake
+  client sends HTTP request to Server,
+  server replies with status code 101(informing as normal HTTP connection is upgraded to websocket connection),
+  persistent bi-directional connection is established.
