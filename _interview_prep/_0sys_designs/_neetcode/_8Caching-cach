@@ -3,6 +3,9 @@ Considering Twitter service as sample
 
 Header:
 cache-control: max-age=3600 -> (60 mins)
+cache-control: public, max-age=3600, stale-while-revalidate=86400
+
+public/private - tells CDN to cache or not cache the data which it receives for future usages
 
 See in response header:
 x-cache:HIT -> looks for the data, and it is available
