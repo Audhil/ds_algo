@@ -1,0 +1,27 @@
+NoSQL - Not only SQL
+  it is non-relational databases, popular from 2010, overcomes limitations of SQL dbs.
+
+Motivation: Biggest problem trying to solve -> SCALE up more
+
+Variations:
+  Key-Value - Redis, MemCached, etcd
+  Document Store(Document DB) - nested Key-Value pairs, data stored in JSON format, no schema needed - for eg., mongoDB(most popular)
+  Wide-Column db - massive scaling, suitable for lots of "write" operations applications, it can/cannot have schema - for eg., Cassandra(open source), BigTable(from Google)
+  Graph db - twitter followers, facebook friends etc are best examples
+
+Major benefit of NoSQL:
+horizontal scaling becomes easy - since it doesn't follow ACID principles as like RDBMS
+
+BaSE - Eventual Consistency
+it is easier for NoSQL to support when db is partition into 2 or more parts - replicas,
+
+    Leader      Follower(replica of Leader)
+w->  DB    ->   DB <- r
+     |
+ r <-
+
+- always "write" data happens in Leader db, it is responsible for updating values to their followers, this updation will happen in few ms
+- for short amount of time, users reading data from Follow DB will have old data, till it get refreshed by Leader, that's not the big deal (for eg., Big B's followers count in twitter)
+- this supports more reads than write - for eg., one can read 100 tweets, rather than writing 100 tweets at a time :-)
+- NoSQL dbs supports sharding(db partition in SQL dbs) by default
+

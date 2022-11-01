@@ -23,10 +23,10 @@ if we add newer server 3 - all the requests with hash value between server 0 & 3
 
 2       1
 
-consistent hashing is used,
-0. considering server stores state/data in redis(in-memory cache) for any particular reason
-1. in CDNs to keep the data consistent - always landing particular to particular CDN
-2. in Databases to keep the data consistent - always landing particular to particular CDN
+consistent hashing technique is used,
+0. always routing user to particular server, considering that server stores state/data of the user in redis(in-memory cache) for any particular reason
+1. in CDNs to keep the data consistent - always routing particular user to particular CDN
+2. in Databases to keep the data consistent - always routing particular user to particular CDN
 
 Rendezvous Hashing is quite similar to Consistent hashing - search for more info
 
