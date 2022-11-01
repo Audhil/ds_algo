@@ -1,0 +1,36 @@
+Hashing
+user IP=6 -> 6%3 = 0 -> landup to server 0
+user IP=7 -> 7%3 = 1 -> landup to server 1
+user IP=8 -> 8%3 = 2 -> landup to server 2
+benefit of hashing is each user endup landing to same server again and again, considering server stores state/data in redis(in-memory cache) for the particular user
+
+consistent hashing technique:
+consider, when servers are placed circular,
+
+all reqs to respective servers
+   0
+
+2      1
+
+if server 2 is down or crashed - all the requests with hash value between server 1 & 0 range will go to server 0
+    0
+
+        1
+
+if we add newer server 3 - all the requests with hash value between server 0 & 3 will goto server 3, value between 3 & 1 will goto server 1
+    0
+        3
+
+2       1
+
+consistent hashing is used,
+0. considering server stores state/data in redis(in-memory cache) for any particular reason
+1. in CDNs to keep the data consistent - always landing particular to particular CDN
+2. in Databases to keep the data consistent - always landing particular to particular CDN
+
+Rendezvous Hashing is quite similar to Consistent hashing - search for more info
+
+Main components of consistent hashing
+1. HashKey(for eg., IP addr or something)
+2. Hash function (for eg., SHA - Secure Hash Algorithm)
+3. Nodes (servers - CDNs, data partitions(dbs) or Shards)
