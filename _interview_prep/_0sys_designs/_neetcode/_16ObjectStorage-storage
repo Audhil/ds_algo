@@ -1,0 +1,24 @@
+Predecessor is BLOB - Binary Large OBject
+
+Not similar to DB or file system(which has folders, files heirarchy)
+
+it is flat way storage
+
+for eg.,
+* AWS S3 - It stores all files in flat way,
+           we can see storage as folders/files structure illusion,
+           all folders name are just part of the file name.
+* GCS
+* Azure
+
+files stored: Imgs, Videos, database backup
+
+we can w -> store the file
+we can r -> read
+we CANNOT edit / update the file - one of the trade-off
+
+ObjectStorage [think of like a HashMaps - we'll have unique keys(names?) for each object stored in S3, we cannot have duplicates]
+
+Usecases:
+  storing large files like imgs, videos in S3 is better than storing those files in our db(it'll slow down everything).
+ We can have HTTP request to get the resource from S3(Object storage).
