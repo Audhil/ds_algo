@@ -1,0 +1,33 @@
+Decouple services + process events Asynchronously + handle larger amount of scale
+
+AppEvents(user or service)   -> Message Queue(durable by nature) -> App Server
+                                                                         |
+                                                                         DB
+
+decoupling multi event producer service and App server(receiver) with Message QUEUE(that serves events in FIFO manner)
+Queue arch - allow events to be executed Asynchronously and allow us to handle larger amount of data(Scale UP)
+
+for eg., payments, gaming data service etc
+
+other helpful features:
+PULL - app server will periodically pull messages from message queue
+PUSH - pushing directly from queue when we get them on demand,
+        wait for ACK from app server, will try resending message if ACK not received from app server,
+        hence the reason is durable
+
+Pub/Sub(Popular variation of MessageQueue):
+  Many to Many relationships
+  Many applications can place messages to MessageQueue, many servers can read from messageQueue
+
+terms used:
+  topic - message placed by an application in MessageQueue, through subscription we can fan out the message to app servers.
+  subscription - App Server who is subscribed to the topic
+
+we can have multiple subscriptions to a "topic" ->
+    for eg., payment events needed for multiple app servers to perform multiple operations like 1 service to process another service to write the data to db
+    analytics events needed for a single service to write it to db for backup
+
+due to messageQueues, we can easily add/remove app servers to receive data without worrying
+
+popular messagequeues are: Rabbit MQ(open-source), Kafka, GCP pub/sub
+
