@@ -1,0 +1,21 @@
+C - Consistent(different than ACID consistency)
+A - Availability
+P - Partition Tolerance -> when there is network cut off between the "leader" & "follower"
+
+either 1 of the following is possible, not all 3 attributes possible
+- CP -> when l & f are disconnected, we focus on consistency,
+        it means we'll turn off all the nodes, except l.
+        hence all the users will r/w from l node, which will have latest data always
+- AP -> when l & f are disconnected, we focus on Availability,
+        it means we'll not turn off nodes, only users connected l node will get latest data,
+        whereas users connected to f nodes will get old/stale data - for eg., Twitter follower count is suitable for AP
+
+PACELC:
+  Given P, choose A or C. Else, favor Latency or Consistency.
+        Partition
+        /       \
+       Yes      No
+      /  \     /  \
+     A or C   L    C(make the user wait for sometime, till l writes updates to f replicas)
+              |
+         (user will get stale data, for this case)
