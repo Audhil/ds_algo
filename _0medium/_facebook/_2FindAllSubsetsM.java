@@ -27,8 +27,9 @@ public class _2FindAllSubsetsM {
 
   public static void main(String[] args) {
     int[] nums = {1, 2, 3};
-    System.out.println("yup: subsets of [" + Arrays.toString(nums) + "] is: " + subsets(
-        nums)); //  yup: subsets of [[1, 2, 3]] is: [[], [3], [2], [2, 3], [1], [1, 3], [1, 2], [1, 2, 3]]
-
+    System.out.println("yup: subsets of [" + Arrays.toString(nums) + "] is: " +
+        subsets(
+            nums
+        )); //  yup: subsets of [[1, 2, 3]] is: [[], [3], [2], [2, 3], [1], [1, 3], [1, 2], [1, 2, 3]]
   }
 }
