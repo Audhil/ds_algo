@@ -1,0 +1,24 @@
+Requirements
+
+Functional - actual features -> "like" feature of tweet, tweet feed etc
+
+Non-Functional - not about the functionality of problem
+    -> Scalability(100 million DAU - Daily Active Users)
+    -> throughPut(100 million DAU)
+    -> storage capacity
+    -> performance - reduce r/w latency of db,
+        availability -> [# non error response / # no of requests] -> 99.9% (we cannot acheive 100% availability )
+            99.999(five nines) -> 20 mins down time per year
+
+Back of the envelope calculations: see the calculations for 100K r/s; 100 w/s;
+  refer pic1.jpg
+
+Auxiliary services: get clarifications from interviewer to explain or not
+  1. Auth service
+  2. Payments service
+
+1s; 1s/1000 = 1 ms; 1s/1000000(million) = 1 micro second; 1s/1000000000(billion) = 1 nano second;
+
+1s; 1m; 1hr; 1day;
+
+1 byte; 1 kb - kilo = 1000b; 1 mb - mega = 1000000(million) b; 1 gb - giga = 1000000000(billion) b; 1 tb - tera = 10^12 b; 1pb - peta = 10%15 b;
