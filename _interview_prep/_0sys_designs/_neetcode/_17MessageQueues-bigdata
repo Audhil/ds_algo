@@ -19,7 +19,6 @@ Pub/Sub(Popular variation of MessageQueue):
   Many to Many relationships
   Many applications can place messages to MessageQueue, many servers can read from messageQueue
 
-terms used:
   topic - message placed by an application in MessageQueue, through subscription we can fan out the message to app servers.
   subscription - App Server who is subscribed to the topic
 
