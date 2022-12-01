@@ -1,7 +1,61 @@
 package _00Arrays._2DArray_Matrix;
 
+//  given elements are sorted in rows & cols
 //  https://leetcode.com/problems/search-a-2d-matrix/description/
 public class _0Search2DMatrixM {
+
+  //  TC: O (m + n)
+  public static boolean revision(int[][] matrix, int target) {
+    int m = matrix.length, n = matrix[0].length, pos = -1;
+    for (int i = 0; i < m; i++) {
+      if (target >= matrix[i][0] && target <= matrix[i][n - 1]) {
+        pos = i;
+        break;
+      }
+    }
+    if (pos < 0) {
+      return false;
+    }
+    for (int i = 0; i < n; i++) {
+      if (target == matrix[pos][i]) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  //  TC: O (log m) + O (log n) - with binary search
+  public static boolean revisionOptimized(int[][] matrix, int target) {
+    int m = matrix.length, n = matrix[0].length, row = 0;
+    int top = 0, bottom = m - 1;
+    //  find row
+    while (top <= bottom) {
+      row = (top + bottom) / 2;
+      if (target > matrix[row][n - 1]) {
+        top = row + 1;
+      } else if (target < matrix[row][n - 1]) {
+        bottom = row - 1;
+      } else {
+        break;
+      }
+    }
+    if (top > bottom) {
+      return false;
+    }
+    //  find col, return result
+    int l = 0, r = n - 1;
+    while (l <= r) {
+      int mid = (l + r) / 2;
+      if (target > matrix[row][mid]) {
+        l = mid + 1;
+      } else if (target < matrix[row][mid]) {
+        r = mid - 1;
+      } else {
+        return true;
+      }
+    }
+    return false;
+  }
 
   //  TC: O (m + n)
   public static boolean searchMatrix(int[][] matrix, int target) {
