@@ -7,6 +7,48 @@ import java.util.Arrays;
 //  https://www.youtube.com/watch?v=T41rL0L3Pnw&ab_channel=NeetCode
 public class _1SetMatrixZeroesM {
 
+  public static void revision(int[][] matrix) {
+    int m = matrix.length;
+    int n = matrix[0].length;
+    boolean rowZero = false;
+
+    for (int r = 0; r < m; r++) {
+      for (int c = 0; c < n; c++) {
+        if (matrix[r][c] == 0) {
+          matrix[0][c] = 0; //  mark the first item in the col to 0
+          if (r > 0) {
+            matrix[r][0] = 0; //  mark the first item in the row to 0
+          } else {
+            rowZero = true;
+          }
+        }
+      }
+    }
+
+    //  mark zeros
+    for (int r = 1; r < m; r++) {
+      for (int c = 1; c < n; c++) {
+        if (matrix[0][c] == 0 || matrix[r][0] == 0) {
+          matrix[r][c] = 0;
+        }
+      }
+    }
+
+    //  mark the 0th col to zero
+    if (matrix[0][0] == 0) {
+      for (int r = 0; r < m; r++) {
+        matrix[r][0] = 0;
+      }
+    }
+
+    //  mark the 0th row to zero
+    if (rowZero) {
+      for (int c = 0; c < n; c++) {
+        matrix[0][c] = 0;
+      }
+    }
+  }
+
   //  TC - O (m * n) & SC - O (1)
   public static void setZeroes(int[][] matrix) {
     int rows = matrix.length;
