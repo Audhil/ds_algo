@@ -10,10 +10,10 @@ public class CheckValidMatrixE {
   //  TC: O (n^2); SC: O (n^2)
   public static boolean checkValid(int[][] matrix) {
     int n = matrix.length;
-    Set<Integer> set;
+    Set<Integer> set = new HashSet<>();
     //  move row wise
     for (int i = 0; i < n; i++) {
-      set = new HashSet<>();
+      set.clear();
       for (int j = 0; j < n; j++) {
         if (!set.add(matrix[i][j])) {
           return false;
@@ -22,7 +22,7 @@ public class CheckValidMatrixE {
     }
     //  move col wise
     for (int i = 0; i < n; i++) {
-      set = new HashSet<>();
+      set.clear();
       for (int j = 0; j < n; j++) {
         if (!set.add(matrix[j][i])) {
           return false;
@@ -60,17 +60,17 @@ public class CheckValidMatrixE {
 //        "yup: is valid matrix with checkValidWithXor: " + checkValidWithXor(new int[][]{
 //            {1, 1, 1}, {1, 2, 3}, {1, 2, 3}
 //        }));  //  yup: is valid matrix: false
-//    System.out.println(
-//        "yup: is valid matrix with checkValid: " + checkValid(new int[][]{
-//            {1, 2, 2, 4, 5, 6, 6}, {2, 2, 4, 5, 6, 6, 1}, {2, 4, 5, 6, 6, 1, 2},
-//            {4, 5, 6, 6, 1, 2, 2}, {5, 6, 6, 1, 2, 2, 4}, {6, 6, 1, 2, 2, 4, 5},
-//            {6, 1, 2, 2, 4, 5, 6}
-//        }));  //  yup: is valid matrix: false
     System.out.println(
-        "yup: is valid matrix with checkValidWithXor: " + checkValidWithXor(new int[][]{
+        "yup: is valid matrix with checkValid: " + checkValid(new int[][]{
             {1, 2, 2, 4, 5, 6, 6}, {2, 2, 4, 5, 6, 6, 1}, {2, 4, 5, 6, 6, 1, 2},
             {4, 5, 6, 6, 1, 2, 2}, {5, 6, 6, 1, 2, 2, 4}, {6, 6, 1, 2, 2, 4, 5},
             {6, 1, 2, 2, 4, 5, 6}
         }));  //  yup: is valid matrix: false
+//    System.out.println(
+//        "yup: is valid matrix with checkValidWithXor: " + checkValidWithXor(new int[][]{
+//            {1, 2, 2, 4, 5, 6, 6}, {2, 2, 4, 5, 6, 6, 1}, {2, 4, 5, 6, 6, 1, 2},
+//            {4, 5, 6, 6, 1, 2, 2}, {5, 6, 6, 1, 2, 2, 4}, {6, 6, 1, 2, 2, 4, 5},
+//            {6, 1, 2, 2, 4, 5, 6}
+//        }));  //  yup: is valid matrix: false
   }
 }

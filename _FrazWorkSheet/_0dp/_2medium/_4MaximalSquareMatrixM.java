@@ -11,6 +11,7 @@ public class _4MaximalSquareMatrixM {
     int maxSquare = Integer.MIN_VALUE;
     for (int i = 0; i < matrix.length; i++) {
       for (int j = 0; j < matrix[i].length; j++) {
+        //  value at 0th row, and 0th col are the answer to themselves
         if (i == 0 || j == 0) {
           dp[i][j] = matrix[i][j] - '0';
         } else {
@@ -35,6 +36,6 @@ public class _4MaximalSquareMatrixM {
   public static void main(String[] args) {
     char[][] chars = {{'1', '0', '1', '0', '0'}, {'1', '0', '1', '1', '1'},
         {'1', '1', '1', '1', '1'}, {'1', '0', '0', '1', '0'}};
-    System.out.println("yup: maximal square: " + maximalSquare(chars));
+    System.out.println("yup: maximal square: " + maximalSquare(chars)); //  yup: maximal square: 4
   }
 }

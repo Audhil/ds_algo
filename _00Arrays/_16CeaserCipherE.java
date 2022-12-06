@@ -12,17 +12,18 @@ public class _16CeaserCipherE {
         continue;
       }
       if (Character.isUpperCase(ch)) {
-        stringBuilder.append((char) ((((ch - 'A') + k)) % 26 + 'A'));
+        stringBuilder.append((char) (((ch - 'A') + k) % 26 + 'A'));
       } else {
-        stringBuilder.append((char) ((((ch - 'a') + k)) % 26 + 'a'));
+        stringBuilder.append((char) (((ch - 'a') + k) % 26 + 'a'));
       }
     }
     return stringBuilder.toString();
   }
 
   public static void main(String[] args) {
-    System.out.println("yup: ceasorCipher: " + caesarCipher("middle-Outz", 2));
+    System.out.println("yup: ceasorCipher: " + caesarCipher("middle-Outz", 2)); //  okffng-Qwvb
     System.out.println(
-        "yup: ceasorCipher: " + caesarCipher("There's-a-starman-waiting-in-the-sky", 3));
+        "yup: ceasorCipher: " + caesarCipher("There's-a-starman-waiting-in-the-sky",
+            3)); //  Wkhuh'v-d-vwdupdq-zdlwlqj-lq-wkh-vnb
   }
 }
