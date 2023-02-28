@@ -1,5 +1,7 @@
 package _Z_Oops_Sys_Design;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 //  https://neetcode.io/courses/ood-interview/0
@@ -28,10 +30,10 @@ public class _0DesignConnectFourGame {
     }
 
     private int placePiece(int col, GridCell piece) {
-      if (piece.ordinal() == GridCell.Empty.ordinal()) {
-        throw new IllegalArgumentException("Invalid Piece");
+      if (piece == GridCell.Empty) {
+        throw new Error("Invalid Piece");
       } else if (col < 0 || col >= cols) {
-        throw new IllegalArgumentException(("Invalid Place"));
+        throw new Error(("Invalid Place"));
       }
       for (int row = rows - 1; row >= 0; row--) {
         if (grid[row][col] == GridCell.Empty.ordinal()) {
@@ -39,7 +41,7 @@ public class _0DesignConnectFourGame {
           return row;
         }
       }
-      throw new IllegalArgumentException("Something went wrong!");
+      throw new Error("Something went wrong!");
     }
 
     private boolean checkWin(int checkN, int row, int col, GridCell piece) {
@@ -95,6 +97,10 @@ public class _0DesignConnectFourGame {
       }
       return false;
     }
+
+    public int[][] getGrid() {
+      return grid;
+    }
   }
 
   //  player class
@@ -102,16 +108,6 @@ public class _0DesignConnectFourGame {
 
     private final String name;
     private final GridCell piece;
-
-    public void setScore(int score) {
-      this.score = score;
-    }
-
-    private int score;
-
-    public int getScore() {
-      return score;
-    }
 
     public String getName() {
       return name;
@@ -121,10 +117,9 @@ public class _0DesignConnectFourGame {
       return piece;
     }
 
-    public Player(String name, GridCell piece, int score) {
+    public Player(String name, GridCell piece) {
       this.name = name;
       this.piece = piece;
-      this.score = score;
     }
   }
 
@@ -136,14 +131,21 @@ public class _0DesignConnectFourGame {
 
     private final int targetScore, connectN;
 
+    private final Map<String, Integer> scoreMap;
+
     public Game(Player[] players, Grid grid, int connectN, int targetScore) {
       this.players = players;
       this.grid = grid;
       this.connectN = connectN;
       this.targetScore = targetScore;
+      this.scoreMap = new HashMap<>();
+      for (Player pla : players) {
+        scoreMap.put(pla.name, 0);
+      }
     }
 
     private MovedRowCol playMove(Player player) {
+      printBoard();
       System.out.println("Enter 0 to " + (grid.cols - 1) + ", value");
       Scanner sc = new Scanner(System.in);
       int movedCol = sc.nextInt();
@@ -158,11 +160,30 @@ public class _0DesignConnectFourGame {
           MovedRowCol pos = playMove(player);
           if (grid.checkWin(connectN, pos.movedRow, pos.movedCol, player.piece)) {
             System.out.println(player.name + ", won the round");
-            player.score += 1;
+            scoreMap.put(player.name, scoreMap.getOrDefault(player.name, 0) + 1);
             return player;
           }
         }
       }
+    }
+
+    private void printBoard() {
+      System.out.println("Board:");
+      int[][] grid = this.grid.getGrid();
+      for (int i = 0; i < grid.length; i++) {
+        String row = "";
+        for (int piece : grid[i]) {
+          if (piece == GridCell.Empty.ordinal()) {
+            row += "0 ";
+          } else if (piece == GridCell.Yellow.ordinal()) {
+            row += "Y ";
+          } else if (piece == GridCell.Red.ordinal()) {
+            row += "R ";
+          }
+        }
+        System.out.println(row);
+      }
+      System.out.println();
     }
 
     private void play() {
@@ -170,7 +191,8 @@ public class _0DesignConnectFourGame {
       Player winner = null;
       while (maxScore < targetScore) {
         winner = playRound();
-        maxScore = Math.max(maxScore, winner.getScore());
+        maxScore = Math.max(maxScore, scoreMap.get(winner.name));
+        grid.initGrid(); // reset grid
       }
       if (winner != null) {
         System.out.println("yup: " + winner.name + ", won the match!");
@@ -191,9 +213,145 @@ public class _0DesignConnectFourGame {
 
   public static void main(String[] args) {
     Grid grid = new Grid(3, 3);
-    Player[] players = new Player[]{new Player("Audhil", GridCell.Yellow, 0),
-        new Player("Mehtab", GridCell.Red, 0)};
+    Player[] players = new Player[]{new Player("Audhil", GridCell.Yellow),
+        new Player("Mehtab", GridCell.Red)};
     Game game = new Game(players, grid, 3, 2);
     game.play();
   }
+
+  /*
+  * Audhil's turn
+      Board:
+      0 0 0
+      0 0 0
+      0 0 0
+
+      Enter 0 to 2, value
+      1
+      Mehtab's turn
+      Board:
+      0 0 0
+      0 0 0
+      0 Y 0
+
+      Enter 0 to 2, value
+      2
+      Audhil's turn
+      Board:
+      0 0 0
+      0 0 0
+      0 Y R
+
+      Enter 0 to 2, value
+      1
+      Mehtab's turn
+      Board:
+      0 0 0
+      0 Y 0
+      0 Y R
+
+      Enter 0 to 2, value
+      2
+      Audhil's turn
+      Board:
+      0 0 0
+      0 Y R
+      0 Y R
+
+      Enter 0 to 2, value
+      1
+      Audhil, won the round
+      Audhil's turn
+      Board:
+      0 0 0
+      0 0 0
+      0 0 0
+
+      Enter 0 to 2, value
+      0
+      Mehtab's turn
+      Board:
+      0 0 0
+      0 0 0
+      Y 0 0
+
+      Enter 0 to 2, value
+      2
+      Audhil's turn
+      Board:
+      0 0 0
+      0 0 0
+      Y 0 R
+
+      Enter 0 to 2, value
+      1
+      Mehtab's turn
+      Board:
+      0 0 0
+      0 0 0
+      Y Y R
+
+      Enter 0 to 2, value
+      2
+      Audhil's turn
+      Board:
+      0 0 0
+      0 0 R
+      Y Y R
+
+      Enter 0 to 2, value
+      0
+      Mehtab's turn
+      Board:
+      0 0 0
+      Y 0 R
+      Y Y R
+
+      Enter 0 to 2, value
+      2
+      Mehtab, won the round
+      Audhil's turn
+      Board:
+      0 0 0
+      0 0 0
+      0 0 0
+
+      Enter 0 to 2, value
+      1
+      Mehtab's turn
+      Board:
+      0 0 0
+      0 0 0
+      0 Y 0
+
+      Enter 0 to 2, value
+      2
+      Audhil's turn
+      Board:
+      0 0 0
+      0 0 0
+      0 Y R
+
+      Enter 0 to 2, value
+      1
+      Mehtab's turn
+      Board:
+      0 0 0
+      0 Y 0
+      0 Y R
+
+      Enter 0 to 2, value
+      0
+      Audhil's turn
+      Board:
+      0 0 0
+      0 Y 0
+      R Y R
+
+      Enter 0 to 2, value
+      1
+      Audhil, won the round
+      yup: Audhil, won the match!
+
+      * */
 }
