@@ -131,22 +131,43 @@ public class _4DesignMovieRecommendation {
       Movie bestMovie = null;
       int similarityScore = Integer.MAX_VALUE;  //  Lower the better
       for (Integer reviewer : ratingRegistry.getUserList()) {
+        if (user.getId() == reviewer) {
+          continue;
+        }
         int simScore = getSimilarityScore(user, reviewer);
         if (simScore < similarityScore) {
           similarityScore = simScore;
-          bestMovie = recommendUnWatched(user);
+          bestMovie = recommendUnWatched(user, reviewer);
         }
       }
       return bestMovie != null ? bestMovie.getTitle() : null;
     }
 
-    private Movie recommendUnWatched(User user) {
-      return null;
+    private Movie recommendUnWatched(User user, int reviewerId) {
+      int bestRating = 0;
+      Movie bestMovie = null;
+      for (Movie movie : ratingRegistry.getUserMoviesMap().get(reviewerId)) {
+        Map<Integer, Rating> rating = ratingRegistry.getMovieRatingsMap().get(movie.getId());
+        //  yet user unwatched this movie
+        if (!rating.containsKey(user.getId()) && rating.get(reviewerId).ordinal() > bestRating) {
+          bestRating = rating.get(reviewerId).ordinal();
+          bestMovie = movie;
+        }
+      }
+      return bestMovie;
     }
 
     private int getSimilarityScore(User user, Integer reviewerId) {
-//      ratingRegistry.get
-      return 0;
+      int score = Integer.MAX_VALUE;
+      for (Movie movie : ratingRegistry.getUserMoviesMap().get(reviewerId)) {
+        Map<Integer, Rating> rating = ratingRegistry.getMovieRatingsMap().get(movie.getId());
+        //  if user also rated the movie
+        if (rating.containsKey(user.getId())) {
+          score = (score == Integer.MAX_VALUE) ? 0 : score;
+          score += Math.abs(rating.get(user.getId()).ordinal() - rating.get(reviewerId).ordinal());
+        }
+      }
+      return score;
     }
 
     private String recommendNewUserMovie() {
@@ -162,5 +183,9 @@ public class _4DesignMovieRecommendation {
       }
       return bestMovie != null ? bestMovie.getTitle() : null;
     }
+  }
+
+  public static void main(String[] args) {
+
   }
 }
