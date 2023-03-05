@@ -18,13 +18,23 @@ public class _0ContainsDuplicateE {
     return false;
   }
 
+  public static boolean containsDuplicateRevision(int[] nums) {
+    Set<Integer> hSet = new HashSet<>();
+    for (int num : nums) {
+      if (!hSet.add(num)) {
+        return true;
+      }
+    }
+    return false;
+  }
+
   public static void main(String[] args) {
     System.out.println(
         "yup: contains duplicate: " + containsDuplicate(new int[]{1, 2, 3, 1})); //  true
     System.out.println(
-        "yup: contains duplicate: " + containsDuplicate(new int[]{1, 2, 3, 4})); //  false
+        "yup: contains duplicate: " + containsDuplicateRevision(new int[]{1, 2, 3, 4})); //  false
     System.out.println(
-        "yup: contains duplicate: " + containsDuplicate(
+        "yup: contains duplicate: " + containsDuplicateRevision(
             new int[]{1, 1, 1, 3, 3, 4, 3, 2, 4, 2}));  //  true
   }
 }
