@@ -245,5 +245,41 @@ public class _2_3SumM {
     System.out.println("yup: 3Sum int[]{} soln: " + threeSum(new int[]{}));
     System.out.println("yup: 3Sum int[]{0} soln: " + threeSum(new int[]{0}));
 
+    System.out.println(
+        "yup: 3Sum int[]{-1, 0, 1, 2, -1, -4} threeSumRevision: " + threeSumRevision(new int[]{-1, 0, 1, 2, -1, -4}));
+
+    System.out.println(
+        "yup: 3Sum int[]{0,1,1} threeSumRevision: " + threeSumRevision(new int[]{0,1,1}));
+  }
+
+
+  public static List<List<Integer>> threeSumRevision(int[] nums) {
+    List<List<Integer>> resList = new ArrayList<>();
+    Arrays.sort(nums);  //  O (n log n)
+    int a, bIndex, cIndex;
+    int n = nums.length - 1;
+    for (int i = 0; i < nums.length; i++) {
+      a = nums[i];
+      if (i > 0 && a == nums[i - 1]) {
+        continue;
+      }
+      bIndex = i + 1;
+      cIndex = n;
+      while (bIndex < cIndex) {
+        int target = -a;
+        if (nums[bIndex] + nums[cIndex] < target) {
+          bIndex++;
+        } else if (nums[bIndex] + nums[cIndex] > target) {
+          cIndex--;
+        } else {
+          resList.add(Arrays.asList(a, nums[bIndex], nums[cIndex]));
+          bIndex++;
+          while (bIndex < cIndex && nums[bIndex] == nums[bIndex - 1]) {
+            bIndex++;
+          }
+        }
+      }
+    }
+    return resList;
   }
 }
