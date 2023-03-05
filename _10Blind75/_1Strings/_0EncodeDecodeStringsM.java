@@ -106,6 +106,46 @@ public class _0EncodeDecodeStringsM {
     return resList;
   }
 
+  //  enhanced version: https://www.youtube.com/watch?v=B1k_sxOSgv8&ab_channel=NeetCode
+  //  adding count# before each string
+  public static String encodeEnhanced(List<String> strs) {
+    if (strs == null || strs.isEmpty()) {
+      return "";
+    }
+    StringBuilder stringBuilder = new StringBuilder();
+    for (String str : strs) {
+      stringBuilder.append(str.length());
+      stringBuilder.append("#");
+      for (char ch : str.toCharArray()) {
+        stringBuilder.append(ch);
+      }
+    }
+    return stringBuilder.toString();
+  }
+
+  public static List<String> decodeEnhanced(String input) {
+    if (input == null || input.isEmpty()) {
+      return new ArrayList<>();
+    }
+    List<String> resList = new ArrayList<>();
+    int i = 0;
+    while (i < input.length()) {
+      int j = i;
+      while (input.charAt(j) != '#') {
+        j++;
+      }
+      int wordLen;
+      if (i != j - 1) {
+        wordLen = Integer.parseInt(input.charAt(i) + "" + input.charAt(j - 1));
+      } else {
+        wordLen = Integer.parseInt(input.charAt(i) + "");
+      }
+      resList.add(input.substring(j + 1, j + 1 + wordLen));
+      i = j + 1 + wordLen;
+    }
+    return resList;
+  }
+
   public static void main(String[] args) {
 //    String encodedStr = encode(Arrays.asList("Jack", "and", "jill", ":", "test"));
 //    System.out.println(
@@ -113,9 +153,16 @@ public class _0EncodeDecodeStringsM {
 //    System.out.println("yup: decoded list: " + decode(
 //        encodedStr)); //  yup: decoded list: [Jack, and, jill, :, test]
 
-    String res = encodeRevision(Arrays.asList("Jack", "and", "jill", ":", "testing"));
+//    String res = encodeRevision(Arrays.asList("Jack", "and", "jill", ":", "testing"));
+//    System.out.println(
+//        "yup: res: " + res); //  yup: res: Jack:;and:;jill:;:::;testing
+//    System.out.println("yup: decoded list: " + decodeRevision(
+//        res)); //  yup: decoded list: [Jack, and, jill, :, testing]
+
+    String res = encodeEnhanced(Arrays.asList("Jack", "and", "jill", ":", "testing"));
     System.out.println(
-        "yup: res: " + res); //  yup: res: Jack:;and:;jill:;:::;testing
-    System.out.println("yup: decoded list: " + decodeRevision(res)); //  yup: decoded list: [Jack, and, jill, :, testing]
+        "yup: res: " + res); //  yup: res: 4#Jack3#and4#jill1#:7#testing
+    System.out.println("yup: decoded list: " + decodeEnhanced(
+        res)); //  yup: decoded list: [Jack, and, jill, :, testing]
   }
 }
