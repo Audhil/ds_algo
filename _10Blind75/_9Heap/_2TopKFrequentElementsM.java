@@ -21,14 +21,20 @@ public class _2TopKFrequentElementsM {
       this.freq = freq;
     }
 
+//    @Override
+//    public int compare(Num o1, Num o2) {
+//      if (o1.freq == o2.freq) {
+//        return 0;
+//      } else if (o1.freq > o2.freq) {
+//        return 1;
+//      }
+//      return -1;
+//    }
+
+
     @Override
     public int compare(Num o1, Num o2) {
-      if (o1.freq == o2.freq) {
-        return 0;
-      } else if (o1.freq > o2.freq) {
-        return 1;
-      }
-      return -1;
+      return o1.freq - o2.freq;
     }
   }
 
@@ -42,7 +48,7 @@ public class _2TopKFrequentElementsM {
     for (int key : map.keySet()) {
       pQueue.add(new Num(key, map.get(key)));
       if (pQueue.size() > k) {
-        pQueue.remove();
+        pQueue.poll();
       }
     }
     int[] res = new int[pQueue.size()];
