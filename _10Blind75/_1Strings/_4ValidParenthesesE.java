@@ -65,10 +65,41 @@ public class _4ValidParenthesesE {
     return stack.isEmpty();
   }
 
+  public static boolean isValidRevision(String s) {
+    if (s == null || s.isEmpty() || s.startsWith(")") || s.startsWith("}") || s.startsWith("]")) {
+      return false;
+    }
+    Map<Character, Character> pairMap = new HashMap<>();
+    pairMap.put(')', '(');
+    pairMap.put('}', '{');
+    pairMap.put(']', '[');
+
+    Stack<Character> stack = new Stack<>();
+    for (int i = 0; i < s.length(); i++) {
+      char ch = s.charAt(i);
+      if (pairMap.containsKey(ch)) {
+        char topElement = stack.isEmpty() ? '#' : stack.pop();
+        if (topElement != pairMap.get(ch)) {
+          return false;
+        }
+      }
+      //  push the open paranthesis with no issues
+      else {
+        stack.push(ch);
+      }
+    }
+    return stack.isEmpty();
+  }
+
   public static void main(String[] args) {
     System.out.println("yup: is valid parenthesis: " + isValid("()"));  //  true
     System.out.println("yup: is valid parenthesis: " + isValid("()[]{}"));  //  true
     System.out.println("yup: is valid parenthesis: " + isValid(")("));  //  false
     System.out.println("yup: is valid parenthesis: " + isValid("(]"));  //  false
+
+    System.out.println("yup: is isValidRevision parenthesis: " + isValidRevision("()"));  //  true
+    System.out.println("yup: is isValidRevision parenthesis: " + isValidRevision("()[]{}"));  //  true
+    System.out.println("yup: is isValidRevision parenthesis: " + isValidRevision(")("));  //  false
+    System.out.println("yup: is isValidRevision parenthesis: " + isValidRevision("(]"));  //  false
   }
 }
