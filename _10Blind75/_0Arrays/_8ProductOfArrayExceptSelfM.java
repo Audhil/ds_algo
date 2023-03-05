@@ -65,6 +65,58 @@ public class _8ProductOfArrayExceptSelfM {
     return nums;
   }
 
+  //  revision - 5Mar2023
+  //  TC:  O(n); SC: O (n)
+  public static int[] productExceptSelfRevision(int[] nums) {
+    if (nums == null || nums.length == 1) {
+      return nums;
+    }
+    int[] preFix = new int[nums.length];
+    int[] postFix = new int[nums.length];
+    int product = 1;
+    //  populate prefix
+    for (int i = 0; i < nums.length; i++) {
+      product *= nums[i];
+      preFix[i] = product;
+    }
+    product = 1;
+    //  populate postfix
+    for (int i = nums.length - 1; i >= 0; i--) {
+      product *= nums[i];
+      postFix[i] = product;
+    }
+    //  product except self
+    for (int i = 0; i < nums.length; i++) {
+      if (i - 1 < 0) {
+        nums[i] = postFix[i + 1];
+      } else {
+        if (i + 1 >= nums.length) {
+          nums[i] = preFix[i - 1];
+        } else {
+          nums[i] = preFix[i - 1] * postFix[i + 1];
+        }
+      }
+    }
+    return nums;
+  }
+
+  //  TC: O (n); SC (1)?
+  public static int[] productExceptSelfWithOofOneSCRevision(int[] nums) {
+    int[] res = new int[nums.length];
+    int prefix = 1;
+    for (int i = 0; i < nums.length; i++) {
+      res[i] = prefix;
+      prefix *= nums[i];
+    }
+    //  res will hold prefix product values
+    int postfix = 1;
+    for (int i = nums.length - 1; i >= 0; i--) {
+      res[i] *= postfix;
+      postfix *= nums[i];
+    }
+    return res;
+  }
+
   //  with SC - O(1) - based on https://www.youtube.com/watch?v=bNvIQI2wAjk&ab_channel=NeetCode
   public static int[] productExceptSelfWithOofOneSC(int[] nums) {
     int[] res = new int[nums.length];
@@ -104,7 +156,7 @@ public class _8ProductOfArrayExceptSelfM {
 
   public static void main(String[] args) {
     System.out.println("yup: product of array except self: " + Arrays.toString(
-        productExceptSelf(
+        productExceptSelfRevision(
             new int[]{1, 2, 3, 4}))); //  yup: product of array except self: [24, 12, 8, 6]
 
     System.out.println(
@@ -119,7 +171,7 @@ public class _8ProductOfArrayExceptSelfM {
 
     System.out.println(
         "yup: productExceptSelfWithOofOneSC product of array except self: " + Arrays.toString(
-            productExceptSelfWithOofOneSC(
+            productExceptSelfWithOofOneSCRevision(
                 new int[]{1, 0, -3, -4}))); //  yup: product of array except self: [0, 12, 0, 0]
   }
 }
