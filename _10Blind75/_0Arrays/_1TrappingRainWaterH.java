@@ -59,7 +59,33 @@ public class _1TrappingRainWaterH {
     return sum;
   }
 
+  //  area = l * b
+  public static int trapRevision(int[] height) {
+    int n = height.length;
+    int[] mxL = new int[n];
+    mxL[0] = height[0];
+    for (int i = 1; i < n; i++) {
+      mxL[i] = Math.max(height[i], mxL[i - 1]);
+    }
+    int[] mxR = new int[n];
+    mxR[n - 1] = height[n - 1];
+    for (int i = n - 2; i >= 0; i--) {
+      mxR[i] = Math.max(height[i], mxR[i + 1]);
+    }
+    //  water over each building
+    for (int i = 0; i < n; i++) {
+      height[i] = Math.min(mxL[i], mxR[i]) - height[i];
+    }
+    //  sum of total water trapped
+    int sum = 0;
+    for (int j : height) {
+      sum += j;
+    }
+    return sum;
+  }
+
   public static void main(String[] args) {
-    System.out.println("yup: water trap: " + trap(new int[]{3, 0, 0, 2, 0, 4}));
+    System.out.println("yup: water trap: " + trap(new int[]{3, 0, 0, 2, 0, 4}));  //  yup: water trap: 10
+    System.out.println("yup: water trapRevision: " + trapRevision(new int[]{3, 0, 0, 2, 0, 4}));  //  yup: water trapRevision: 10
   }
 }
