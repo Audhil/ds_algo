@@ -27,7 +27,8 @@ public class _CountPairsWithGivenSum_SimilarTwoSum {
     for (int num : arr) {
       int complement = k - num;
       if (freqMap.containsKey(complement)) {
-        ans += freqMap.get(complement);
+        ans += freqMap.get(
+            complement); //  num + (no of complements) = no of pairs can be formed from them
       }
       freqMap.put(num, freqMap.getOrDefault(num, 0) + 1);
     }
@@ -35,6 +36,7 @@ public class _CountPairsWithGivenSum_SimilarTwoSum {
   }
 
   public static void main(String[] args) {
-    System.out.println("yup: " + getPairsCountRevision(new int[]{1, 1, 1, 1}, 2));  //  6 -> ab, bc, cd, da, ac, bd
+    System.out.println(
+        "yup: " + getPairsCountRevision(new int[]{1, 1, 1, 1}, 2));  //  6 -> ab, bc, cd, da, ac, bd
   }
 }
