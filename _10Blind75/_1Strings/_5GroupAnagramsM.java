@@ -35,6 +35,39 @@ public class _5GroupAnagramsM {
     return new ArrayList<>(map.values());
   }
 
+  //  revision
+  //  TC: O (m * n log n); SC: O (n)
+  public static List<List<String>> groupAnagramsRevision(String[] strs) {
+    Map<String, List<String>> resMap = new HashMap<>();
+    for (String str : strs) {
+      char[] chArr = str.toCharArray();
+      Arrays.sort(chArr);
+      String key = String.valueOf(chArr);
+      if (!resMap.containsKey(key)) {
+        resMap.put(key, new ArrayList<>());
+      }
+      resMap.get(key).add(str);
+    }
+    return new ArrayList<>(resMap.values());
+  }
+
+  //  TC: O (m * n); SC: O (m)
+  public static List<List<String>> groupAnagramsEfficientRevision(String[] strs) {
+    Map<String, List<String>> resMap = new HashMap<>();
+    for (String str : strs) {
+      char[] chars = new char[26];
+      for (char ch : str.toCharArray()) {
+        chars[ch - 'a']++;
+      }
+      String key = String.valueOf(chars);
+      if (!resMap.containsKey(key)) {
+        resMap.put(key, new ArrayList<>());
+      }
+      resMap.get(key).add(str);
+    }
+    return new ArrayList<>(resMap.values());
+  }
+
   //  TC: O (m * n)
   public static List<List<String>> groupAnagramsEfficient(String[] strs) {
     Map<String, List<String>> map = new HashMap<>();
@@ -65,11 +98,14 @@ public class _5GroupAnagramsM {
         "yup: anagrams: " + groupAnagrams(new String[]{"a"}));  //  yup: anagrams: [[a]]
 
     System.out.println(
-        "yup: groupAnagramsEfficient: " + groupAnagramsEfficient(new String[]{"eat", "tea", "tan", "ate", "nat",
-            "bat"})); //  yup: anagrams: [[eat, tea, ate], [bat], [tan, nat]]
+        "yup: groupAnagramsEfficient: " + groupAnagramsEfficientRevision(
+            new String[]{"eat", "tea", "tan", "ate", "nat",
+                "bat"})); //  yup: anagrams: [[eat, tea, ate], [bat], [tan, nat]]
     System.out.println(
-        "yup: groupAnagramsEfficient: " + groupAnagramsEfficient(new String[]{""})); //  yup: anagrams: [[]]
+        "yup: groupAnagramsEfficient: " + groupAnagramsEfficientRevision(
+            new String[]{""})); //  yup: anagrams: [[]]
     System.out.println(
-        "yup: groupAnagramsEfficient: " + groupAnagramsEfficient(new String[]{"a"}));  //  yup: anagrams: [[a]]
+        "yup: groupAnagramsEfficient: " + groupAnagramsEfficientRevision(
+            new String[]{"a"}));  //  yup: anagrams: [[a]]
   }
 }
