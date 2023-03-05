@@ -68,9 +68,54 @@ public class _0EncodeDecodeStringsM {
     return finalList;
   }
 
+
+  //  revision
+  public static String encodeRevision(List<String> strs) {
+    if (strs == null || strs.isEmpty()) {
+      return "";
+    }
+    StringBuilder stringBuilder = new StringBuilder();
+    for (int i = 0; i < strs.size(); i++) {
+      for (char ch : strs.get(i).toCharArray()) {
+        if (ch == ':') {
+          stringBuilder.append("::");
+        } else {
+          stringBuilder.append(ch);
+        }
+      }
+      if (i != strs.size() - 1) {
+        stringBuilder.append(":;");
+      }
+    }
+    return stringBuilder.toString();
+  }
+
+  public static List<String> decodeRevision(String input) {
+    List<String> resList = new ArrayList<>();
+    if (input == null || input.isEmpty()) {
+      return resList;
+    }
+    String[] strings = input.split(":;");
+    for (String string : strings) {
+      if (string.equals("::")) {
+        resList.add(":");
+      } else {
+        resList.add(string);
+      }
+    }
+    return resList;
+  }
+
   public static void main(String[] args) {
-    String encodedStr = encode(Arrays.asList("Jack", "and", "jill", ":", "test"));
-    System.out.println("yup: encodedStr: " + encodedStr); //  yup: encodedStr: Jack:;and:;jill:;:::;test
-    System.out.println("yup: decoded list: " + decode(encodedStr)); //  yup: decoded list: [Jack, and, jill, :, test]
+//    String encodedStr = encode(Arrays.asList("Jack", "and", "jill", ":", "test"));
+//    System.out.println(
+//        "yup: encodedStr: " + encodedStr); //  yup: encodedStr: Jack:;and:;jill:;:::;test
+//    System.out.println("yup: decoded list: " + decode(
+//        encodedStr)); //  yup: decoded list: [Jack, and, jill, :, test]
+
+    String res = encodeRevision(Arrays.asList("Jack", "and", "jill", ":", "testing"));
+    System.out.println(
+        "yup: res: " + res); //  yup: res: Jack:;and:;jill:;:::;testing
+    System.out.println("yup: decoded list: " + decodeRevision(res)); //  yup: decoded list: [Jack, and, jill, :, testing]
   }
 }
