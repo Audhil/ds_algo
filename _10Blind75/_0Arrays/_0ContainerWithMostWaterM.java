@@ -50,6 +50,21 @@ public class _0ContainerWithMostWaterM {
     return area;
   }
 
+  //  revision
+  public static int maxAreaWith2PointerRevision(int[] height) {
+    int l = 0, r = height.length - 1;
+    int maxArea = Integer.MIN_VALUE;
+    while (l < r) {
+      maxArea = Math.max(maxArea, (r - l) * Math.min(height[l], height[r]));
+      if (height[l] < height[r]) {
+        l++;
+      } else {
+        r--;
+      }
+    }
+    return maxArea;
+  }
+
   public static void main(String[] args) {
     System.out.println(
         "yup: maxArea: " + maxArea(new int[]{1, 8, 6, 2, 5, 4, 8, 3, 7})); //  yup: maxArea: 49
@@ -57,5 +72,9 @@ public class _0ContainerWithMostWaterM {
     System.out.println(
         "yup: maxAreaWith2Pointer: " + maxAreaWith2Pointer(
             new int[]{1, 8, 6, 2, 5, 4, 8, 3, 7})); //  yup: maxAreaWith2Pointer: 49
+
+    System.out.println(
+        "yup: maxAreaWith2PointerRevision: " + maxAreaWith2PointerRevision(
+            new int[]{1, 8, 6, 2, 5, 4, 8, 3, 7})); //  yup: maxAreaWith2PointerRevision: 49
   }
 }
