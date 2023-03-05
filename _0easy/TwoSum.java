@@ -33,17 +33,31 @@ Output: [0,1]
 * */
 public class TwoSum {
 
-    //  effective solution
-    public static int[] twoSum(int[] nums, int target) {
-        Map<Integer, Integer> map = new HashMap<>();
-        for (int i = 0; i < nums.length; i++) {
-            int complement = target - nums[i];
-            if (map.containsKey(complement) && map.get(complement) != i)
-                return new int[]{map.get(complement), i};
-            map.put(nums[i], i);
-        }
-        throw new IllegalArgumentException("No two sum solution!");
+  //  effective solution
+  public static int[] twoSum(int[] nums, int target) {
+    Map<Integer, Integer> map = new HashMap<>();
+    for (int i = 0; i < nums.length; i++) {
+      int complement = target - nums[i];
+      if (map.containsKey(complement) && map.get(complement) != i) {
+        return new int[]{map.get(complement), i};
+      }
+      map.put(nums[i], i);
     }
+    throw new IllegalArgumentException("No two sum solution!");
+  }
+
+
+  public static int[] twoSumRevision(int[] nums, int target) {
+    Map<Integer, Integer> numIndexMap = new HashMap<>();
+    for (int i = 0; i < nums.length; i++) {
+      int complement = target - nums[i];
+      if (numIndexMap.containsKey(complement) && numIndexMap.get(complement) != i) {
+        return new int[]{numIndexMap.get(complement), i};
+      }
+      numIndexMap.put(nums[i], i);
+    }
+    throw new Error("Something went wrong!");
+  }
 
 //    public int[] twoSum(int[] nums, int target) {
 //        Map<Integer, Integer> map = new HashMap<>();
@@ -59,7 +73,7 @@ public class TwoSum {
 //        throw new IllegalArgumentException("No two sum solution");
 //    }
 
-    //  brute fore
+  //  brute fore
 //    public int[] twoSum(int[] nums, int target) {
 //        for (int i = 0; i < nums.length; i++) {
 //            for (int j = i + 1; j < nums.length; j++) {
@@ -71,7 +85,7 @@ public class TwoSum {
 //        throw new IllegalArgumentException("No two sum solution");
 //    }
 
-    public static void main(String[] args) {
-        System.out.println("yup: " + Arrays.toString(twoSum(new int[]{2, 1, 5, 3}, 3)));
-    }
+  public static void main(String[] args) {
+    System.out.println("yup: " + Arrays.toString(twoSumRevision(new int[]{2, 1, 5, 3}, 3)));  //  yup: [0, 1]
+  }
 }
