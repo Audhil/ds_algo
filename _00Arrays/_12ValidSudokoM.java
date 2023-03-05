@@ -26,9 +26,29 @@ public class _12ValidSudokoM {
     return true;
   }
 
+  public static boolean isValidSudokuRevision(char[][] board) {
+    if (board == null) {
+      return false;
+    }
+    Set<String> hSet = new HashSet<>();
+    for (int r = 0; r < board.length; r++) {
+      for (int c = 0; c < board[r].length; c++) {
+        if (board[r][c] != '.') {
+          String rString = r + "- r -" + board[r][c];
+          String cString = r + "- c -" + board[r][c];
+          String rcString = (r / 3) + " - " + (c / 3) + " - " + board[r][c];
+          if (!hSet.add(rString) || !hSet.add(cString) || !hSet.add(rcString)) {
+            return false;
+          }
+        }
+      }
+    }
+    return true;
+  }
+
   public static void main(String[] args) {
     System.out.println("yup: is valid sudoko: " +
-        isValidSudoku(new char[][]{
+        isValidSudokuRevision(new char[][]{
             {'5', '3', '.', '.', '7', '.', '.', '.', '.'}
             , {'6', '.', '.', '1', '9', '5', '.', '.', '.'}
             , {'.', '9', '8', '.', '.', '.', '.', '6', '.'}
@@ -38,10 +58,10 @@ public class _12ValidSudokoM {
             , {'.', '6', '.', '.', '.', '.', '2', '8', '.'}
             , {'.', '.', '.', '4', '1', '9', '.', '.', '5'}
             , {'.', '.', '.', '.', '8', '.', '.', '7', '9'}
-        }));
+        }));  //  true
 
     System.out.println("yup: is valid sudoko: " +
-        isValidSudoku(new char[][]{
+        isValidSudokuRevision(new char[][]{
             {'8', '3', '.', '.', '7', '.', '.', '.', '.'}
             , {'6', '.', '.', '1', '9', '5', '.', '.', '.'}
             , {'.', '9', '8', '.', '.', '.', '.', '6', '.'}
@@ -51,10 +71,10 @@ public class _12ValidSudokoM {
             , {'.', '6', '.', '.', '.', '.', '2', '8', '.'}
             , {'.', '.', '.', '4', '1', '9', '.', '.', '5'}
             , {'.', '.', '.', '.', '8', '.', '.', '7', '9'}
-        }));
+        }));  //  false
 
     System.out.println("yup: is valid sudoko: " +
-        isValidSudoku(new char[][]{
+        isValidSudokuRevision(new char[][]{
             {'.', '.', '.', '.', '5', '.', '.', '1', '.'},
             {'.', '4', '.', '3', '.', '.', '.', '.', '.'},
             {'.', '.', '.', '.', '.', '3', '.', '.', '1'},
@@ -64,6 +84,6 @@ public class _12ValidSudokoM {
             {'.', '.', '.', '.', '.', '2', '.', '.', '.'},
             {'.', '2', '.', '9', '.', '.', '.', '.', '.'},
             {'.', '.', '4', '.', '.', '.', '.', '.', '.'}
-        }));
+        }));  //  false
   }
 }
