@@ -73,6 +73,6 @@ public class _23BSTtoMinHeap {
         System.out.println();
         bstToMinHeap(root);
         System.out.println("yup: min heap is: ");
-        printTree(root);    //
+        printTree(root);    //  55 50 60 40 70 65
     }
 }
