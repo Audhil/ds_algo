@@ -30,12 +30,12 @@ public class PlusOneLinkedList {
         if (head == null || head.next == null)
             return head;
 
-        ListNode rev = reverseLL(head);
-        if (rev.data < 9) {
-            rev.data += 1;
-            return reverseLL(rev);
+        ListNode reverseLL = reverseLL(head);
+        if (reverseLL.data < 9) {
+            reverseLL.data += 1;
+            return reverseLL(reverseLL);
         } else {
-            ListNode tempp = rev;
+            ListNode tempp = reverseLL;
             while (tempp != null) {
                 if (tempp.data + 1 <= 9) {
                     tempp.data += 1;
@@ -49,7 +49,7 @@ public class PlusOneLinkedList {
                     tempp = tempp.next;
                 }
             }
-            return reverseLL(rev);
+            return reverseLL(reverseLL);
         }
     }
 
