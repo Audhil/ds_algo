@@ -7,6 +7,50 @@ import java.util.Arrays;
 //  https://www.youtube.com/watch?v=T41rL0L3Pnw&ab_channel=NeetCode
 public class _1SetMatrixZeroesM {
 
+  public static void revision2(int[][] matrix) {
+    int m = matrix.length;  //  m rows
+    int n = matrix[0].length; //  n cols
+    boolean rowZero = false;
+    for (int r = 0; r < m; r++) {
+      for (int c = 0; c < n; c++) {
+        if (matrix[r][c] == 0) {
+          //  mark first item in col as zero
+          matrix[0][c] = 0;
+          //  mark first item in row as zero
+          if (r > 0) {
+            matrix[r][0] = 0;
+          } else {
+            //  special case
+            rowZero = true;
+          }
+        }
+      }
+    }
+
+    //  check col and mark it as zero
+    for (int r = 1; r < m; r++) {
+      for (int c = 1; c < n; c++) {
+        if (matrix[0][c] == 0 || matrix[r][0] == 0) {
+          matrix[r][c] = 0;
+        }
+      }
+    }
+
+    //  mark 0th col as zero
+    if (matrix[0][0] == 0) {
+      for (int r = 0; r < m; r++) {
+        matrix[r][0] = 0;
+      }
+    }
+
+    //  mark 0th row as zero
+    if (rowZero) {
+      for (int c = 0; c < n; c++) {
+        matrix[0][c] = 0;
+      }
+    }
+  }
+
   public static void revision(int[][] matrix) {
     int m = matrix.length;
     int n = matrix[0].length;
