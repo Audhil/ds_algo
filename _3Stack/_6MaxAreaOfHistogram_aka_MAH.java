@@ -5,6 +5,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Stack;
 
+//refer for updated soln: https://youtu.be/zx5Sw9130L0
+
 //  https://youtu.be/J2X70jj_I1o?list=PL_z_8CaSLPWdeOezg68SKkeLN4-T_jNHd
 public class _6MaxAreaOfHistogram_aka_MAH {
 
@@ -75,7 +77,7 @@ public class _6MaxAreaOfHistogram_aka_MAH {
         System.out.println("yup: nsr: " + nsrList);
         List<Integer> widthArray = new ArrayList<>();
         for (int i = 0; i < arr.length; i++)
-            widthArray.add(i, nsrList.get(i) - nslList.get(i) - 1);   //  right - left - 1
+            widthArray.add(i, nsrList.get(i) - nslList.get(i) - 1);   //  right - left - 1 - https://youtu.be/J2X70jj_I1o?list=PL_z_8CaSLPWdeOezg68SKkeLN4-T_jNHd&t=1335
         System.out.println("yup: widthArray: " + widthArray);
         //  find area
         int areaMax = Integer.MIN_VALUE;
@@ -88,4 +90,6 @@ public class _6MaxAreaOfHistogram_aka_MAH {
         _6MaxAreaOfHistogram_aka_MAH prob = new _6MaxAreaOfHistogram_aka_MAH();
         System.out.println("yup: computeMAH() : " + prob.computeMAH());
     }
+
+
 }
