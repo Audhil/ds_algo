@@ -21,7 +21,7 @@ public class _4LargestAreaOfRectange_Histogram_H {
         maxArea = Math.max(maxArea, height * (i - index));
         startIndex = index;
       }
-      stack.push(new Pair<>(startIndex, currHeight));
+      stack.push(new Pair<>(startIndex, currHeight)); //  index, currHeight
     }
     //  check stack for heights, that's available till the end of histogram
     while (!stack.isEmpty()) {
