@@ -6,6 +6,32 @@ import java.util.Arrays;
 //  https://www.youtube.com/watch?v=zcnVaVJkLhY&ab_channel=TECHDOSE
 public class _2CircularTourProbM {
 
+  public static int canCompleteCircuitRevision(int[] distance, int[] petrol) {
+    if (distance.length != petrol.length) {
+      return -1;
+    }
+    int distanceToCover = Arrays.stream(distance).sum();
+    int petrolAvailable = Arrays.stream(petrol).sum();
+
+    if (distanceToCover > petrolAvailable) {
+      return -1;
+    }
+
+    int start = 0;
+    int n = petrol.length;
+    int deficitPetrol = 0;
+    int currPetrol = 0;
+    for (int i = 0; i < n; i++) {
+      currPetrol += (petrol[i] - distance[i]);
+      if (currPetrol < 0) {
+        deficitPetrol += currPetrol;
+        start = i + 1;
+        currPetrol = 0;
+      }
+    }
+    return (currPetrol + deficitPetrol) >= 0 ? start : -1;
+  }
+
   public static int canCompleteCircuit(int[] distance, int[] petrol) {
     if (distance.length != petrol.length) {
       return -1;
