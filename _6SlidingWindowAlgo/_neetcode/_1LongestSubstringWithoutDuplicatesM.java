@@ -22,9 +22,27 @@ public class _1LongestSubstringWithoutDuplicatesM {
     return maxLength;
   }
 
+  public static int lengthOfLongestSubstringRevision(String str) {
+    Set<Character> set = new HashSet<>();
+    int maxLength = Integer.MIN_VALUE;
+    int l = 0;
+    for (int r = 0; r < str.length(); r++) {
+      while (set.contains(str.charAt(r))){
+        set.remove(str.charAt(l++));
+      }
+      set.add(str.charAt(r));
+      maxLength = Math.max(maxLength, r - l +1);
+    }
+    return maxLength;
+  }
+
   public static void main(String[] args) {
     System.out.println("yup: longestSubstring: " + lengthOfLongestSubstring("abcabcbb")); //  3
     System.out.println("yup: longestSubstring: " + lengthOfLongestSubstring("bbbbb"));  //  1
     System.out.println("yup: longestSubstring: " + lengthOfLongestSubstring("pwwkew")); //  3
+
+    System.out.println("yup: lengthOfLongestSubstringRevision: " + lengthOfLongestSubstringRevision("abcabcbb")); //  3
+    System.out.println("yup: lengthOfLongestSubstringRevision: " + lengthOfLongestSubstringRevision("bbbbb"));  //  1
+    System.out.println("yup: lengthOfLongestSubstringRevision: " + lengthOfLongestSubstringRevision("pwwkew")); //  3
   }
 }
