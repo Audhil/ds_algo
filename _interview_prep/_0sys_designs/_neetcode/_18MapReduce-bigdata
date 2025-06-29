@@ -1,0 +1,25 @@
+MapReduce
+
+BigData processing - processing millions/billions of user personal data with multiple nodes
+
+Methods:
+  Batch ->
+    Given all the data upfront and process it -> map reduce ->
+      for eg., finding the word "the" from the given HarryPotter book,
+                remove user personal data from given massive data
+    Batch job at every interval(may be once in a week)
+    Micro-Batch job -> execute job at every 30s, seems like real-time job
+
+  Streaming ->
+    processing real time data, source will be a messageQueue or anything
+      for eg., when the transaction happens, we need to reduce person's personal data or credit card data
+
+operation is similar to Map/Reduce of any programming language.
+
+Modern batch processing is done with Spark Cluster(predecessor: Hadoop)
+cluster - worker machine distributed to do work in parallel
+we've multiple machines to scale up
+
+Spark has Micro batching jobs(substitude to Streaming).
+
+streaming or pipeline technology - Apache Flink(open-source) - read about it later

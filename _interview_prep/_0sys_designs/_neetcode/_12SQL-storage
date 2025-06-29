@@ -1,0 +1,33 @@
+RDBMS - Relational DataBase Management System
+major component of RDBMS is SQL - Standard Query Language
+
+Data stored on Disk
+
+DataStructure for RDBMS is B+ Tree
+m = 3; it'll have 2(m-1) nodes, data is stored in leaf nodes in sorted order, we can query using ranges from [1 to 3] etc
+
+           2|5
+      /     |     \
+    0|1 -> 3|4 -> 6|7
+
+schema of db:
+
+Create table People(
+  phoneNumber int,
+  name varchar(100)
+);
+
+powerful features: foreignKey constraints, joins, not null,
+
+for eg.,
+joins - select People.name, Homes.address from People, Homes where People.phone = Homes.phone;
+
+
+Trade-offs of RDBMS:
+
+A - Atomicity - [Transaction: all statements between begin & commit should execute, if anything fails in middle the whole transaction is ignored and changes are not committed]
+C - Consistency - follow all constraints like NOT NULL, foreignKey, unique column, data consistency - follow the rules (Atomicity, Isolation etc)
+I - Isolation - [all transactions should be serialized - one after the other, to avoid dirty reads(any transaction reads other transaction uncommitted value from db)]
+D - Durability - [redis is not durable, since it is in-memory, sometimes it is DB,
+                  Transaction: collection of queries - {starts with begin & ends with commit}
+                  after commit is executed, all the data should be durable]

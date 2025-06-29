@@ -1,0 +1,46 @@
+Functional requirements:
+  Servers, Channels
+
+Non Functional requirements:
+  min Latency, 100% availability,
+
+assumptions:
+5M DAU
+50M Messages/day
+
+20K people in single server of discord
+200k msg/day transactions in server
+
+all people won't be active in server at a time, hence assuming 10K msg/day in server
+
+
+HLD:
+  User -> server -> Db
+      <-> WS <->
+      refer disc1.png
+
+Messages:
+  id: string,
+  uid: string,
+  mentionid: string,
+  serverId: string,
+  channelId: string, - index
+  sentAt: date
+
+UserActivity:(useful for pick the messages where the user left of)
+  id: string,
+  uid: string,
+  serverId: string,
+  channelId: string,
+  lastReadAt: date
+
+db sharding based on channelId is good
+db sharding based on serverId is fine
+
+sample query to get messages for a user
+select * from Messages where channelId = 'eg' and sentAt > (select lastReadAt from UserActivity where uid= 'audhil') limit 10
+
+add inmemory cache between server & db for faster usages
+
+Discord actually uses NoSQL dbs: MongoDB, and now migrated to Cassandra.
+

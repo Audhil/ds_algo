@@ -1,0 +1,23 @@
+To Reduce latency
+
+Content Delivery Network (CDN) - caching data closer to End users, it increases reliability and availability
+
+we can put only static content in CDN servers as of now
+-Edge servers - (it's new, that allows to run code in CDN server) - out of scope of the topic
+
+data to be cached in CDN
+  -images
+  -videos
+  -same js that doesn't change much(apple/google/linkedIn authentication stuff)
+
+Types:
+PUSH CDN
+  - for eg., when user uploads new profile pic,
+  it'll reach the origin server and it is spreaded/advertised to all other CDNs around the globe,
+  that can be available to users
+PULL CDN
+  - works similar to "write-around cache" -> user query nearest CDN, if data available it'll return immediately,
+  else ping origin server retrieve, cache and share with user again
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////

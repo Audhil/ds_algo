@@ -1,0 +1,26 @@
+API to be backward compatible
+
+* createTweet(userId, content) -> createTweet(userId, content, parentTweetId) - parentTweetId is optional in newer changes
+* introducing versions in APIs, for backward compatibility
+
+tweet
+userId: string,
+tweetId: string,
+content: string,
+createdAt: long,
+likes: int
+
+creating a tweet
+https://api.twitter.com/v1.0/tweet - POST
+
+retrieve the tweet
+https://api.twitter.com/v1.0/tweet/:id - GET
+
+delete the tweet
+https://api.twitter.com/v1.0/tweet/:id - DELETE + user authorization etc
+
+get tweets with pagination
+https://api.twitter.com/v1.0/users/:userId/tweets?limit=10&offset=0 - GET
+
+limit - is optional query param, with default value 10 or anything
+offset - is optional query param with default value 0 or anything

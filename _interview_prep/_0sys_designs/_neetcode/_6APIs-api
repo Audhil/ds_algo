@@ -1,0 +1,40 @@
+API(Application Programming Interface) paradigms
+
+modern paradigms
+REST, GraphQL(latest, overcomes REST shortcomings, created by Facebook), gRPC
+
+REST  - REpresentation State Transfer
+  it is built upon HTTP, it is not a protocol.
+pros -
+  makes server stateless(not storing user states) - hence we can easily horizontal scale servers ,
+  we can make pagination REST apis for different queries - passing user state like offset=0, limit=10, etc
+  uses JSON - JavaScript Object Notation
+
+GraphQL
+  it is built upon HTTP, it is not a protocol.
+pros -
+  avoids overfetching[fetching only needed data(profile pic, name, comment), not the whole user object] issue of REST, we can query whatever the needed data
+  avoids underfetching[grouping multiple api calls together and making it 1 request]
+  Single EndPoint -> Query(read data).
+                  -> Mutation(update data).
+  GraphQL endpoints are built upon POST request
+cons -
+  we can't cache API requests
+demo: GraphQL explorer: api.spacex.land/graphql/ , we can query what is allowed are given data, unless in JSON we can pass anything for query
+
+gRPC
+  it is built upon HTTP/2, it is not a protocol.
+
+pros -
+  suitable for server to server communication,
+  not suitable for browser to server communication(we need proxy gRPC web for browser to server communication),
+  faster and more efficient than REST apis,
+  instead of sending raw JSON(string),
+  it sends information in Protocol Buffers(ProtoBuf)[schema object],
+  protobufs are converted to binary and it is smaller object to send, hence it is faster than REST,
+  suitable for data streaming, it can be bidirectional - hence it'll obsolete websockets
+
+cons -
+  created by Google in 2016, it is very newer, lot less tooling, lot less standardized, more difficult
+  it doesn't have HTTP status codes, you should have own custom error handling
+

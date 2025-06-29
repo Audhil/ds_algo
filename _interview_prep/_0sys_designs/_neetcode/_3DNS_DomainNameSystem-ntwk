@@ -1,0 +1,45 @@
+DNS[Domain Name System] - very big and decentralized system
+  - like, person name is mapped with phone number in our mobiles
+  - DNS system will return proper IP of the server when queried with its human readable names, to make network request
+
+shell command to know IP address of server
+for eg.,
+$ nslookup google.com
+Server:		192.168.0.1
+Address:	192.168.0.1#53
+
+Non-authoritative answer:
+Name:	google.com
+Address: 142.250.71.46
+
+components that plays crucial in DNS operation:
+ISP - Internet Service Provider
+ICANN - Internet Corporation for Assigned Names and Numbers - it is non profit organization, it is owner of all domains in the world
+  - Domain Registrars (accredited resellers for domains) -> for eg., Google domains, GoDaddy etc
+  -> "neetcode.io goes through google domains registrar"
+  - these resellers owns servers with DNS(that maps IP addr with domains) records
+
+DNS records
+  - A record -> address record points to IP addr
+
+High level explanation of,
+normal flow
+  -> client makes request with domain name ->
+  request lands to ISP ->
+  it lands to ICANN reseller servers ->
+  lookup DNS mappings ->
+  returns server IP addr with required data ->
+  client can cache the server IP addr(since it is static IP addr for server, we can achieve Dynamic IP address for servers with Dynamic DNS) ->
+  client requests server 2nd time -> it takes IP addr from cache -> by passing the whole DNS look up calls as mentioned above.
+
+High level explanation of,
+what is server?
+Server is a computer with public static IP addr/ dynamic IP addr(with Dynamic DNS), their firewalls allows external traffic to reach server, return response to user.
+
+https:domains.google.com/get-started
+https -> protocol
+domains.google.com -> part of the domain, .com, .io, .in are termed as Top level domain(TLD)
+com -> TLD - it is given by ICANN
+google. -> domain/primary domain name
+domains. -> sub-domain it can be older www. etc
+/get-started - is path of the domain, we can have ?queryparams too

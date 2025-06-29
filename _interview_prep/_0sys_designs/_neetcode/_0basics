@@ -1,0 +1,36 @@
+Vertical scaling, Horizontal scaling,
+
+Load balancer,
+
+Availability - two9 -> 99%, three9 -> 99.9%, four9 -> 99.99%, five9 -> 99.999%
+
+SLO - Service Level Objective
+SLA - Service Level Agreement - with customers, AWS has agreement with their customers five9 availability, if fails it'll refund
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Reliability,
+DDoS attack -> Distributed Denial of Service attack
+
+Fault Tolerance,
+Horizontal scaling
+
+Redundancy,
+Horizontal scaling
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Throughput
+requests/second
+
+db
+queries/second - QPS
+
+data
+bytes/second
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Latency - amount of time taken to complete the operation
+
+time taken to handle single request -> 1s, 2s, etc -> various reasons - network, location, etc
+
+to reduce latency
+we can have servers at multiple geo location
+introduce CDN - content delivery network
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////

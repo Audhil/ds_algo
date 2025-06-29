@@ -1,0 +1,40 @@
+Types of Proxies
+Forward = client -> middle server(acts as proxy, which hides client details to destination server) -> destination server
+  VPN, corporate proxies
+
+Reverse = client -> middle server(acts as proxy, which hides destination server details) -> whereas destination server knows about client details
+  CDN, Load balancers
+
+Load balancers
+  it is reverse proxy
+  client -> load balancer -> servers(horizontally scaled)
+  algorithms:
+    round robin ->
+      equally distributed requests to horizontally scaled servers(s1, s2, s3, ... )
+    weighted round robin ->
+      servers with more capability will handle more requests viceversa(s1 with 50%, s2 with 25% and s3 with 25%)
+    least connections ->
+      request in s1 takes more time, next request is routed to s2, next request is routed to s2 if it already completed the request
+    user location ->
+      route the request to server nearer to user location
+    hashing ->
+      use user field like IP address, actual request content, userId and create hash of it
+
+Types of Load balancers
+  Layer 4 - lower network layer, think of like a TCP
+    it is faster, but less flexible, it forwards user request directly to server by replacing load balancer IP addr with destination server IP addr
+  Layer 7 - application layer, think of like HTTP - this load balancers can read application related data like differentiating servers(tweets, user, auth)
+    it is slower, but more powerful, it makes new HTTP request to server from Load balance, hence multiple HTTP reqs and encryption/decryption needed and more expensive
+
+
+What if load balancer goes down?
+  we'll have a backup load balancer, or replicas of load balancer etc
+
+Load balancer providers (paid usage):
+AWS, GCP etc
+
+Open source load balancer:
+Nginx
+
+further reading:
+  Maglev - paper by Google to understand in-depth understanding of load balancer

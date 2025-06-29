@@ -1,0 +1,43 @@
+Leader-Follower(Master/Slave) replication
+
+Leader -> "r/w" allowed
+Follower -> only "r" allowed
+
+Trade-offs
+Async Replication - user connected to "follower" will see stale data for short amount of time, until "leader" syncs it transactions
+Sync Replication - will increase latency, when "leader" syncs it data with "follower" immediately
+
+Availability & Reliability -> if "leader" goes down, we'll have at least mostly up to date "follower" who'll become leader next
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Leader-Leader(Master-Master or Multi-Master) replication
+
+upside: it scales up r/w between masters
+
+downside: but data is inconsistent between masters
+
+Async replication - data will be loosely consistent
+Sync replication - will increase higher latency
+
+It is suitable for serving people in left half of the world, and people in right half of the world, each has separate master,
+syncing both masters every hour is okay, since people will read data/interacting from their respective nearest db,
+people flying from left half to right will also see consistent data, since we are syncing at 1 hr interval
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Sharding - it is useful, when horizontal replication also not sufficient
+
+Splitting tables into 2 halves, storing each half in 2 different machine. It'll decrease latency. Users will be routed to each halves accordingly.
+for eg., showing tweets to user in 1 or 2 secs rather than 5-10 secs is great improvement
+
+Approaches:
+
+ * Range based ShardKey -> M/F, first char of last name A-L in shard 1, M-Z in shard 2,
+                        - we'll face problem when there is 1 or more tables connected together with ForeignKey constraint etc,
+                        how to map the 2nd table also point particular shard?
+
+ * hash based (usecase of consistent hashing)
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+SQL - MySQL, Postgres they do not have sharding by-default - since it violates ACID, constraints etc
+
+NoSQL - these dbs support sharding by default as part of database management system, main purpose of them in horizontally scale them
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

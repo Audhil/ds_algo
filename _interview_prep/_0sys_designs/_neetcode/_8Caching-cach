@@ -1,0 +1,49 @@
+Considering Twitter service as sample
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+Header:
+cache-control: max-age=3600 -> (60 mins)
+cache-control: public, max-age=3600, stale-while-revalidate=86400
+
+public/private - tells CDN to cache or not cache the data which it receives for future usages
+
+See in response header:
+x-cache:HIT -> looks for the data, and it is available
+x-cache:MISS -> looks for the data, and the data is stale
+
+
+check "Disable Cache" option in chrome browser - to delete the cache
+
+websites are disk cached - accessing is faster than the network request -> we should cache the data that is not changing often
+
+Cache ratio = (hit/(hit + miss)) -> value should be higher
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Server side caching
+
+block diagram:
+SERVER -> Disk
+       -> Memory(Redis cache)
+
+throughput:
+Disk - 10000 reads / sec
+Memory - 100000 reads / sec
+
+write-around cache
+user writes tweet -> reaches server -> ignores Memory cache + directly writes to db
+user query for tweet -> reaches server -> checks Memory cache -> cache MISS -> reads from db -> stores in cache(to help further requests) -> give result to user
+
+write-through cache
+user writes tweet -> reaches server -> written in Memory cache + writes to db
+
+write-back cache - faster but less reliable
+user writes tweet -> reaches server -> written in Memory cache -> periodically written to db(ignoring data loss, inconsistency etc)
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+Eviction policy
+
+FIFO - first in first out
+LRU - Least Recently Used - keeping most recently used in memory always, suitable for Twitter
+LFU - Least Frequently Used - keeps tweets based on their query count
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////

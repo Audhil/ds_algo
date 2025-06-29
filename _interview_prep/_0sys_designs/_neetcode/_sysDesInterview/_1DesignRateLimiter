@@ -1,0 +1,45 @@
+Rate limiter - for eg., YT - 20 videos / day
+
+"HTTP 429" - Rate limiting error code
+  - user will get this response code and got throttled for some period till then again he can use the service
+
+Functional:
+  design rate limiter at client side is not advisable; anyone can crash the server through "curl" or cli api calls
+  hence designing the rate limiter service is the best option
+
+  multiple backend services should share the single rate limiter service
+
+Non Functional:(about performance)
+  - reduce latency (adding ratelimiter in the path, should be not increase the latency - even +1s is not advisable)
+  - Throughput - when lot of services uses our rate limiter, it should be horizontally scalable
+  - storage - rate limit rules,
+              # of users serving, let us assume [IP to # of requests] mappings to rate limiter
+                                                = (4 b + 128 bytes)
+                                                = 1 billion users * 132 bytes
+                                                = 132 billion bytes = 132 GB;
+  - availability = 99.999% availability
+    FAIL-OPEN - making the service available to users, even if 1 service(for eg., Rate limiter) goes down
+    FAIL-CLOSED - making the whole service to go down, if 1 service goes down. Making unavailable to all users
+
+    we need FAIL-OPEN strategy for rate limiter
+
+High Level Design:
+  refer pic: rateLim1.jpg
+
+Design details:
+  - Algorithm: if we plan 100 reqs / min, we've following options
+      a. FIXED WINDOW ALGORITHM - it'll add spikes- possible for user to send 100 requests at 60th sec of first window + send 100 reqs at 1st sec of next window
+                                  it is less effective, but not much memory intensive
+      b. SLIDING WINDOW ALGORITHM - efficient, but memory intensive; need extra work to delete the old data every time
+      c. Redis Sorted sets
+      d. token bucket
+      e. sliding window counter
+
+  - Data Schema
+    key + counter = user IP + counter(resets to 0 for every time expiry)
+    DB schema = id: string, api: string, operation(upload/comment etc): string, timeUnit: string, noOfReqsAllowed: int
+
+  - Data Sharding + Consistent hashing for in-memory redis memory KV store  - explain this needed
+
+  - Latency - r from db will increase latency, we can have in-memory cache in between DB & Rate limiter with worker that updates/keeps refreshed periodically
+              refer rateLim2.jpg

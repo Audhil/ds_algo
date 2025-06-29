@@ -1,0 +1,21 @@
+TCP/IP + UDP -> Internet Protocol Suite
+
+* TCP is responsible for sending and assembling data
+* TCP is reliable -> it can resend packets(retransmission of packets) if not received properly
+* TCP makes 2-way connection between client & server with component[3-way handshake]
+  -> client to server - sync message
+  -> server to client - sync + ack
+  -> client to server - ack
+* TCP will take time to connect - hence it is reliable but slower
+* many application level protocols, built upon TCP are
+  ->  HTTP  - internet
+  ->  SMTP[Simple Mail Transfer Protocol] - used for emails
+  ->  WS - web sockets
+
+
+UDP -> User Datagram(packet) Protocol
+  ->  it is faster than TCP,
+      but not reliable(some data packets may get lost),
+      doesn't establish connection between client & server as like TCP,
+      doesn't send data in order,
+  ->  for eg., used in live streaming tv, sports, or online games
