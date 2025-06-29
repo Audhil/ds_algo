@@ -207,12 +207,10 @@ public class SOLID {
 
         @Override
         public void fax() {
-            //throw new NotImplementedException();
         }
 
         @Override
         public void printDuplex() {
-            //throw new NotImplementedException();
         }
     }
 
